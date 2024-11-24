@@ -11,6 +11,8 @@ Usar os princípios SOLID no noss jogo de tower defense melhora a organização 
 - O ISP evita interfaces excessivamente grandes, focando apenas no necessário.
 - Já o DIP promove flexibilidade ao depender de abstrações, facilitando mudanças e expansões no projeto.
   
-
+MOCKUPS:
+![image](https://github.com/user-attachments/assets/ef940532-2cd2-4234-a969-31fb58aa6ddd)
 ![image](https://github.com/user-attachments/assets/b1eeef2e-a5be-4853-8a00-57d514041008)
+![image](https://github.com/user-attachments/assets/2cf448e9-0044-4ee0-9df5-52260b1f27a0)
 
