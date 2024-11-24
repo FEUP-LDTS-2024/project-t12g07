@@ -1,4 +1,4 @@
-package com.towerdefense.controller;
+package com.towerdefense.model.game.elements;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.towerdefense.model.game.elements.Enemy;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
-public class TowerControllerTest {
+public class TowerTest {
 
     private Tower tower;
 
@@ -22,13 +22,11 @@ public class TowerControllerTest {
         Tower stoneTower = new StoneTower(40, 35);
         Tower metalTower = new MetalTower(30, 60);
         mockEnemy = mock(Enemy.class);
-        tower.setArrows(Arrays.asList(new Arrow()))
+        tower.setArrows(Arrays.asList(new Arrow(40, 3))) //40 seria o damage e 3 a speed
     }
 
     @Test
     void testTowerAttributes() {
-
-
         assertEquals(50, woodTower.getTowerDamage());
         assertEquals(100, stoneTower.getTowerDamage());
         assertEquals(150, metalTower.getTowerDamage());
@@ -45,4 +43,3 @@ public class TowerControllerTest {
         assertEquals(50, goblin.getHealth());
     }
 }
-
