@@ -39,8 +39,6 @@ Usar os princípios SOLID no noss jogo de tower defense melhora a organização 
 - Já o DIP promove flexibilidade ao depender de abstrações, facilitando mudanças e expansões no projeto.
   ![LDTS drawio (1)](https://github.com/user-attachments/assets/ccce81fb-dc85-46ab-bd50-d2062c428379)
 
-a
-
   
 **MOCKUPS:**
 ![image](https://github.com/user-attachments/assets/9ef6f508-f019-4131-ba1b-40274a868b25)
