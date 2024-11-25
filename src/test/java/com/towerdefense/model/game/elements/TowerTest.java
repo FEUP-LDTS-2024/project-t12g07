@@ -22,7 +22,7 @@ public class TowerTest {
         Tower stoneTower = new StoneTower(40, 35);
         Tower metalTower = new MetalTower(30, 60);
         mockEnemy = mock(Enemy.class);
-        tower.setArrows(Arrays.asList(new Arrow(40, 3))) //40 seria o damage e 3 a speed
+        tower.setArrows(Arrays.asList(new Arrow( )))
     }
 
     @Test
@@ -37,8 +37,7 @@ public class TowerTest {
     @Test
     void testTowerAttack() {
         Tower woodTower = new WoodTower();
-        Enemy goblin = new Goblin(100, 5);
-
+        Enemy goblin = new Goblin(100, 5); //goblin tem 100 de vida
         woodTower.attack(goblin);
         assertEquals(50, goblin.getHealth());
     }
