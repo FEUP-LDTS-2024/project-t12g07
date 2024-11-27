@@ -1,13 +1,13 @@
 package com.towerdefense.gui;
 
+import com.towerdefense.model.Position;
+
 import java.io.IOException;
 
 public interface GUI {
     ACTION getNextAction() throws IOException;
 
     void drawTower(Position position);
-
-    void drawProjectiles(Position position, Window window);
 
     void drawCastle(Position position);
 
@@ -21,7 +21,7 @@ public interface GUI {
 
     void drawText(Position position, String text, String color);
 
-    enum ACTION {UP, RIGHT, DOWN, LEFT, TOWER_SELECT, QUIT, SELECT}
+    enum ACTION {UP, RIGHT, DOWN, LEFT, TOWER_SELECT, QUIT, SELECT, NONE}
 
     void clear();
 
