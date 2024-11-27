@@ -1,0 +1,20 @@
+package com.towerdefense.model.game.elements.towers;
+import com.googlecode.lanterna.TextColor;
+
+public class WoodTower extends Tower {
+    public WoodTower(int x, int y) {
+        super(x, y);
+        this.damage = 10;
+        this.towerArt = new String[] {
+                "┌┐┌┐┌┐",
+                "├┘└┘└┤",
+                "│x  x│",
+                "│x  x│",
+                "│ ┌┐ │",
+                "└─└┘─┘"
+        };
+
+        this.color = TextColor.ANSI.WHITE;
+        this.cost = 10;
+    }
+}
