@@ -1,5 +1,5 @@
-.idea
-.gradle
+.idea/
+.gradle/
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
@@ -40,4 +40,4 @@ bin/
 .vscode/
 
 ### Mac OS ###
-.DS_Store
+.DS_Store.idea
