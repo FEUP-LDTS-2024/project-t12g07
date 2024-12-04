@@ -1,5 +1,4 @@
 package com.towerdefense.model.game.elements;
-
 import com.towerdefense.model.Position;
 
 public class Element {

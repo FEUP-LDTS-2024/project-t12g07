@@ -6,4 +6,8 @@ public class Arrow extends Element{
         super(x, y);
         this.speed = 20;
     }
+
+    public int getSpeed() {
+        return speed;
+    }
 }
