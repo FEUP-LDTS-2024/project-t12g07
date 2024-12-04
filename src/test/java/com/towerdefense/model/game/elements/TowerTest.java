@@ -3,10 +3,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.towerdefense.model.game.elements.Enemy;
 import com.towerdefense.model.game.elements.Tower;
+import com.towerdefense.model.game.elements.enemies.Giant;
+import com.towerdefense.model.game.elements.towers.MetalTower;
+import com.towerdefense.model.game.elements.towers.StoneTower;
+import com.towerdefense.model.game.elements.towers.WoodTower;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+
+import java.util.Arrays;
 
 public class TowerTest {
 
@@ -22,7 +28,7 @@ public class TowerTest {
         Tower stoneTower = new StoneTower(40, 35);
         Tower metalTower = new MetalTower(30, 60);
         mockEnemy = mock(Enemy.class);
-        tower.setArrows(Arrays.asList(new Arrow( )))
+        tower.setArrows(Arrays.asList(new Arrow(woodTower.get)))
     }
 
     @Test

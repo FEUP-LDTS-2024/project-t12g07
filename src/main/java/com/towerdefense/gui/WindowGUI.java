@@ -8,6 +8,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import com.towerdefense.model.Position;
 
 import java.awt.*;
 import java.io.File;
@@ -80,4 +81,7 @@ public class WindowGUI {
 
         return GUI.ACTION.NONE;
     }
+
+
+
 }
