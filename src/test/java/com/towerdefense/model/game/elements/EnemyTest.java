@@ -1,7 +1,9 @@
 package com.towerdefense.model.game.elements;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
+import com.towerdefense.model.Position;
 import com.towerdefense.model.game.elements.enemies.Enemy;
 import com.towerdefense.model.game.elements.enemies.Goblin;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +15,7 @@ public class EnemyTest {
 
     @BeforeEach
     public void setUp() {
-        Enemy goblin = new Goblin(20, 30);
+        goblin = new Goblin(20, 30);
         mockPath = mock(Path.class);
     }
 
