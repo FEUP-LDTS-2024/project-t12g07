@@ -41,4 +41,5 @@ public class LoaderBoardBuilder extends BoardBuilder {
         return lines.size();
     }
 
+
 }
