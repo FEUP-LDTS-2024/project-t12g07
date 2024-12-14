@@ -1,4 +1,4 @@
 package com.towerdefense.controllers.game;
 
-public class TowerController {
+public class TowerController extends {
 }
