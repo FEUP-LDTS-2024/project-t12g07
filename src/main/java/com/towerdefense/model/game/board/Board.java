@@ -11,7 +11,6 @@ public class Board {
     private final int height;
 
     private List<Tower> towers;
-
     private List<Enemy> enemies;
     private List<Position> path;
 
