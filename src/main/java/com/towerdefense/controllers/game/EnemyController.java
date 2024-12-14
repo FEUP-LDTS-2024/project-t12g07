@@ -20,6 +20,7 @@ public class EnemyController extends GameController{
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
 
+
     }
 
     private void moveEnemy(Enemy enemy, Position position) {
