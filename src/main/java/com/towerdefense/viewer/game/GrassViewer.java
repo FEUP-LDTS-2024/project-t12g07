@@ -1,4 +1,7 @@
 package com.towerdefense.viewer.game;
 
-public class GrassViewer {
+import com.towerdefense.model.game.elements.Grass;
+
+public class GrassViewer implements ElementViewer<Grass> {
+
 }
