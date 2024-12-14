@@ -70,7 +70,7 @@ public class WindowGUI {
         if (keyStroke == null) return GUI.ACTION.NONE;
 
         if (keyStroke.getKeyType() == KeyType.Escape) return GUI.ACTION.QUIT;
-        if (keyStroke.getCharacter() == 'T' && keyStroke.getCharacter() == 't') return GUI.ACTION.TOWER_SELECT;
+        if (keyStroke.getCharacter() == 'T' || keyStroke.getCharacter() == 't') return GUI.ACTION.TOWER_SELECT;
 
         if (keyStroke.getKeyType() == KeyType.ArrowUp) return GUI.ACTION.UP;
         if (keyStroke.getKeyType() == KeyType.ArrowRight) return GUI.ACTION.RIGHT;
@@ -83,5 +83,18 @@ public class WindowGUI {
     }
 
 
+    public void clear() {
+        screen.clear();
+    }
+
+
+    public void refresh() throws IOException {
+        screen.refresh();
+    }
+
+
+    public void close() throws IOException {
+        screen.close();
+    }
 
 }
