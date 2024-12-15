@@ -35,4 +35,8 @@ public abstract class Enemy extends Element {
         return this.sacking;
     }
 
+    public void moveEnemies(Enemy enemy) {
+
+    }
+
 }

@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-public class WindowGUI {
+public class WindowGUI implements GUI {
 
     private final Screen screen;
 
@@ -80,6 +80,41 @@ public class WindowGUI {
         if (keyStroke.getKeyType() == KeyType.Enter) return GUI.ACTION.SELECT;
 
         return GUI.ACTION.NONE;
+    }
+
+    @Override
+    public void drawTower(Position position) {
+
+    }
+
+    @Override
+    public void drawCastle(Position position) {
+
+    }
+
+    @Override
+    public void drawEnemy(Position position) {
+
+    }
+
+    @Override
+    public void drawPath(Position position) {
+
+    }
+
+    @Override
+    public void drawGrass(Position position) {
+
+    }
+
+    @Override
+    public void drawOcean(Position position) {
+
+    }
+
+    @Override
+    public void drawText(Position position, String text, String color) {
+
     }
 
 

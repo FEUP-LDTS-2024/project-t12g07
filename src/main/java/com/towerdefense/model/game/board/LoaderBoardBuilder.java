@@ -1,3 +1,5 @@
+package com.towerdefense.model.game.board;
+
 import com.towerdefense.model.game.board.BoardBuilder;
 import com.towerdefense.model.game.elements.enemies.Enemy;
 

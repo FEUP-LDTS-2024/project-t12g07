@@ -2,6 +2,7 @@ package com.towerdefense;
 
 
 import com.towerdefense.gui.WindowGUI;
+import com.towerdefense.model.menu.Menu;
 import com.towerdefense.states.MenuState;
 import com.towerdefense.states.State;
 
