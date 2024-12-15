@@ -1,6 +1,7 @@
 package com.towerdefense.model.game.board;
 
 import com.towerdefense.model.Position;
+import com.towerdefense.model.game.elements.Castle;
 import com.towerdefense.model.game.elements.enemies.Enemy;
 import com.towerdefense.model.game.elements.towers.Tower;
 
@@ -9,6 +10,9 @@ import java.util.List;
 public class Board {
     private final int width;
     private final int height;
+    private int coins;
+
+    private Castle castle;
 
     private List<Tower> towers;
     private List<Enemy> enemies;
@@ -48,5 +52,13 @@ public class Board {
             if (enemy.getPosition().equals(position))
                 return true;
         return false;
+    }
+
+    public Castle getCastle() {
+        return castle;
+    }
+
+    public int getCoins() {
+        return coins;
     }
 }

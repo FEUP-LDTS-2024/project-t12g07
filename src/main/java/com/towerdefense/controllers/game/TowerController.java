@@ -9,6 +9,7 @@ import com.towerdefense.model.game.elements.towers.StoneTower;
 import com.towerdefense.model.game.elements.towers.Tower;
 import com.towerdefense.model.game.elements.towers.WoodTower;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,16 +27,18 @@ public class TowerController extends GameController {
     }
 
     @Override
-    public void step(Game game, GUI.ACTION action, long time) throws Exception {
-        for(Tower tower: board.getTowers()){
-            tower.update();
+    public void step(Game game, GUI.ACTION action, long time) throws IOException {
+        for (Tower tower : board.getTowers()) {
+            try {
+                tower.update();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         MetalTower metalTower;
         StoneTower stoneTower;
         WoodTower woodTower;
         coins = getModel().getCoins();
-
-
     }
 
     public List<Tower> getTowerList() {

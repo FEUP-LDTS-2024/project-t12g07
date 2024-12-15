@@ -3,6 +3,7 @@ package com.towerdefense.controllers.game;
 import com.towerdefense.Game;
 import com.towerdefense.gui.GUI;
 import com.towerdefense.model.game.board.Board;
+import com.towerdefense.model.menu.GameOver;
 import com.towerdefense.model.menu.Menu;
 import com.towerdefense.states.GameOverState;
 import com.towerdefense.states.MenuState;
@@ -26,8 +27,12 @@ public class BoardController extends GameController{
         else if (getModel().getCastle().getWealth() == 0)
             game.setState(new GameOverState(new GameOver()));
         else {
-            towerController.step(game, action, time);
-            enemyController.step(game, action, time);
+            try {
+                towerController.step(game, action, time);
+                enemyController.step(game, action, time);
+            } catch (Exception e) {
+                e.printStackTrace(); // Handle the exception or log it
+            }
         }
     }
 }
