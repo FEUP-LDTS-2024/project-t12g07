@@ -39,4 +39,7 @@ public abstract class Enemy extends Element {
 
     }
 
+    public boolean isDead() {
+        return isDead;
+    }
 }
