@@ -3,6 +3,7 @@ package com.towerdefense.controllers.game;
 import com.towerdefense.Game;
 import com.towerdefense.gui.GUI;
 import com.towerdefense.model.game.board.Board;
+import com.towerdefense.model.menu.Menu;
 import com.towerdefense.states.GameOverState;
 import com.towerdefense.states.MenuState;
 
@@ -14,10 +15,11 @@ public class BoardController extends GameController{
 
     public BoardController(Board board) {
         super(board);
-
         this.towerController = new TowerController(board);
         this.enemyController = new EnemyController(board);
     }
+
+    @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.QUIT)
             game.setState(new MenuState(new Menu()));
