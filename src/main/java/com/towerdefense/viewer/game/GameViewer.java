@@ -17,11 +17,11 @@ public class GameViewer extends Viewer<Board> {
     @Override
     public void drawElements(GUI gui) {
         drawElement(gui, getModel().getCastle(), new CastleViewer());
-        drawElements(gui, getModel().getEnemy(), new EnemyViewer());
+        drawElements(gui, getModel().getEnemies(), new EnemyViewer());
         drawElement(gui, getModel().getGrass(), new GrassViewer());
         drawElement(gui, getModel().getPath(), new PathViewer());
         drawElement(gui, getModel().getSea(), new SeaViewer());
-        drawElement(gui, getModel().getTower(), new TowerViewer());
+        drawElements(gui, getModel().getTowers(), new TowerViewer());
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {

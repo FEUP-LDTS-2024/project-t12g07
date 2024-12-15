@@ -2,6 +2,9 @@ package com.towerdefense.model.game.board;
 
 import com.towerdefense.model.Position;
 import com.towerdefense.model.game.elements.Castle;
+import com.towerdefense.model.game.elements.Grass;
+import com.towerdefense.model.game.elements.Path;
+import com.towerdefense.model.game.elements.Sea;
 import com.towerdefense.model.game.elements.enemies.Enemy;
 import com.towerdefense.model.game.elements.towers.Tower;
 
@@ -16,8 +19,9 @@ public class Board {
 
     private List<Tower> towers;
     private List<Enemy> enemies;
-    private List<Position> path;
-
+    private Path path;
+    private Grass grass;
+    private Sea sea;
     public Board(int width, int height) {
         this.width = width;
         this.height = height;
@@ -61,4 +65,17 @@ public class Board {
     public int getCoins() {
         return coins;
     }
+
+    public Path getPath() {
+        return path;
+    }
+
+    public Grass getGrass() {
+        return grass;
+    }
+
+    public Sea getSea() {
+        return sea;
+    }
+
 }
