@@ -1,6 +1,7 @@
 package com.towerdefense.gui;
 
 import com.towerdefense.model.Position;
+import com.towerdefense.model.game.elements.Castle;
 
 import java.io.IOException;
 
@@ -9,7 +10,7 @@ public interface GUI {
 
     void drawTower(Position position);
 
-    void drawCastle(Position position);
+    void drawCastle(Position position, Castle castle);
 
     void drawEnemy(Position position);
 

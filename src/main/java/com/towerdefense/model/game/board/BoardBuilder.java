@@ -1,7 +1,7 @@
 package com.towerdefense.model.game.board;
 
 public abstract class BoardBuilder {
-    public Board createArena() {
+    public Board createBoard() {
         Board board = new Board(getWidth(), getHeight());
 
         return board;

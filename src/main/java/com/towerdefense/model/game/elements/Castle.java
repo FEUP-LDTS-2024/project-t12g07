@@ -25,4 +25,8 @@ public class Castle extends Element {
                 "'---'--'-/___\\-'--'---'"
         };
     }
+
+    public int getWealth() {
+        return gemstones;
+    }
 }

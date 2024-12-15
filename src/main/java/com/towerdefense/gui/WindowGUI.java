@@ -9,6 +9,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.towerdefense.model.Position;
+import com.towerdefense.model.game.elements.Castle;
 
 import java.awt.*;
 import java.io.File;
@@ -88,7 +89,7 @@ public class WindowGUI implements GUI {
     }
 
     @Override
-    public void drawCastle(Position position) {
+    public void drawCastle(Position position, Castle castle) {
 
     }
 
@@ -114,7 +115,6 @@ public class WindowGUI implements GUI {
 
     @Override
     public void drawText(Position position, String text, String color) {
-
     }
 
 

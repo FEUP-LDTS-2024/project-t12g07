@@ -1,5 +1,6 @@
 package com.towerdefense.viewer.game;
 
+import com.towerdefense.Game;
 import com.towerdefense.gui.GUI;
 import com.towerdefense.model.Position;
 import com.towerdefense.model.game.board.Board;
@@ -8,14 +9,14 @@ import com.towerdefense.viewer.Viewer;
 
 import java.util.List;
 
-public class GameViewer {
+public class GameViewer extends Viewer<Board> {
     public GameViewer(Board board) {
         super(board);
     }
 
     @Override
     public void drawElements(GUI gui) {
-        drawElements(gui, getModel().getCastle(), new CastleViewer());
+        drawElement(gui, getModel().getCastle(), new CastleViewer());
         drawElements(gui, getModel().getEnemy(), new EnemyViewer());
         drawElement(gui, getModel().getGrass(), new GrassViewer());
         drawElement(gui, getModel().getPath(), new PathViewer());
