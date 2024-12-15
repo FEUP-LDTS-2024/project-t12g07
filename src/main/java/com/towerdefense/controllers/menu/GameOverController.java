@@ -15,8 +15,8 @@ public class GameOverController extends Controller<GameOver> {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (action== GUI.ACTION.SELECT)
-            game.setState(new MenuState(new Menu(),game.getWindow()));
+        if (action == GUI.ACTION.SELECT)
+            game.setState(new MenuState(new Menu()));
     }
 }
 

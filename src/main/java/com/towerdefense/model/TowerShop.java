@@ -4,7 +4,7 @@ public class TowerShop {
     private int coin;
 
     public int buyTower() {
-
+        return 0;
     }
 
     public int getCoin() {

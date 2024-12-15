@@ -10,6 +10,11 @@ import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.towerdefense.model.Position;
 import com.towerdefense.model.game.elements.Castle;
+import com.towerdefense.model.game.elements.Grass;
+import com.towerdefense.model.game.elements.Path;
+import com.towerdefense.model.game.elements.Sea;
+import com.towerdefense.model.game.elements.enemies.Enemy;
+import com.towerdefense.model.game.elements.towers.Tower;
 
 import java.awt.*;
 import java.io.File;
@@ -84,7 +89,7 @@ public class WindowGUI implements GUI {
     }
 
     @Override
-    public void drawTower(Position position) {
+    public void drawTower(Position position, Tower tower) {
 
     }
 
@@ -94,22 +99,22 @@ public class WindowGUI implements GUI {
     }
 
     @Override
-    public void drawEnemy(Position position) {
+    public void drawEnemy(Position position, Enemy enemy) {
 
     }
 
     @Override
-    public void drawPath(Position position) {
+    public void drawPath(Position position, Path path) {
 
     }
 
     @Override
-    public void drawGrass(Position position) {
+    public void drawGrass(Position position, Grass grass) {
 
     }
 
     @Override
-    public void drawOcean(Position position) {
+    public void drawSea(Position position, Sea sea) {
 
     }
 
