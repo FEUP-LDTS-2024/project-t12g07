@@ -8,5 +8,4 @@ public class CastleViewer implements ElementViewer<Castle> {
     public void draw(Castle castle, GUI gui) {
         gui.drawCastle(castle.getPosition(), castle);
     }
-
 }
