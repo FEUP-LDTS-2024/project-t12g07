@@ -11,10 +11,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.towerdefense.model.Position;
-import com.towerdefense.model.game.elements.Castle;
-import com.towerdefense.model.game.elements.Grass;
-import com.towerdefense.model.game.elements.Path;
-import com.towerdefense.model.game.elements.Sea;
+import com.towerdefense.model.game.elements.*;
 import com.towerdefense.model.game.elements.enemies.Enemy;
 import com.towerdefense.model.game.elements.towers.Tower;
 
@@ -103,6 +100,13 @@ public class WindowGUI implements GUI {
     @Override
     public void drawCastle(Position position, Castle castle) {
         drawCharacter(position.getX(), position.getY(), castle.getCastleArt(), "#FFD700");
+    }
+
+    @Override
+    public void drawTowerShop(Position position, TowerShop towerShop) {
+        drawCharacter(position.getX(), position.getY(), towerShop.getTowerShopArt1(), "#FFD700");
+        drawCharacter(position.getX(), position.getY() + 7, towerShop.getTowerShopArt2(), "#FFD700");
+        drawCharacter(position.getX(), position.getY() + 14 , towerShop.getTowerShopArt3(), "#FFD700");
     }
 
     @Override
