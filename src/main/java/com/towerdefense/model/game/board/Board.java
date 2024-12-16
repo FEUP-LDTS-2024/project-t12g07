@@ -19,18 +19,15 @@ public class Board {
 
     private List<Tower> towers;
     private List<Enemy> enemies;
-    private Path path;
-    private Grass grass;
-    private Sea sea;
+    private List<Path> paths;
+    private List<Grass> grasses;
+    private List<Sea> seas;
 
     public Board(int width, int height) {
         this.width = width;
         this.height = height;
         this.castle = new Castle(90,18);
         this.towers = new ArrayList<>();
-        this.grass = new Grass(30,11);
-        this.sea = new Sea(5,5);
-        this.path = new Path(60,9);
     }
 
     public int getWidth() {
@@ -48,15 +45,15 @@ public class Board {
         return towers;
     }
 
-    public void setEnemies(List<Enemy> enemies) {
-        this.enemies = enemies;
-    }
-
     public List<Enemy> getEnemies() {
         return enemies;
     }
 
-    public boolean isEnemy(Position position) {
+    public void setEnemies(List<Enemy> enemies) {
+        this.enemies = enemies;
+    }
+
+    public boolean isEnemy (Position position) {
         for (Enemy enemy : enemies)
             if (enemy.getPosition().equals(position))
                 return true;
@@ -67,9 +64,6 @@ public class Board {
         return castle;
     }
 
-    public void setCastle(Castle castle) {
-        this.castle = castle;
-    }
 
     public int getCoins() { return coins; }
 
@@ -78,28 +72,28 @@ public class Board {
     }
 
 
-    public Path getPath() {
-        return path;
+    public List<Path> getPath() {
+        return paths;
     }
 
-    public void setPath(Path path) {
-        this.path = path;
+    public void setPath (List<Path> paths) {
+        this.paths = paths;
     }
 
-    public Grass getGrass() {
-        return grass;
+    public List<Grass> getGrass() {
+        return grasses;
     }
 
-    public void setGrass(Grass grass) {
-        this.grass = grass;
+    public void setGrass (List<Grass> grasses) {
+        this.grasses = grasses;
     }
 
-    public Sea getSea() {
-        return sea;
+    public List<Sea> getSea() {
+        return seas;
     }
 
-    public void setSea(Sea sea) {
-        this.sea = sea;
+    public void setSea (List<Sea> seas) {
+        this.seas = seas;
     }
 
     public void addTower(Tower selectedTower) {
