@@ -7,6 +7,8 @@ public class TowerShop extends Element{
     String[] TowerShopArt1;
     String[] TowerShopArt2;
     String[] TowerShopArt3;
+    String[] SideBarArt;
+
 
     public TowerShop(int x, int y) {
         super(x, y);
@@ -37,6 +39,44 @@ public class TowerShop extends Element{
                 "││┌┐││",
                 "└┘└┘└┘"
         };
+
+        this.SideBarArt = new String[] {
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│"
+        };
+
     }
 
     public int getMoney() {
@@ -61,5 +101,9 @@ public class TowerShop extends Element{
 
     public String[] getTowerShopArt3() {
         return TowerShopArt3;
+    }
+
+    public String[] getSideBarArt() {
+        return SideBarArt;
     }
 }

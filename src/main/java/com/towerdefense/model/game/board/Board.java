@@ -24,7 +24,7 @@ public class Board {
         this.width = width;
         this.height = height;
         this.castle = new Castle(90,18);
-        this.towerShop = new TowerShop(105, 2);
+        this.towerShop = new TowerShop(114, 0);
         this.towers = new ArrayList<>();
     }
 

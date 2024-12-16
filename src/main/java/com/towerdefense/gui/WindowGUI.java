@@ -104,9 +104,10 @@ public class WindowGUI implements GUI {
 
     @Override
     public void drawTowerShop(Position position, TowerShop towerShop) {
-        drawCharacter(position.getX(), position.getY(), towerShop.getTowerShopArt1(), "#FFD700");
-        drawCharacter(position.getX(), position.getY() + 7, towerShop.getTowerShopArt2(), "#FFD700");
-        drawCharacter(position.getX(), position.getY() + 14 , towerShop.getTowerShopArt3(), "#FFD700");
+        drawCharacter(position.getX(), position.getY(), towerShop.getSideBarArt(), "#FFD700");
+        drawCharacter(position.getX() + 4, position.getY() + 8 , towerShop.getTowerShopArt1(), "#FFD700");
+        drawCharacter(position.getX() + 4, position.getY() + 16, towerShop.getTowerShopArt2(), "#FFD700");
+        drawCharacter(position.getX() + 4, position.getY() + 24 , towerShop.getTowerShopArt3(), "#FFD700");
     }
 
     @Override
