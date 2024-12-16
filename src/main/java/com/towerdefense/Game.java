@@ -47,8 +47,4 @@ public class Game {
 
         gui.close();
     }
-
-    public Object getWindow() {
-        return gui;
-    }
 }
