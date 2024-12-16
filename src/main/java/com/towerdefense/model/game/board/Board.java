@@ -102,4 +102,7 @@ public class Board {
         this.sea = sea;
     }
 
+    public void addTower(Tower selectedTower) {
+        towers.add(selectedTower);
+    }
 }
