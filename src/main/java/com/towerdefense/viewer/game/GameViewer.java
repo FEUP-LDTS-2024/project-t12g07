@@ -18,9 +18,9 @@ public class GameViewer extends Viewer<Board> {
     public void drawElements(GUI gui) {
         drawElement(gui, getModel().getCastle(), new CastleViewer());
         drawElements(gui, getModel().getEnemies(), new EnemyViewer());
-        drawElement(gui, getModel().getGrass(), new GrassViewer());
-        drawElement(gui, getModel().getPath(), new PathViewer());
-        drawElement(gui, getModel().getSea(), new SeaViewer());
+        drawElements(gui, getModel().getGrass(), new GrassViewer());
+        drawElements(gui, getModel().getPath(), new PathViewer());
+        drawElements(gui, getModel().getSea(), new SeaViewer());
         drawElements(gui, getModel().getTowers(), new TowerViewer());
     }
 

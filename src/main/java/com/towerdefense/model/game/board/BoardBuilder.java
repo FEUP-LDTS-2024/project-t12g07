@@ -10,6 +10,10 @@ public abstract class BoardBuilder {
     public Board createBoard() {
         Board board = new Board(getWidth(), getHeight());
 
+        board.setGrass(createGrass());
+        board.setPath(createPath());
+        board.setSea(createSea());
+
         return board;
     }
 
