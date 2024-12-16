@@ -14,8 +14,8 @@ public class InstructionsViewer extends Viewer<Instructions> {
     @Override
     public void drawElements(GUI gui) {
         for (int i = 0; i < getModel().getTitleSize(); i++)
-            gui.drawText(new Position(4,1  + i), getModel().getTitle(i), "#fc9023");
+            gui.drawText(new Position(4,2  + i), getModel().getTitle(i), "#fc9023");
         for (int i = 0; i < getModel().getNumberEntries(); i++)
-            gui.drawText(new Position(4, 3 + i), getModel().getEntry(i),  "#fcc623");
+            gui.drawText(new Position(6, 10 + i), getModel().getEntry(i),  "#fcc623");
     }
 }
