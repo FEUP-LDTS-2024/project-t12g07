@@ -1,10 +1,7 @@
 package com.towerdefense.gui;
 
 import com.towerdefense.model.Position;
-import com.towerdefense.model.game.elements.Castle;
-import com.towerdefense.model.game.elements.Grass;
-import com.towerdefense.model.game.elements.Path;
-import com.towerdefense.model.game.elements.Sea;
+import com.towerdefense.model.game.elements.*;
 import com.towerdefense.model.game.elements.enemies.Enemy;
 import com.towerdefense.model.game.elements.towers.Tower;
 
@@ -18,6 +15,8 @@ public interface GUI {
     void drawCastle(Position position, Castle castle);
 
     void drawEnemy(Position position, Enemy enemy);
+
+    void drawTowerShop(Position position, TowerShop towerShop);
 
     void drawPath(Position position, Path path);
 
