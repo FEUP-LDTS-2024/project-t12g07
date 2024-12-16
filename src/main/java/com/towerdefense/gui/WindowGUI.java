@@ -73,23 +73,24 @@ public class WindowGUI implements GUI {
 
     public GUI.ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
-        if (keyStroke == null) return GUI.ACTION.NONE;
+        if (keyStroke == null) return ACTION.NONE;
 
-        if (keyStroke.getKeyType() == KeyType.Escape) return GUI.ACTION.QUIT;
+        if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.QUIT;
         if (keyStroke.getCharacter() == 'T' || keyStroke.getCharacter() == 't') return GUI.ACTION.TOWER_SELECT;
 
-        if (keyStroke.getKeyType() == KeyType.ArrowUp) return GUI.ACTION.UP;
-        if (keyStroke.getKeyType() == KeyType.ArrowRight) return GUI.ACTION.RIGHT;
-        if (keyStroke.getKeyType() == KeyType.ArrowDown) return GUI.ACTION.DOWN;
-        if (keyStroke.getKeyType() == KeyType.ArrowLeft) return GUI.ACTION.LEFT;
+        if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
+        if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.RIGHT;
+        if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
+        if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.LEFT;
 
-        if (keyStroke.getKeyType() == KeyType.Enter) return GUI.ACTION.SELECT;
+        if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
 
-        return GUI.ACTION.NONE;
+        return ACTION.NONE;
     }
 
     @Override
     public void drawTower(Position position, Tower tower) {
+        drawTower(position.getX(), position.getY(), tower.getTowerArt(), "RED");
 
     }
 
