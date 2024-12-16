@@ -58,16 +58,16 @@ public class WindowGUI implements GUI {
         return terminal;
     }
 
-    private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
-        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
-        File fontFile = new File(resource.toURI());
-        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+    private AWTTerminalFontConfiguration loadSquareFont() throws FontFormatException, IOException {
+        // Use system-installed Consolas font
+        Font font = new Font("Consolas", Font.PLAIN, 25);
 
+        // Ensure the font is registered in the graphics environment (not always necessary for built-in fonts)
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN, 25);
-        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
+        // Configure the terminal to use the Consolas font
+        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(font);
         return fontConfig;
     }
 
