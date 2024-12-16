@@ -122,7 +122,7 @@ public class WindowGUI implements GUI {
 
     @Override
     public void drawSea(Position position, Sea sea) {
-        drawCharacter(position.getX(), position.getY(), sea.getSeaArt(), "#CC0000");
+        drawCharacter(position.getX(), position.getY(), sea.getSeaArt(), "#3884ff");
     }
 
     @Override

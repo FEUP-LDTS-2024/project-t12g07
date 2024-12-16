@@ -8,7 +8,7 @@ public class Castle extends Element {
         super(x, y);
         this.gemstones = FULL_VAULT;
         this.castleArt = new String[] {
-                "                T~~",
+                "               T~~",
                 "               |",
                 "              /\"\\",
                 "      T~~     |'| T~~",
