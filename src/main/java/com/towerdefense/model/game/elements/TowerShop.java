@@ -2,16 +2,22 @@ package com.towerdefense.model.game.elements;
 
 import com.towerdefense.model.game.elements.towers.Tower;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class TowerShop extends Element{
     private int money;
     String[] TowerShopArt1;
     String[] TowerShopArt2;
     String[] TowerShopArt3;
     String[] SideBarArt;
+    private final List<String> entries;
+    private int currentEntry = 0;
 
 
     public TowerShop(int x, int y) {
         super(x, y);
+        this.entries = Arrays.asList("WOOD TOWER", "STONE TOWER", "METAL TOWER");
         this.TowerShopArt1 = new String[] {
                 "┌┐┌┐┌┐",
                 "├┘└┘└┤",
@@ -106,4 +112,48 @@ public class TowerShop extends Element{
     public String[] getSideBarArt() {
         return SideBarArt;
     }
+
+
+    public void nextEntry() {
+        currentEntry++;
+        if (currentEntry > this.entries.size() - 1)
+            currentEntry = 0;
+    }
+
+    public void previousEntry() {
+        currentEntry--;
+        if (currentEntry < 0)
+            currentEntry = this.entries.size() - 1;
+    }
+
+    public String getEntry(int i) {
+        return entries.get(i);
+    }
+
+    public boolean isSelected(int i) {
+        return currentEntry == i;
+    }
+
+    public boolean isSelected1() {
+        return isSelected(0);
+    }
+
+    public boolean isSelected2() {
+        return isSelected(1);
+    }
+
+    public boolean isSelected3() {
+        return isSelected(2);
+    }
+
+    public int getNumberEntries() {
+        return this.entries.size();
+    }
+
+
+
+
+
+
+
 }
