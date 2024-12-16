@@ -17,5 +17,6 @@ public class InstructionsViewer extends Viewer<Instructions> {
             gui.drawText(new Position(4,2  + i), getModel().getTitle(i), "#fc9023");
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(new Position(6, 10 + i), getModel().getEntry(i),  "#fcc623");
+        gui.drawText(new Position(55, 28), getModel().getBack(),  "#fc9023");
     }
 }
