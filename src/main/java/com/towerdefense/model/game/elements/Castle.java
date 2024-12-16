@@ -29,4 +29,8 @@ public class Castle extends Element {
     public int getWealth() {
         return gemstones;
     }
+
+    public String[] getCastleArt() {
+        return castleArt;
+    }
 }

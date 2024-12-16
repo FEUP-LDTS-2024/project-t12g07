@@ -4,7 +4,6 @@ import com.towerdefense.Game;
 
 
 import com.towerdefense.gui.GUI;
-import com.towerdefense.model.Position;
 import com.towerdefense.model.Wave;
 import com.towerdefense.model.game.board.Board;
 import com.towerdefense.model.game.elements.enemies.Enemy;

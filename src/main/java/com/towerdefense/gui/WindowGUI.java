@@ -1,6 +1,8 @@
 package com.towerdefense.gui;
 
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
@@ -95,38 +97,46 @@ public class WindowGUI implements GUI {
 
     @Override
     public void drawTower(Position position, Tower tower) {
-
+        drawCharacter(position.getX(), position.getY(), tower.getTowerArt(), "#FFD700");
     }
 
     @Override
     public void drawCastle(Position position, Castle castle) {
-
+        drawCharacter(position.getX(), position.getY(), castle.getCastleArt(), "#FFD700");
     }
 
     @Override
     public void drawEnemy(Position position, Enemy enemy) {
-
+        drawCharacter(position.getX(), position.getY(), enemy.getEnemyArt(), "#CC0000");
     }
 
     @Override
     public void drawPath(Position position, Path path) {
-
+        drawCharacter(position.getX(), position.getY(), path.getPathArt(), "#CC0000");
     }
 
     @Override
     public void drawGrass(Position position, Grass grass) {
-
+        drawCharacter(position.getX(), position.getY(), grass.getGrassArt(), "#CC0000");
     }
 
     @Override
     public void drawSea(Position position, Sea sea) {
-
+        drawCharacter(position.getX(), position.getY(), sea.getSeaArt(), "#CC0000");
     }
 
     @Override
     public void drawText(Position position, String text, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.putString(position.getX(), position.getY(), text);
     }
 
+    private void drawCharacter(int x, int y, String[] c, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.putString(x, y + 1, "" + c);
+    }
 
     public void clear() {
         screen.clear();
