@@ -99,15 +99,15 @@ public class WindowGUI implements GUI {
 
     @Override
     public void drawCastle(Position position, Castle castle) {
-        drawCharacter(position.getX(), position.getY(), castle.getCastleArt(), "#FFD700");
+        drawCharacter(position.getX(), position.getY(), castle.getCastleArt(), "WHITE");
     }
 
     @Override
     public void drawTowerShop(Position position, TowerShop towerShop) {
-        drawCharacter(position.getX(), position.getY(), towerShop.getSideBarArt(), "#FFD700");
-        drawCharacter(position.getX() + 4, position.getY() + 8 , towerShop.getTowerShopArt1(), "#FFD700");
-        drawCharacter(position.getX() + 4, position.getY() + 16, towerShop.getTowerShopArt2(), "#FFD700");
-        drawCharacter(position.getX() + 4, position.getY() + 24 , towerShop.getTowerShopArt3(), "#FFD700");
+        drawCharacter(position.getX(), position.getY(), towerShop.getSideBarArt(), "#FFFFFF");
+        drawCharacter(position.getX() + 4, position.getY() + 8 , towerShop.getTowerShopArt1(), "#9e5c2c");
+        drawCharacter(position.getX() + 4, position.getY() + 16, towerShop.getTowerShopArt2(), "#b5ada3");
+        drawCharacter(position.getX() + 4, position.getY() + 24 , towerShop.getTowerShopArt3(), "#5f767a");
     }
 
     @Override
@@ -117,12 +117,12 @@ public class WindowGUI implements GUI {
 
     @Override
     public void drawPath(Position position, Path path) {
-        drawCharacter(position.getX(), position.getY(), path.getPathArt(), "#CC0000");
+        drawCharacter(position.getX(), position.getY(), path.getPathArt(), "#595858");
     }
 
     @Override
     public void drawGrass(Position position, Grass grass) {
-        drawCharacter(position.getX(), position.getY(), grass.getGrassArt(), "#CC0000");
+        drawCharacter(position.getX(), position.getY(), grass.getGrassArt(), "#158f22");
     }
 
     @Override

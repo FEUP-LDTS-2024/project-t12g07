@@ -62,13 +62,11 @@ public class Board {
         return castle;
     }
 
-
     public int getCoins() { return coins; }
 
     public void setCoins(int coins) {
         this.coins = coins;
     }
-
 
     public List<Path> getPath() {
         return paths;
@@ -97,4 +95,5 @@ public class Board {
     public TowerShop getTowerShop() {
         return towerShop;
     }
+
 }
