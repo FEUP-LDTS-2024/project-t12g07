@@ -1,5 +1,7 @@
 **DESCRIPTION:**
-Em Gemstone Guardians, um jogo do tipo Tower Defense, o jogador deverá defender o seu castelo do ataque de diferentes tipos de inimigos que pretendem roubar as suas jóias. Através do posicionamento de torres de defesa (de diferentes materiais), o jogador deverá matar os inimigos (também com diversas características) antes que estes alcancem o castelo.
+O jogo Gemstone Guardians trata-se de um jogo do tipo tower defense, cujo único objetivo  é defender o castelo e as suas preciosas jóias do ataque de diferentes tipos de monstros. Assim, o jogador deve derrotar o maior número de inimigos possível, ao longo do caminho, com o auxílio de torres estrategicamente posicionadas, de forma a evitar que os terríveis ladrões alcancem o castelo final.
+
+Este projeto foi desenvolvido em conjunto pelas alunas Catarina Guimarães (up202307420@up.pt), Inês Oliveira (up202305418@up.pt) e Sara Garcia (up202306877@up.pt) para a cadeira de Laboratório de Desenho e Teste de Software, no ano letivo de 2024-2025.
 
 
 **FEATURES:**
