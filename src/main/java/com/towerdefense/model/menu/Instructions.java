@@ -8,8 +8,8 @@ public class Instructions {
     private final List<String> entries;
 
     public Instructions() {
-        this.title = Arrays.asList("TESTE");
-        this.entries = Arrays.asList("TESTE");
+        this.title = Arrays.asList("INSTRUCTIONS:");
+        this.entries = Arrays.asList("Your castle is in danger!", "Vicious enemies want to steal all your gemstones.", "Place defense towers to defeat them before your vault", "is empty.");
     }
     public String getTitle(int i){
         return title.get(i);

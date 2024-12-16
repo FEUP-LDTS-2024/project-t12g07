@@ -4,8 +4,10 @@ import com.towerdefense.Game;
 import com.towerdefense.controllers.Controller;
 import com.towerdefense.gui.GUI;
 import com.towerdefense.model.game.board.LoaderBoardBuilder;
+import com.towerdefense.model.menu.Instructions;
 import com.towerdefense.model.menu.Menu;
 import com.towerdefense.states.GameState;
+import com.towerdefense.states.InstructionsState;
 
 import java.io.IOException;
 
@@ -26,6 +28,7 @@ public class MenuController extends Controller<Menu> {
             case SELECT:
                 if (getModel().isSelectedExit()) game.setState(null);
                 if (getModel().isSelectedStart()) game.setState(new GameState(new LoaderBoardBuilder(1).createBoard()));
+                if (getModel().isSelectedInstructions()) game.setState(new InstructionsState(new Instructions()));
         }
     }
 }
