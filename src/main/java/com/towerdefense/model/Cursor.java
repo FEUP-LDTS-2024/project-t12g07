@@ -1,12 +1,13 @@
 package com.towerdefense.model;
 
-public class Cursor {
+import com.towerdefense.model.game.elements.Element;
+
+public class Cursor extends Element {
     private int x;
     private int y;
 
     public Cursor(int x, int y) {
-        this.x = x;
-        this.y = y;
+        super(x,y);
     }
 
     public void moveUp() {

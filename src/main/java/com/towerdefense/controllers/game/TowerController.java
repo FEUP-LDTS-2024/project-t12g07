@@ -35,10 +35,6 @@ public class TowerController extends GameController {
                 e.printStackTrace();
             }
         }
-        MetalTower metalTower;
-        StoneTower stoneTower;
-        WoodTower woodTower;
-        coins = getModel().getCoins();
     }
 
     public List<Tower> getTowerList() {

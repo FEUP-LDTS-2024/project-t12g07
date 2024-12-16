@@ -12,15 +12,19 @@ public class TowerShopViewer implements ElementViewer<TowerShop> {
 
         // Draw the entries and highlight the selected one
         for (int i = 0; i < towerShop.getNumberEntries(); i++) {
-            String entryText = towerShop.getEntry(i); // Get the entry text
+            String entryText = towerShop.getEntry(i);
             gui.drawText(
-                    new Position(118, 8 + 8*i), // Position for each entry (adjust as needed)
+                    new Position(118, 8 + 8*i),
                     entryText,
-                    towerShop.isSelected(i) ? "#fcc623" : "#FFFFFF" // Highlight the selected entry
+                    towerShop.isSelected(i) ? "#fcc623" : "#FFFFFF"
             );
         }
+
+        String moneyText = "Money: " + towerShop.getMoney();
+        gui.drawText(
+                new Position(118, 2),
+                moneyText,
+                "#FFFFFF"
+        );
     }
-
-
-
 }

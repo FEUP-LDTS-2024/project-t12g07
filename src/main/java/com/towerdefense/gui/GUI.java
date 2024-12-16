@@ -26,6 +26,8 @@ public interface GUI {
 
     void drawText(Position position, String text, String color);
 
+    void drawCursor(Position position, Cursor cursor);
+
     enum ACTION {UP, RIGHT, DOWN, LEFT, TOWER_SELECT, QUIT, SELECT, NONE}
 
     void clear();
