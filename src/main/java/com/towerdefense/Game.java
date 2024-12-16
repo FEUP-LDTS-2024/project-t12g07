@@ -1,6 +1,5 @@
 package com.towerdefense;
 
-
 import com.towerdefense.gui.WindowGUI;
 import com.towerdefense.model.menu.Menu;
 import com.towerdefense.states.MenuState;
@@ -15,7 +14,7 @@ public class Game {
     private State state;
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
-        this.gui = new WindowGUI(60, 20);
+        this.gui = new WindowGUI(180, 60);
         this.state = new MenuState(new Menu());
     }
 
@@ -44,7 +43,6 @@ public class Game {
             } catch (InterruptedException e) {
             }
         }
-
         gui.close();
     }
 }

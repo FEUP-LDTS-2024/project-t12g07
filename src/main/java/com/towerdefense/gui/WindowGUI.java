@@ -60,7 +60,7 @@ public class WindowGUI implements GUI {
 
     private AWTTerminalFontConfiguration loadSquareFont() throws FontFormatException, IOException {
         // Use system-installed Consolas font
-        Font font = new Font("Consolas", Font.PLAIN, 25);
+        Font font = new Font("Consolas", Font.PLAIN, 20);
 
         // Ensure the font is registered in the graphics environment (not always necessary for built-in fonts)
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -135,7 +135,9 @@ public class WindowGUI implements GUI {
     private void drawCharacter(int x, int y, String[] c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y + 1, "" + c);
+        for (int i = 0; i < c.length; i++) {
+            tg.putString(x, y + i + 1, c[i]); // Print each string on a new line
+        }
     }
 
     public void clear() {

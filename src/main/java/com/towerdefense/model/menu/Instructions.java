@@ -8,7 +8,12 @@ public class Instructions {
     private final List<String> entries;
 
     public Instructions() {
-        this.title = Arrays.asList("INSTRUCTIONS:");
+        this.title = Arrays.asList(
+                "  ___ _  _ ___ _____ ___ _   _  ___ _____ ___ ___  _  _ ___ ",
+                " |_ _| \\| / __|_   _| _ \\ | | |/ __|_   _|_ _/ _ \\| \\| / __|",
+                "  | || .` \\__ \\ | | |   / |_| | (__  | |  | | (_) | .` \\__ \\",
+                " |___|_|\\_|___/ |_| |_|_\\\\___/ \\___| |_| |___\\___/|_|\\_|___/"
+        );
         this.entries = Arrays.asList("Your castle is in danger!", "Vicious enemies want to steal all your gemstones.", "Place defense towers to defeat them before your vault", "is empty.");
     }
     public String getTitle(int i){
