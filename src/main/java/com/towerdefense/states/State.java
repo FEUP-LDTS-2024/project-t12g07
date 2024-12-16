@@ -3,7 +3,6 @@ package com.towerdefense.states;
 import com.towerdefense.Game;
 import com.towerdefense.controllers.Controller;
 import com.towerdefense.gui.GUI;
-import com.towerdefense.gui.WindowGUI;
 import com.towerdefense.viewer.Viewer;
 
 import java.io.IOException;
