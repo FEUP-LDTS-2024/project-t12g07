@@ -14,12 +14,14 @@ public class BoardController extends GameController{
     private final TowerController towerController;
     private final EnemyController enemyController;
     private final TowerShopController towerShopController;
+    private final CursorController cursorController;
 
     public BoardController(Board board) {
         super(board);
         this.towerController = new TowerController(board);
         this.enemyController = new EnemyController(board);
         this.towerShopController = new TowerShopController(board);
+        this.cursorController = new CursorController(board);
     }
 
     @Override
@@ -33,6 +35,7 @@ public class BoardController extends GameController{
                 towerController.step(game, action, time);
                 enemyController.step(game, action, time);
                 towerShopController.step(game, action, time);
+                cursorController.step(game, action, time);
             } catch (Exception e) {
                 e.printStackTrace(); // Handle the exception or log it
             }

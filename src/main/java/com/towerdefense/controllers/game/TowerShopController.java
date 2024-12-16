@@ -3,15 +3,8 @@ package com.towerdefense.controllers.game;
 import com.towerdefense.Game;
 import com.towerdefense.gui.GUI;
 import com.towerdefense.model.game.board.Board;
-import com.towerdefense.model.game.board.LoaderBoardBuilder;
-import com.towerdefense.model.game.elements.towers.Tower;
-import com.towerdefense.model.menu.Instructions;
-import com.towerdefense.states.GameState;
-import com.towerdefense.states.InstructionsState;
-
+import com.towerdefense.model.game.elements.towers.*;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class TowerShopController extends GameController {
 
@@ -22,16 +15,19 @@ public class TowerShopController extends GameController {
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         switch (action) {
-            case UP:
-                getModel().getTowerShop().previousEntry();
-                break;
-            case DOWN:
+            case TOWER_SELECT:
                 getModel().getTowerShop().nextEntry();
                 break;
             case SELECT:
-                if (getModel().getTowerShop().isSelected1()) {}
-                if (getModel().getTowerShop().isSelected2()) {}
-                if (getModel().getTowerShop().isSelected3()) {}
+                if (getModel().getTowerShop().isSelected1()) { placeTower(new WoodTower(getModel().getCursor().getPosition().getX(), getModel().getCursor().getPosition().getY())); }
+                if (getModel().getTowerShop().isSelected2()) { placeTower(new StoneTower(getModel().getCursor().getPosition().getX(), getModel().getCursor().getPosition().getY()));}
+                if (getModel().getTowerShop().isSelected3()) { placeTower(new MetalTower(getModel().getCursor().getPosition().getX(), getModel().getCursor().getPosition().getY()));}
+        }
+    }
+
+    public void placeTower(Tower tower) {
+        if (getModel().getTowerShop().purchaseTower(tower)) {
+            getModel().getTowers().add(tower);
         }
     }
 

@@ -12,6 +12,7 @@ import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.towerdefense.model.Position;
 import com.towerdefense.model.game.elements.*;
+import com.towerdefense.model.game.elements.Cursor;
 import com.towerdefense.model.game.elements.enemies.Enemy;
 import com.towerdefense.model.game.elements.towers.Tower;
 
@@ -144,6 +145,11 @@ public class WindowGUI implements GUI {
             tg.putString(x, y + i + 1, c[i]); // Print each string on a new line
         }
     }
+
+    public void drawCursor(Position position, Cursor cursor) {
+        drawCharacter(position.getX(), position.getY(), cursor.getCursorArt(), "#ff0000");
+    }
+
 
     public void clear() {
         screen.clear();

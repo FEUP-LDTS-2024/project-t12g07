@@ -18,6 +18,7 @@ public class Board {
     private List<Enemy> enemies;
     private List<Path> paths;
     private List<Grass> grasses;
+    private Cursor cursor;
     private List<Sea> seas;
 
     public Board(int width, int height) {
@@ -26,6 +27,7 @@ public class Board {
         this.castle = new Castle(90,18);
         this.towerShop = new TowerShop(114, 0);
         this.towers = new ArrayList<>();
+        this.cursor = new Cursor(40, 5);
     }
 
     public int getWidth() {
@@ -96,4 +98,7 @@ public class Board {
         return towerShop;
     }
 
+    public Cursor getCursor() {
+        return cursor;
+    }
 }
