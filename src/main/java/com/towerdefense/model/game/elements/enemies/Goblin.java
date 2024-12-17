@@ -10,10 +10,10 @@ public class Goblin extends Enemy {
         this.reward = 10;
         this.sacking = 5;
         this.enemyArt = new String[]{
-                " ┐   ┌ ",
-                " (OwO) ",
-                " o/│\\o ",
-                " _/ \\_ "
+                "┐   ┌",
+                "(OwO)",
+                "o/│\\o",
+                "_/ \\_",
         };
         this.color = TextColor.ANSI.GREEN;
     }
