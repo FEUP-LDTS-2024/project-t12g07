@@ -48,6 +48,7 @@ public class Wave {
             }
         }
 
+
         else {
             int numberOfEnemies = 8;
             for (int i = 0; i <= numberOfEnemies; i++) {
