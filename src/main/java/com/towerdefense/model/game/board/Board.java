@@ -20,6 +20,7 @@ public class Board {
     private Cursor cursor;
     private List<Sea> seas;
     private Warning warning;
+    private List<Position> grasspos;
 
     public Board(int width, int height) {
         this.width = width;
@@ -73,9 +74,17 @@ public class Board {
         return grasses;
     }
 
+    public boolean isGrass(Position position) {
+        for (Grass grass : grasses)
+            if (grass.getPosition().getX() == position.getX() && grass.getPosition().getY() == position.getY())
+                return true;
+        return false;
+    }
+
     public void setGrass (List<Grass> grasses) {
         this.grasses = grasses;
     }
+
 
     public List<Sea> getSea() {
         return seas;
