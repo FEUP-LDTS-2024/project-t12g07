@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Wave {
-    private int wave = 3;
+    private int wave = 4;
     private List<Enemy> enemyList;
 
     private boolean waveCompleted;
