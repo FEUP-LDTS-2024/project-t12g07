@@ -25,6 +25,7 @@ public class GameViewer extends Viewer<Board> {
         drawElement(gui, getModel().getTowerShop(), new TowerShopViewer());
         drawElement(gui, getModel().getCursor(), new CursorViewer());
         drawElements(gui, getModel().getEnemies(), new EnemyViewer());
+        drawElement(gui, getModel().getWarning(), new WarningViewer());
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
