@@ -49,10 +49,8 @@ public class EnemyController extends GameController {
     // Move all enemies and remove dead ones
     public void moveEnemies() {
         List<Enemy> deadEnemies = new ArrayList<>();
-        List<Enemy> newEnemiespos = new ArrayList<>();;
         for (Enemy enemy : enemies) {
             enemy.moveEnemies(enemy);
-            newEnemiespos.add(enemy);
             // Move each enemy (no need to pass enemy as argument)
 
             // If the enemy is dead, add it to the dead list
@@ -60,8 +58,6 @@ public class EnemyController extends GameController {
                 deadEnemies.add(enemy);
             }
         }
-        board.setEnemies(newEnemiespos);
-        enemies = newEnemiespos;
         // Remove dead enemies from the list
         enemies.removeAll(deadEnemies);
     }

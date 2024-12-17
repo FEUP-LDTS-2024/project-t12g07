@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Wave {
-    private int wave = 3;
+    private int wave = 1 ;
     private List<Enemy> enemyList;
 
     private boolean waveCompleted;
@@ -27,7 +27,7 @@ public class Wave {
         if (wave == 1) {
             for (int i = 0; i < 4; i++){
                 Enemy enemy;
-                enemy = new Goblin(0, 25);
+                enemy = new Goblin(- i * 6, 25);
                 enemyList.add(enemy);
             }
         }
@@ -43,11 +43,10 @@ public class Wave {
         else if (wave == 3) {
             for (int i = 0; i < 4; i++){
                 Enemy enemy;
-                enemy = new Giant(0, 25);
+                enemy = new Giant(-i * 6, 25);
                 enemyList.add(enemy);
             }
         }
-
 
         else {
             int numberOfEnemies = 8;
