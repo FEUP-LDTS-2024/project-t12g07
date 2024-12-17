@@ -14,13 +14,12 @@ public class Board {
     private Castle castle;
     private TowerShop towerShop;
     private List<Tower> towers;
-    private List<Path> paths;    private
-    List<Enemy> enemies;
+    private List<Path> paths;
+    private List<Enemy> enemies;
     private List<Grass> grasses;
     private Cursor cursor;
     private List<Sea> seas;
     private Warning warning;
-    private List<Position> grasspos;
 
     public Board(int width, int height) {
         this.width = width;
@@ -30,6 +29,7 @@ public class Board {
         this.towers = new ArrayList<>();
         this.cursor = new Cursor(36, 5);
         this.warning = new Warning(118,6, " ",0);
+        this.enemies = new ArrayList<>();
     }
 
     public int getWidth() {
@@ -111,4 +111,5 @@ public class Board {
     public Warning getWarning() {
         return warning;
     }
+
 }

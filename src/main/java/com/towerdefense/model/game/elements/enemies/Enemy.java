@@ -22,6 +22,13 @@ public abstract class Enemy extends Element {
     public Enemy(int x, int y) {
         super(x,y);
         this.path = new ArrayList<>();
+        this.path.add(new Position(-42,25));
+        this.path.add(new Position(-36,25));
+        this.path.add(new Position(-30,25));
+        this.path.add(new Position(-24,25));
+        this.path.add(new Position(-18,25));
+        this.path.add(new Position(-12,25));
+        this.path.add(new Position(-6,25));
         this.path.add(new Position(0,25));
         this.path.add(new Position(6,25));
         this.path.add(new Position(12,25));
@@ -47,10 +54,11 @@ public abstract class Enemy extends Element {
         this.path.add(new Position(60,20));
         this.path.add(new Position(54,20));
         this.path.add(new Position(54,25));
-        this.path.add(new Position(60,25));
-        this.path.add(new Position(66,25));
-        this.path.add(new Position(72,25));
-        this.path.add(new Position(78,25));
+        this.path.add(new Position(60,30));
+        this.path.add(new Position(66,30));
+        this.path.add(new Position(72,30));
+        this.path.add(new Position(78,30));
+        this.path.add(new Position(90,30));
     }
 
     public String[] getEnemyArt() {
@@ -97,8 +105,6 @@ public abstract class Enemy extends Element {
                 i = path.size() - 1;
             }
         }
-        /*Position position = new Position(25,25);
-        this.setPosition(position);*/
     }
 
     public boolean isDead() {

@@ -32,8 +32,9 @@ public class EnemyController extends GameController {
         // Check if enough time has passed (500ms) before moving enemies again
         if (time - lastMovement > 800) {
             moveEnemies();
-            wave.updateWave();  // Update the wave's progress
+  // Update the wave's progress
             if (enemies.isEmpty()) {
+                wave.updateWave();
                 // If no enemies are left, spawn new ones for the next wave
                 wave.spawn(wave.getWave());
                 List<Enemy> newEnemies = wave.getEnemyList();
@@ -49,19 +50,21 @@ public class EnemyController extends GameController {
     // Move all enemies and remove dead ones
     public void moveEnemies() {
         List<Enemy> deadEnemies = new ArrayList<>();
-        List<Enemy> newEnemiespos = new ArrayList<>();;
         for (Enemy enemy : enemies) {
             enemy.moveEnemies(enemy);
-            newEnemiespos.add(enemy);
             // Move each enemy (no need to pass enemy as argument)
 
             // If the enemy is dead, add it to the dead list
             if (enemy.isDead()) {
+                enemy.getReward();
+                deadEnemies.add(enemy);
+            }
+
+            if (enemy.getPosition().getX() == 90 && enemy.getPosition().getY() == 30){
+                getModel().getCastle().stealing(enemy.getSacking());
                 deadEnemies.add(enemy);
             }
         }
-        board.setEnemies(newEnemiespos);
-        enemies = newEnemiespos;
         // Remove dead enemies from the list
         enemies.removeAll(deadEnemies);
     }

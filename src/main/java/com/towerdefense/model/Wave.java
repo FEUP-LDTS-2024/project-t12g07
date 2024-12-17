@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Wave {
-    private int wave = 4;
+    private int wave = 0 ;
     private List<Enemy> enemyList;
 
     private boolean waveCompleted;
@@ -27,7 +27,7 @@ public class Wave {
         if (wave == 1) {
             for (int i = 0; i < 4; i++){
                 Enemy enemy;
-                enemy = new Goblin(0, 25);
+                enemy = new Goblin(- i * 12, 25);
                 enemyList.add(enemy);
             }
         }
@@ -35,7 +35,7 @@ public class Wave {
         else if (wave == 2) {
             for (int i = 0; i < 4; i++){
                 Enemy enemy;
-                enemy = new Knight(0, 25);
+                enemy = new Knight(-i * 12, 25);
                 enemyList.add(enemy);
             }
         }
@@ -43,20 +43,18 @@ public class Wave {
         else if (wave == 3) {
             for (int i = 0; i < 4; i++){
                 Enemy enemy;
-                enemy = new Giant(0, 25);
+                enemy = new Giant(-i * 12, 25);
                 enemyList.add(enemy);
             }
         }
 
-
         else {
-            int numberOfEnemies = 8;
-            for (int i = 0; i <= numberOfEnemies; i++) {
+            for (int i = 0; i < 4; i++) {
                 int enemyTypeIndex = 1 + (int) (Math.random() * 3);
                 Enemy enemy = switch (enemyTypeIndex) {
-                    case 1 -> new Goblin(0, 25);
-                    case 2 -> new Knight(0, 25);
-                    case 3 -> new Giant(0, 25);
+                    case 1 -> new Goblin(-i * 12, 25);
+                    case 2 -> new Knight(-i * 12, 25);
+                    case 3 -> new Giant(-i * 12, 25);
                     default -> null;
                 };
                 enemyList.add(enemy);
@@ -73,6 +71,6 @@ public class Wave {
     }
 
     public void updateWave(){
-        if (waveCompleted) wave++;
+        wave++;
     }
 }

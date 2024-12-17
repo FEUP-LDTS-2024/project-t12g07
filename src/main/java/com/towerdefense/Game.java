@@ -14,7 +14,7 @@ public class Game {
     private State state;
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
-        this.gui = new WindowGUI(139, 33);
+        this.gui = new WindowGUI(139, 35);
         this.state = new MenuState(new Menu());
     }
 
