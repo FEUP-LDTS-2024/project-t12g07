@@ -95,40 +95,40 @@ public class WindowGUI implements GUI {
 
     @Override
     public void drawTower(Position position, Tower tower) {
-        drawCharacter(position.getX(), position.getY(), tower.getTowerArt(), tower.getColor());
+        drawCharacter(position.getX(), position.getY(), tower.getTowerArt(), tower.getColor(), "#a5d179");
     }
 
     @Override
     public void drawCastle(Position position, Castle castle) {
-        drawCharacter(position.getX(), position.getY(), castle.getCastleArt(), "WHITE");
+        drawCharacter(position.getX(), position.getY(), castle.getCastleArt(), "#474747", "#a5d179");
     }
 
     @Override
     public void drawTowerShop(Position position, TowerShop towerShop) {
-        drawCharacter(position.getX(), position.getY(), towerShop.getSideBarArt(), "#FFFFFF");
-        drawCharacter(position.getX() + 4, position.getY() + 8 , towerShop.getTowerShopArt1(), "#9e5c2c");
-        drawCharacter(position.getX() + 4, position.getY() + 15, towerShop.getTowerShopArt2(), "#b5ada3");
-        drawCharacter(position.getX() + 4, position.getY() + 22 , towerShop.getTowerShopArt3(), "#5f767a");
+        drawCharacter(position.getX(), position.getY(), towerShop.getSideBarArt(), "#FFFFFF", "BLACK");
+        drawCharacter(position.getX() + 4, position.getY() + 8 , towerShop.getTowerShopArt1(), "#9e5c2c", "BLACK");
+        drawCharacter(position.getX() + 4, position.getY() + 15, towerShop.getTowerShopArt2(), "#b5ada3", "BLACK");
+        drawCharacter(position.getX() + 4, position.getY() + 22 , towerShop.getTowerShopArt3(), "#5f767a", "BLACK");
     }
 
     @Override
     public void drawEnemy(Position position, Enemy enemy) {
-        drawCharacter(position.getX(), position.getY(), enemy.getEnemyArt(), "#CC0000");
+        drawCharacter(position.getX(), position.getY(), enemy.getEnemyArt(), "#CC0000","#a6a6a6");
     }
 
     @Override
     public void drawPath(Position position, Path path) {
-        drawCharacter(position.getX(), position.getY(), path.getPathArt(), "#595858");
+        drawCharacter(position.getX(), position.getY(), path.getPathArt(), "#7f807e","#a6a6a6");
     }
 
     @Override
     public void drawGrass(Position position, Grass grass) {
-        drawCharacter(position.getX(), position.getY(), grass.getGrassArt(), "#158f22");
+        drawCharacter(position.getX(), position.getY(), grass.getGrassArt(), "#158f22", "#a5d179");
     }
 
     @Override
     public void drawSea(Position position, Sea sea) {
-        drawCharacter(position.getX(), position.getY(), sea.getSeaArt(), "#3884ff");
+        drawCharacter(position.getX(), position.getY(), sea.getSeaArt(), "#3884ff", "#79a1d1");
     }
 
     @Override
@@ -138,16 +138,17 @@ public class WindowGUI implements GUI {
         tg.putString(position.getX(), position.getY(), text);
     }
 
-    private void drawCharacter(int x, int y, String[] c, String color) {
+    private void drawCharacter(int x, int y, String[] c, String color, String backgroundColor) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.setBackgroundColor(TextColor.Factory.fromString(backgroundColor)); // Set background color
         for (int i = 0; i < c.length; i++) {
             tg.putString(x, y + i + 1, c[i]); // Print each string on a new line
         }
     }
 
     public void drawCursor(Position position, Cursor cursor) {
-        drawCharacter(position.getX(), position.getY(), cursor.getCursorArt(), "#ff0000");
+        drawCharacter(position.getX(), position.getY(), cursor.getCursorArt(), "#ff0000", "WHITE");
     }
 
 
