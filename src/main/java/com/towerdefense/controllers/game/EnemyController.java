@@ -31,7 +31,10 @@ public class EnemyController extends GameController{
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (time - lastMovement > 500) {
             moveEnemies();
+            wave.updateWave();
             if (enemies.isEmpty()) {
+
+                wave.spawn(wave.getWave());
                 List<Enemy> newEnemies = wave.getEnemyList();
                 board.setEnemies(newEnemies);
                 enemies = newEnemies;

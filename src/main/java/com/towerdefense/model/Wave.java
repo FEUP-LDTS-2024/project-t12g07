@@ -1,22 +1,66 @@
 package com.towerdefense.model;
 
 import com.towerdefense.model.game.elements.enemies.Enemy;
+import com.towerdefense.model.game.elements.enemies.Giant;
+import com.towerdefense.model.game.elements.enemies.Goblin;
+import com.towerdefense.model.game.elements.enemies.Knight;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Wave {
+    private int wave = 1;
     private List<Enemy> enemyList;
 
     private boolean waveCompleted;
 
-    Level level ;
-    public Wave(){
-        this.enemyList= new ArrayList<>();
-        this.waveCompleted=false;
+    public int getWave(){
+        return wave;
     }
 
-    public List<Enemy> spawn(int level){
+    public Wave(){
+        this.enemyList = new ArrayList<>();
+        this.waveCompleted = false;
+    }
+
+    public List<Enemy> spawn(int wave){
+        if (wave == 1) {
+            for (int i = 0; i < 4; i++){
+                Enemy enemy;
+                enemy = new Goblin(0, 27);
+                enemyList.add(enemy);
+            }
+        }
+
+        if (wave == 2) {
+            for (int i = 0; i < 4; i++){
+                Enemy enemy;
+                enemy = new Knight(0, 27);
+                enemyList.add(enemy);
+            }
+        }
+
+        if (wave == 3) {
+            for (int i = 0; i < 4; i++){
+                Enemy enemy;
+                enemy = new Giant(0, 27);
+                enemyList.add(enemy);
+            }
+        }
+
+        else {
+            int numberOfEnemies = 8;
+            for (int i = 0; i <= numberOfEnemies; i++) {
+                int enemyTypeIndex = 1 + (int) (Math.random() * 3);
+                Enemy enemy = switch (enemyTypeIndex) {
+                    case 1 -> new Goblin(0, 0);
+                    case 2 -> new Knight(0, 0);
+                    case 3 -> new Giant(0, 0);
+                    default -> null;
+                };
+                enemyList.add(enemy);
+            }
+        }
         return enemyList;
     }
 
@@ -25,5 +69,9 @@ public class Wave {
     }
     public List<Enemy> getEnemyList() {
         return enemyList;
+    }
+
+    public void updateWave(){
+        if (waveCompleted) wave++;
     }
 }

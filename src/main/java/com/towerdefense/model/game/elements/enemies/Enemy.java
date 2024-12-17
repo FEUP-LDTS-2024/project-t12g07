@@ -1,9 +1,12 @@
 package com.towerdefense.model.game.elements.enemies;
 
 import com.googlecode.lanterna.TextColor;
+import com.towerdefense.model.Position;
+import com.towerdefense.model.game.board.Board;
 import com.towerdefense.model.game.elements.Element;
 
 public abstract class Enemy extends Element {
+    private Board board;
     public boolean isDead = false;
     protected int reward;
     protected int sacking;
@@ -36,7 +39,32 @@ public abstract class Enemy extends Element {
     }
 
     public void moveEnemies(Enemy enemy) {
+        switch (enemy.getClass().getName()) {
+            case "Giant":
+                for(int i = 0; i < 1; i++){
+                    moveEnemy(enemy);
+                }
+                break;
+            case "Knight":
+                for(int i = 0; i < 2; i++){
+                    moveEnemy(enemy);
+                }
+                break;
+            case "Goblin":
+                for(int i = 0; i < 3; i++){
+                    moveEnemy(enemy);
+                }
+                break;
+        }
+    }
 
+    public void moveEnemy(Enemy enemy){
+        Position position = enemy.getPosition();
+        for (int i = 0; i < board.getPath().size() - 1; i++){
+            if (board.getPath().get(i).getPosition() == position){
+                position = new Position(board.getPath().get(i + 1).getPosition().getX(), board.getPath().get(i + 1).getPosition().getY());
+            }
+        }
     }
 
     public boolean isDead() {
