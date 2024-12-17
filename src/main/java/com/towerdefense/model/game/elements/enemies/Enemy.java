@@ -23,9 +23,34 @@ public abstract class Enemy extends Element {
         super(x,y);
         this.path = new ArrayList<>();
         this.path.add(new Position(0,25));
-        this.path.add(new Position(7,25));
-        this.path.add(new Position(14,25));
-        this.path.add(new Position(14,20));
+        this.path.add(new Position(6,25));
+        this.path.add(new Position(12,25));
+        this.path.add(new Position(12,20));
+        this.path.add(new Position(12,15));
+        this.path.add(new Position(12,5));
+        this.path.add(new Position(18,5));
+        this.path.add(new Position(24,5));
+        this.path.add(new Position(30,5));
+        this.path.add(new Position(36,5));
+        this.path.add(new Position(42,5));
+        this.path.add(new Position(48,5));
+        this.path.add(new Position(54,5));
+        this.path.add(new Position(60,5));
+        this.path.add(new Position(66,5));
+        this.path.add(new Position(72,5));
+        this.path.add(new Position(78,5));
+        this.path.add(new Position(78,10));
+        this.path.add(new Position(78,15));
+        this.path.add(new Position(78,20));
+        this.path.add(new Position(72,20));
+        this.path.add(new Position(66,20));
+        this.path.add(new Position(60,20));
+        this.path.add(new Position(54,20));
+        this.path.add(new Position(54,25));
+        this.path.add(new Position(60,25));
+        this.path.add(new Position(66,25));
+        this.path.add(new Position(72,25));
+        this.path.add(new Position(78,25));
     }
 
     public String[] getEnemyArt() {
@@ -56,13 +81,8 @@ public abstract class Enemy extends Element {
                     moveEnemy();
                 }
                 break;
-            case 70:
+            case 70, 30:
                 for(int i = 0; i < 2; i++){
-                    moveEnemy();
-                }
-                break;
-            case 30:
-                for(int i = 0; i < 3; i++){
                     moveEnemy();
                 }
                 break;
@@ -70,17 +90,15 @@ public abstract class Enemy extends Element {
     }
 
     public void moveEnemy() {
-        Position currentPosition = this.getPosition();
-        int currentIndex = path.indexOf(currentPosition);
-
-        if (currentIndex >= 0 && currentIndex < path.size() - 1) {
-            // Move the enemy to the next position in the path
-            Position nextPosition = path.get(currentIndex + 1);
-            this.setPosition(nextPosition); // Update the position
-        } else {
-            // If the enemy reached the end of the path
-            this.isDead = true;  // The enemy is considered dead
+        for (int i = 0; i < path.size() - 1; i++){
+            if (this.getPosition().getX() == path.get(i).getX() && this.getPosition().getY() == path.get(i).getY()){
+                Position position = new Position(path.get(i + 1).getX(), path.get(i + 1).getY());
+                this.setPosition((position));
+                i = path.size() - 1;
+            }
         }
+        /*Position position = new Position(25,25);
+        this.setPosition(position);*/
     }
 
     public boolean isDead() {

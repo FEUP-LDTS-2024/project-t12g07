@@ -30,7 +30,7 @@ public class EnemyController extends GameController {
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         // Check if enough time has passed (500ms) before moving enemies again
-        if (time - lastMovement > 500) {
+        if (time - lastMovement > 800) {
             moveEnemies();
             wave.updateWave();  // Update the wave's progress
             if (enemies.isEmpty()) {
@@ -49,15 +49,19 @@ public class EnemyController extends GameController {
     // Move all enemies and remove dead ones
     public void moveEnemies() {
         List<Enemy> deadEnemies = new ArrayList<>();
+        List<Enemy> newEnemiespos = new ArrayList<>();;
         for (Enemy enemy : enemies) {
-            enemy.moveEnemies(enemy);  // Move each enemy (no need to pass enemy as argument)
+            enemy.moveEnemies(enemy);
+            newEnemiespos.add(enemy);
+            // Move each enemy (no need to pass enemy as argument)
 
             // If the enemy is dead, add it to the dead list
             if (enemy.isDead()) {
                 deadEnemies.add(enemy);
             }
         }
-
+        board.setEnemies(newEnemiespos);
+        enemies = newEnemiespos;
         // Remove dead enemies from the list
         enemies.removeAll(deadEnemies);
     }
