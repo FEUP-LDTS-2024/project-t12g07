@@ -8,7 +8,7 @@ public class Goblin extends Enemy {
         super(x, y);
         this.health = 30;
         this.reward = 5;
-        this.sacking = 20;
+        this.sacking = 500;
         this.enemyArt = new String[]{
                 "┐   ┌",
                 "(OwO)",
