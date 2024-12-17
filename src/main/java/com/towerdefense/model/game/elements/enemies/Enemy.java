@@ -6,7 +6,6 @@ import com.towerdefense.model.game.board.Board;
 import com.towerdefense.model.game.elements.Element;
 
 public abstract class Enemy extends Element {
-    private Board board;
     public boolean isDead = false;
     protected int reward;
     protected int sacking;
