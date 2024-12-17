@@ -56,8 +56,10 @@ public class EnemyController extends GameController {
 
             // If the enemy is dead, add it to the dead list
             if (enemy.isDead()) {
+                enemy.getReward();
                 deadEnemies.add(enemy);
             }
+
             if (enemy.getPosition().getX() == 90 && enemy.getPosition().getY() == 30){
                 getModel().getCastle().stealing(enemy.getSacking());
                 deadEnemies.add(enemy);
