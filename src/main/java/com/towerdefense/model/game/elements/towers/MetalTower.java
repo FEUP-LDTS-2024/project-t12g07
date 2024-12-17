@@ -9,13 +9,12 @@ public class MetalTower extends Tower {
         this.towerArt = new String[] {
                 "▲┐┌┐┌▲",
                 "├┘└┘└┤",
-                "│x  x│",
                 "│▲──▲│",
                 "││┌┐││",
                 "└┘└┘└┘"
         };
 
-        this.color = TextColor.ANSI.MAGENTA;
+        this.color = "#5f767a";
         this.cost = 30;
     }
 }

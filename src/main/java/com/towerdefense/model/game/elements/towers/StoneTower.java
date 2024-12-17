@@ -10,12 +10,11 @@ public class StoneTower extends Tower {
                 "┌┐┌┐┌┐" ,
                 "├┘└┘└┤" ,
                 "│▲  ▲│" ,
-                "││  ││" ,
                 "│x┌┐x│" ,
                 "└┘└┘└┘"
         };
 
-        this.color = TextColor.ANSI.YELLOW;
+        this.color = "#b5ada3";
         this.cost = 20;
     }
 }

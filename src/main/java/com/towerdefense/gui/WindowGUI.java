@@ -58,7 +58,7 @@ public class WindowGUI implements GUI {
 
     private AWTTerminalFontConfiguration loadSquareFont() throws FontFormatException, IOException {
         // Use system-installed Consolas font
-        Font font = new Font("Consolas", Font.PLAIN, 20);
+        Font font = new Font("Consolas", Font.PLAIN, 19);
 
         // Ensure the font is registered in the graphics environment (not always necessary for built-in fonts)
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -95,7 +95,7 @@ public class WindowGUI implements GUI {
 
     @Override
     public void drawTower(Position position, Tower tower) {
-        drawCharacter(position.getX(), position.getY(), tower.getTowerArt(), "#FFD700");
+        drawCharacter(position.getX(), position.getY(), tower.getTowerArt(), tower.getColor());
     }
 
     @Override
@@ -107,8 +107,8 @@ public class WindowGUI implements GUI {
     public void drawTowerShop(Position position, TowerShop towerShop) {
         drawCharacter(position.getX(), position.getY(), towerShop.getSideBarArt(), "#FFFFFF");
         drawCharacter(position.getX() + 4, position.getY() + 8 , towerShop.getTowerShopArt1(), "#9e5c2c");
-        drawCharacter(position.getX() + 4, position.getY() + 16, towerShop.getTowerShopArt2(), "#b5ada3");
-        drawCharacter(position.getX() + 4, position.getY() + 24 , towerShop.getTowerShopArt3(), "#5f767a");
+        drawCharacter(position.getX() + 4, position.getY() + 15, towerShop.getTowerShopArt2(), "#b5ada3");
+        drawCharacter(position.getX() + 4, position.getY() + 22 , towerShop.getTowerShopArt3(), "#5f767a");
     }
 
     @Override

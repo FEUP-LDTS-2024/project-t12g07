@@ -9,12 +9,11 @@ public class WoodTower extends Tower {
                 "┌┐┌┐┌┐",
                 "├┘└┘└┤",
                 "│x  x│",
-                "│x  x│",
                 "│ ┌┐ │",
                 "└─└┘─┘"
         };
 
-        this.color = TextColor.ANSI.WHITE;
+        this.color = "#9e5c2c";
         this.cost = 10;
     }
 }

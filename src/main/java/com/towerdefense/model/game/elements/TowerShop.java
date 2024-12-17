@@ -23,7 +23,6 @@ public class TowerShop extends Element{
                 "┌┐┌┐┌┐",
                 "├┘└┘└┤",
                 "│x  x│",
-                "│x  x│",
                 "│ ┌┐ │",
                 "└─└┘─┘"
 
@@ -33,7 +32,6 @@ public class TowerShop extends Element{
                 "┌┐┌┐┌┐" ,
                 "├┘└┘└┤" ,
                 "│▲  ▲│" ,
-                "││  ││" ,
                 "│x┌┐x│" ,
                 "└┘└┘└┘"
         };
@@ -41,7 +39,6 @@ public class TowerShop extends Element{
         this.TowerShopArt3 = new String[] {
                 "▲┐┌┐┌▲",
                 "├┘└┘└┤",
-                "│x  x│",
                 "│▲──▲│",
                 "││┌┐││",
                 "└┘└┘└┘"

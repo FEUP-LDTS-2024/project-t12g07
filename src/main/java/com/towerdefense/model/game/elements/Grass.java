@@ -10,10 +10,11 @@ public class Grass extends Element {
     public Grass(int x, int y) {
         super(x, y);
         this.grassArt = new String[] {
-                "  ^ ~ ^ ~",
-                " ^ ~ ^  ~",
-                "~ ^ ^ ~ ^",
-                " ^ ~ ^ ^",
+                "  ^ ~ ",
+                " ^ ~ ^",
+                "~ ^ ^ ",
+                " ^ ~ ^",
+                " ^ ~ ^"
         };
     }
 

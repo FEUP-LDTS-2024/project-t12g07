@@ -14,6 +14,7 @@ public class Sea extends Element {
                 " ´´ ~´",
                 "~ ´´ ~ ",
                 " ^ ~ ´ ",
+                " ´´ ~´"
         };
     }
 
