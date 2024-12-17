@@ -27,23 +27,23 @@ public class Wave {
         if (wave == 1) {
             for (int i = 0; i < 4; i++){
                 Enemy enemy;
-                enemy = new Goblin(0, 27);
+                enemy = new Goblin(0, 25);
                 enemyList.add(enemy);
             }
         }
 
-        if (wave == 2) {
+        else if (wave == 2) {
             for (int i = 0; i < 4; i++){
                 Enemy enemy;
-                enemy = new Knight(0, 27);
+                enemy = new Knight(0, 25);
                 enemyList.add(enemy);
             }
         }
 
-        if (wave == 3) {
+        else if (wave == 3) {
             for (int i = 0; i < 4; i++){
                 Enemy enemy;
-                enemy = new Giant(0, 27);
+                enemy = new Giant(0, 25);
                 enemyList.add(enemy);
             }
         }
@@ -53,9 +53,9 @@ public class Wave {
             for (int i = 0; i <= numberOfEnemies; i++) {
                 int enemyTypeIndex = 1 + (int) (Math.random() * 3);
                 Enemy enemy = switch (enemyTypeIndex) {
-                    case 1 -> new Goblin(0, 0);
-                    case 2 -> new Knight(0, 0);
-                    case 3 -> new Giant(0, 0);
+                    case 1 -> new Goblin(0, 25);
+                    case 2 -> new Knight(0, 25);
+                    case 3 -> new Giant(0, 25);
                     default -> null;
                 };
                 enemyList.add(enemy);

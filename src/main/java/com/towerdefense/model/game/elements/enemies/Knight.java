@@ -10,11 +10,11 @@ public class Knight extends Enemy {
         this.reward = 20;
         this.sacking = 15;
         this.enemyArt = new String[]{
-                " │  ▲   ",
-                " ┼  O   ",
-                " \\/│\\ ",
-                "   / \\  ",
-                "   ┘ └  "
+                "│  ▲  ",
+                "┼  O  ",
+                "\\ /│\\",
+                "  / \\",
+                "  ┘ └ "
         }; // ADICIONAR ARTE KNIGHT
         this.color = TextColor.ANSI.BLUE;
     }
