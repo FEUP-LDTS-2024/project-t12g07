@@ -16,16 +16,16 @@ public class CursorController extends GameController {
     public void step(Game game, GUI.ACTION action, long time) {
         switch (action) {
             case UP:
-                moveCursor(0, -2);
+                moveCursor(0, -5);
                 break;
             case DOWN:
-                moveCursor(0, 2);
+                moveCursor(0, 5);
                 break;
             case LEFT:
-                moveCursor(-3, 0);
+                moveCursor(-6, 0);
                 break;
             case RIGHT:
-                moveCursor(3, 0);
+                moveCursor(6, 0);
                 break;
             default:
                 break;
