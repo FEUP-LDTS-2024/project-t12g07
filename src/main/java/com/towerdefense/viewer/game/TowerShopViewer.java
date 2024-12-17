@@ -14,7 +14,7 @@ public class TowerShopViewer implements ElementViewer<TowerShop> {
         for (int i = 0; i < towerShop.getNumberEntries(); i++) {
             String entryText = towerShop.getEntry(i);
             gui.drawText(
-                    new Position(118, 8 + 8*i),
+                    new Position(117, 8 + 8*i),
                     entryText,
                     towerShop.isSelected(i) ? "#fcc623" : "#FFFFFF"
             );
@@ -22,7 +22,7 @@ public class TowerShopViewer implements ElementViewer<TowerShop> {
 
         String moneyText = "Money: " + towerShop.getMoney();
         gui.drawText(
-                new Position(118, 2),
+                new Position(117, 2),
                 moneyText,
                 "#FFFFFF"
         );
