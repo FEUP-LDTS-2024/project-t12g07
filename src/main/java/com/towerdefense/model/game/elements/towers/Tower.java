@@ -14,7 +14,7 @@ public abstract class Tower extends Element {
     private Enemy target;
     private long lastFiredTime;
     private boolean targeted;
-    protected TextColor color;
+    protected String color;
 
 
     public Tower(int x, int y) {
@@ -34,13 +34,14 @@ public abstract class Tower extends Element {
         return towerArt;
     }
 
-    public TextColor getColor() {
+    public String getColor() {
         return color;
     }
 
     public int getCost() {
         return cost;
     }
+
 
     public float findDistance(Enemy enemy) {
         /* float xDistance= Math.abs(enemy.getPosition().getX()-getX());

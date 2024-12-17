@@ -6,6 +6,7 @@ import com.towerdefense.model.Position;
 import com.towerdefense.model.game.board.Board;
 import com.towerdefense.model.game.elements.Element;
 import com.towerdefense.model.game.elements.TowerShop;
+import com.towerdefense.model.game.elements.Warning;
 import com.towerdefense.viewer.Viewer;
 
 import java.util.List;
@@ -25,6 +26,7 @@ public class GameViewer extends Viewer<Board> {
         drawElements(gui, getModel().getTowers(), new TowerViewer());
         drawElement(gui, getModel().getTowerShop(), new TowerShopViewer());
         drawElement(gui, getModel().getCursor(), new CursorViewer());
+        drawElement(gui, getModel().getWarning(), new WarningViewer());
 
     }
 

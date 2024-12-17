@@ -3,6 +3,7 @@ package com.towerdefense.controllers.game;
 import com.towerdefense.Game;
 import com.towerdefense.gui.GUI;
 import com.towerdefense.model.game.board.Board;
+import com.towerdefense.model.game.elements.Warning;
 import com.towerdefense.model.game.elements.towers.*;
 import java.io.IOException;
 
@@ -28,6 +29,10 @@ public class TowerShopController extends GameController {
     public void placeTower(Tower tower) {
         if (getModel().getTowerShop().purchaseTower(tower)) {
             getModel().getTowers().add(tower);
+        }
+        else {
+            Warning warning = new Warning(118, 6, "Not enough money!", 800);
+            getModel().setWarning(warning);
         }
     }
 

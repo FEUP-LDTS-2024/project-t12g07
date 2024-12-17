@@ -20,6 +20,7 @@ public class Board {
     private List<Grass> grasses;
     private Cursor cursor;
     private List<Sea> seas;
+    private Warning warning;
 
     public Board(int width, int height) {
         this.width = width;
@@ -27,7 +28,8 @@ public class Board {
         this.castle = new Castle(90,18);
         this.towerShop = new TowerShop(114, 0);
         this.towers = new ArrayList<>();
-        this.cursor = new Cursor(40, 5);
+        this.cursor = new Cursor(36, 5);
+        this.warning = new Warning(118,6, " ",0);
     }
 
     public int getWidth() {
@@ -64,12 +66,6 @@ public class Board {
         return castle;
     }
 
-    public int getCoins() { return coins; }
-
-    public void setCoins(int coins) {
-        this.coins = coins;
-    }
-
     public List<Path> getPath() {
         return paths;
     }
@@ -94,11 +90,17 @@ public class Board {
         this.seas = seas;
     }
 
+    public void setWarning (Warning warning) { this.warning = warning; }
+
     public TowerShop getTowerShop() {
         return towerShop;
     }
 
     public Cursor getCursor() {
         return cursor;
+    }
+
+    public Warning getWarning() {
+        return warning;
     }
 }
