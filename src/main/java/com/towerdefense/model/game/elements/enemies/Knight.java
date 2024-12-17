@@ -12,8 +12,8 @@ public class Knight extends Enemy {
         this.enemyArt = new String[]{
                 "│  ▲  ",
                 "┼  O  ",
-                "\\ /│\\",
-                "  / \\",
+                "\\ /│\\ ",
+                "  / \\ ",
                 "  ┘ └ "
         }; // ADICIONAR ARTE KNIGHT
         this.color = TextColor.ANSI.BLUE;

@@ -54,10 +54,11 @@ public abstract class Enemy extends Element {
         this.path.add(new Position(60,20));
         this.path.add(new Position(54,20));
         this.path.add(new Position(54,25));
-        this.path.add(new Position(60,25));
-        this.path.add(new Position(66,25));
-        this.path.add(new Position(72,25));
-        this.path.add(new Position(78,25));
+        this.path.add(new Position(60,30));
+        this.path.add(new Position(66,30));
+        this.path.add(new Position(72,30));
+        this.path.add(new Position(78,30));
+        this.path.add(new Position(90,30));
     }
 
     public String[] getEnemyArt() {

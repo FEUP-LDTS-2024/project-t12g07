@@ -22,7 +22,9 @@ public class Castle extends Element {
                 "|'  |  |LI=H=LI|' |   | ",
                 "|   |' | |[_]| |  |'  | ",
                 "|   |  |_|###|_|  |   | ",
-                "'---'--'-/___\\-'--'---' "
+                "'---'--'-/___\\-'--'---' ",
+                "                        ",
+                "                        "
         };
     }
 
@@ -32,5 +34,9 @@ public class Castle extends Element {
 
     public String[] getCastleArt() {
         return castleArt;
+    }
+
+    public void stealing(int sacking){
+        this.gemstones -= sacking;
     }
 }
