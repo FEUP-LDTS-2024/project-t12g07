@@ -28,7 +28,7 @@ public class BoardController extends GameController{
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.QUIT)
             game.setState(new MenuState(new Menu()));
-        else if (getModel().getCastle().getWealth() == 0)
+        else if (getModel().getCastle().getWealth() <= 0)
             game.setState(new GameOverState(new GameOver()));
         else {
             try {
