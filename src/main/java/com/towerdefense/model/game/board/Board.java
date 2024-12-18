@@ -11,12 +11,11 @@ import java.util.List;
 public class Board {
     private final int width;
     private final int height;
-    private int coins;
     private Castle castle;
     private TowerShop towerShop;
     private List<Tower> towers;
-    private List<Enemy> enemies;
     private List<Path> paths;
+    private List<Enemy> enemies;
     private List<Grass> grasses;
     private Cursor cursor;
     private List<Sea> seas;
@@ -30,6 +29,7 @@ public class Board {
         this.towers = new ArrayList<>();
         this.cursor = new Cursor(36, 5);
         this.warning = new Warning(118,6, " ",0);
+        this.enemies = new ArrayList<>();
     }
 
     public int getWidth() {
@@ -49,10 +49,6 @@ public class Board {
 
     public List<Enemy> getEnemies() {
         return enemies;
-    }
-
-    public void setEnemies(List<Enemy> enemies) {
-        this.enemies = enemies;
     }
 
     public boolean isEnemy (Position position) {
@@ -78,9 +74,17 @@ public class Board {
         return grasses;
     }
 
+    public boolean isGrass(Position position) {
+        for (Grass grass : grasses)
+            if (grass.getPosition().getX() == position.getX() && grass.getPosition().getY() == position.getY())
+                return true;
+        return false;
+    }
+
     public void setGrass (List<Grass> grasses) {
         this.grasses = grasses;
     }
+
 
     public List<Sea> getSea() {
         return seas;
@@ -96,6 +100,10 @@ public class Board {
         return towerShop;
     }
 
+    public void setEnemies(List<Enemy> enemies) {
+        this.enemies = enemies;
+    }
+
     public Cursor getCursor() {
         return cursor;
     }
@@ -103,4 +111,5 @@ public class Board {
     public Warning getWarning() {
         return warning;
     }
+
 }

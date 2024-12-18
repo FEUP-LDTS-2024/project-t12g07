@@ -8,21 +8,23 @@ public class Castle extends Element {
         super(x, y);
         this.gemstones = FULL_VAULT;
         this.castleArt = new String[] {
-                "               T~~",
-                "               |",
-                "              /\"\\",
-                "      T~~     |'| T~~",
-                "  T~~ |    T~ WWWW|",
-                "  |  /\"\\   |  |  |/\\T~~",
-                " /\"\\ WWW  /\"\\ |' |WW|",
-                "WWWWW/\\| /   \\|'/\\|/\"\\",
-                "|   /__\\/]WWW[\\/__\\WWWW",
-                "|\"  WWWW'|I_I|'WWWW'  |",
-                "|   |' |/  -  \\|' |'  |",
-                "|'  |  |LI=H=LI|' |   |",
-                "|   |' | |[_]| |  |'  |",
-                "|   |  |_|###|_|  |   |",
-                "'---'--'-/___\\-'--'---'"
+                "               T~~      "       ,
+                "               |        "         ,
+                "              /\"\\      "      ,
+                "      T~~     |'| T~~   "    ,
+                "  T~~ |    T~ WWWW|     "      ,
+                "  |  /\"\\   |  |  |/\\T~~ ",
+                " /\"\\ WWW  /\"\\ |' |WW|   ",
+                "WWWWW/\\| /   \\|'/\\|/\"\\ ",
+                "|   /__\\/]WWW[\\/__\\WWWW ",
+                "|\"  WWWW'|I_I|'WWWW'  | ",
+                "|   |' |/  -  \\|' |'  | ",
+                "|'  |  |LI=H=LI|' |   | ",
+                "|   |' | |[_]| |  |'  | ",
+                "|   |  |_|###|_|  |   | ",
+                "'---'--'-/___\\-'--'---' ",
+                "                        ",
+                "                        "
         };
     }
 
@@ -32,5 +34,9 @@ public class Castle extends Element {
 
     public String[] getCastleArt() {
         return castleArt;
+    }
+
+    public void stealing(int sacking){
+        this.gemstones -= sacking;
     }
 }

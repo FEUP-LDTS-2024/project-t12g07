@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EnemyController extends GameController{
-    public List<Enemy> enemies ;
+public class EnemyController extends GameController {
+    private List<Enemy> enemies;
     private long lastMovement;
     private final Board board;
     private final Wave wave;
@@ -24,16 +24,18 @@ public class EnemyController extends GameController{
         this.board = board;
         this.enemies = new ArrayList<>();
         this.lastMovement = 0;
-        this.wave= new Wave();
+        this.wave = new Wave();
     }
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMovement > 500) {
+        // Check if enough time has passed (500ms) before moving enemies again
+        if (time - lastMovement > 800) {
             moveEnemies();
-            wave.updateWave();
+  // Update the wave's progress
             if (enemies.isEmpty()) {
-
+                wave.updateWave();
+                // If no enemies are left, spawn new ones for the next wave
                 wave.spawn(wave.getWave());
                 List<Enemy> newEnemies = wave.getEnemyList();
                 board.setEnemies(newEnemies);
@@ -45,15 +47,25 @@ public class EnemyController extends GameController{
     }
 
 
+    // Move all enemies and remove dead ones
     public void moveEnemies() {
         List<Enemy> deadEnemies = new ArrayList<>();
         for (Enemy enemy : enemies) {
             enemy.moveEnemies(enemy);
+            // Move each enemy (no need to pass enemy as argument)
 
+            // If the enemy is dead, add it to the dead list
             if (enemy.isDead()) {
+                enemy.getReward();
+                deadEnemies.add(enemy);
+            }
+
+            if (enemy.getPosition().getX() == 90 && enemy.getPosition().getY() == 30){
+                getModel().getCastle().stealing(enemy.getSacking());
                 deadEnemies.add(enemy);
             }
         }
+        // Remove dead enemies from the list
         enemies.removeAll(deadEnemies);
     }
 }

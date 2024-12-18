@@ -18,7 +18,7 @@ public class TowerShop extends Element{
     public TowerShop(int x, int y) {
         super(x, y);
         this.entries = Arrays.asList("Wood Tower", "Stone Tower", "Metal Tower");
-        this.money = 100;
+        this.money = 30;
         this.TowerShopArt1 = new String[] {
                 "┌┐┌┐┌┐",
                 "├┘└┘└┤",
@@ -93,6 +93,10 @@ public class TowerShop extends Element{
             return true;
         }
         return false;
+    }
+
+    public void addReward(int reward){
+        this.money += reward;
     }
 
     public String[] getTowerShopArt1() {

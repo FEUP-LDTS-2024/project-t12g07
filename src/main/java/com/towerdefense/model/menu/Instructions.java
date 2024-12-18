@@ -6,7 +6,9 @@ import java.util.List;
 public class Instructions {
     private final List<String> title;
     private final List<String> entries;
+    private final List<String> controlentries;
     private final String back;
+    private final String controlTitle;
 
     public Instructions() {
         this.title = Arrays.asList(
@@ -18,6 +20,10 @@ public class Instructions {
         this.entries = Arrays.asList("Your castle is in danger!", "Vicious enemies want to steal all your gemstones.",
                 "Place defense towers to defeat them before your vault", "is empty.");
         this.back = "Press ESC to go back to the menu";
+        this.controlentries = Arrays.asList("Change tower type: T",
+                "Place tower: ENTER", "Select tower place: UP,DOWN,LEFT,RIGHT");
+        this.controlTitle = "Controls:";
+
     }
     public String getTitle(int i){
         return title.get(i);
@@ -35,4 +41,16 @@ public class Instructions {
     public String getBack() {
         return back;
     }
+
+    public String getControlTitle() {
+        return controlTitle;
+    }
+
+    public String getControlEntries(int i){
+        return controlentries.get(i);
+    }
+    public int getControlEntriesSize(){
+        return this.controlentries.size();
+    }
+
 }
