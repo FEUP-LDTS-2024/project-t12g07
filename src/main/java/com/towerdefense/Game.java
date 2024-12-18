@@ -26,6 +26,7 @@ public class Game {
         this.state = state;
     }
 
+
     private void start() throws IOException {
         int FPS = 10;
         int frameTime = 1000 / FPS;
