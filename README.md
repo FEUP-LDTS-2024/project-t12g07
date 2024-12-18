@@ -69,7 +69,7 @@ O *state pattern* permite então que o jogo altere o seu comportamento de uma ma
 O MVC organiza a nossa aplicação em três componentes principais de forma a separar responsabilidades, contribuindo assim para a modularidade do código e facilitando a manutenção deste. Este padrão arquitetural é frequentemente usado em interfaces que aplicam o GUI.
 Assim, o MVC divide o código em três camadas essenciais: Model, View e Controller. O Model funciona como ponte entre as outras duas camadas, e trabalha com a lógica do programa, armazenando no seu interior o comportamento dos dados. O View, por sua vez, é a camada onde os dados do Model são revelados. Este nível também pode provocar interações com o usuário, quando associada à terceira camada: Controller. É neste terceiro elemento que as ações do usuário para com a interface assumem uma maior importância, sendo enviadas para o Model e o View, de modo a atualizar o estado de ambos através das operações necessárias.
 
-![Diagrama sem nome drawio](https://github.com/user-attachments/assets/f53cece6-921d-426a-ae04-8261214215e3)
+![MVC](https://github.com/user-attachments/assets/102fa2b3-a609-4f82-8b6b-5b6c43ffd49b)
 
 No caso do código de Gemstone Guardians, as funcionalidades dos três elementos seriam as seguintes:
 
@@ -82,7 +82,23 @@ A camada *View* é a responsável pela apresentação dos dados ao jogador. Assi
 #### CONTROLLER
 Esta terceira camada é responsável pela recepção de informações por parte do jogador, transmitindo-as aos outros dois componentes do padrão arquitetural MVC de modo a que estes sofram as devidas alterações conforme os dados introduzidos. Assim, no contexto de Gemstone Guardians, o *controller* estaria encarregue de processar os cliques correspondentes aos movimentos do cursor e colocação das torres por parte do usuário, e de sincronizar as interações entre o *Model* e o *View*, de forma a atualizar o estado do jogo sempre que um inimigo (ou o próprio jogador) seja derrotado, por exemplo.
 
+### PRINCÍPIOS SOLID E O SEU PAPEL NO NOSSO PROJETO
+A presença dos princípios SOLID mostrou-se bastante útil para o desenvolvimento deste projeto. A correta aplicação destes contribuiu para a melhoria da organização do código e, se necessário, facilita no ato de manutenção do código.
 
+#### SRP (SINGLE RESPONSIBILITY PRINCIPLE)
+Através do uso deste princípio, cada uma das classes presentes possui apenas uma única tarefa. Assim sendo, a classe acabará por ter apenas um motivo para ser alterada futuramente, uma vez que todas as suas eventuais alterações estarão ligadas à sua única tarefa. A aplicação deste princípio leva a uma maior clareza do código.
+
+#### OCP (OPEN-CLOSED PRINCIPLE) 
+Ao evitar mudar o código-fonte original, apenas estendendo o seu comportamento através da criação de novas funcionalidades por meio da extensão de classe ou da adição de novos módulos, somos capazes de adicionar novos tipos de torres ou de inimigos, sem a necessidade de alterar o código já existente.
+
+#### LSP (LISKOV SUBSTITUTION PRINCIPLE)
+O princípio da substituição de Liskov defende que, se uma certa classe se trata de uma subclasse de outra, então os objetos da classe principal podem facilmente ser substituídos por objetos da subclasse sem que o devido funcionamento do programa seja perturbado. Na nossa aplicação, este princípio faz com que os tipos específicos de torre funcionem sem problemas quando aplicados no lugar da classe base.
+
+#### ISP (INTERFACE SEGREGATION PRINCIPLE)
+Por sua vez, o princípio da segregação de interfaces defende que nenhuma classe deve depender de métodos dos quais não precisa. Assim, conseguimos evitar que o programa possua interfaces extremamente grandes, uma vez que se foca apenas no necessário.
+
+#### DIP (DEPENDENCY INVERSION PRINCIPLE)
+Por fim, o princípio da inversão de dependência depende que uma classe não deve ser dependente de uma subclasse, implicando que ambas devem depender de abstrações. Com isto, o DIP permite que o código seja alterado mais facilmente, sem correr riscos de ter algum tipo de problema.
 
 
 
