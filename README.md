@@ -34,10 +34,12 @@ Todas as features discutidas antes do desenvolvimento do jogo conseguiram ser im
 (...print do menu...)
 (...print do game over...)
 
+
 ## USO DE GUI
 Uma GUI (Graphical User Interface) trata-se de um tipo de interface visual que permite a interação de um usuário com um sistema através do uso de mecanismos gráficos tais como botões, janelas, ícones e menus. Por mais que este tipo de interface acabe por exigir mais recursos do sistema e tenha um processo de desenvolvimento mais demorado, podemos afirmar que as vantagens da sua utilização acabam por compensar os seus eventuais defeitos. 
 Ao recorrer ao uso deste tipo de interface, sentimos que somos capazes de melhorar a qualidade da experiência do usuário ao utilizar a nossa aplicação. A navegação pelo programa torna-se mais intuitiva e simples, facilitando um acesso mais abrangente ao público. Através da aplicação de uma interface deste tipo, somos também capazes de obter um melhor resultado estético.
 No entanto, a adoção de uma GUI também exige a aplicação de alguns padrões de design no código, com a finalidade de organizar a sua estrutura e facilitar o nosso processo de desenvolvimento.
+
 
 ## DESIGN 
 A presença de design patterns mostra-se cada vez mais essencial no processo de desenvolvimento de software, uma vez que o uso destes é capaz de fornecer soluções reutilizáveis para problemas comuns de código. Assim, de maneira a melhorar a eficiência do nosso código, recorremos ao uso de alguns.
@@ -82,6 +84,7 @@ A camada *View* é a responsável pela apresentação dos dados ao jogador. Assi
 #### CONTROLLER
 Esta terceira camada é responsável pela recepção de informações por parte do jogador, transmitindo-as aos outros dois componentes do padrão arquitetural MVC de modo a que estes sofram as devidas alterações conforme os dados introduzidos. Assim, no contexto de Gemstone Guardians, o *controller* estaria encarregue de processar os cliques correspondentes aos movimentos do cursor e colocação das torres por parte do usuário, e de sincronizar as interações entre o *Model* e o *View*, de forma a atualizar o estado do jogo sempre que um inimigo (ou o próprio jogador) seja derrotado, por exemplo.
 
+
 ### PRINCÍPIOS SOLID E O SEU PAPEL NO NOSSO PROJETO
 A presença dos princípios SOLID mostrou-se bastante útil para o desenvolvimento deste projeto. A correta aplicação destes contribuiu para a melhoria da organização do código e, se necessário, facilita no ato de manutenção do código.
 
@@ -101,20 +104,25 @@ Por sua vez, o princípio da segregação de interfaces defende que nenhuma clas
 Por fim, o princípio da inversão de dependência depende que uma classe não deve ser dependente de uma subclasse, implicando que ambas devem depender de abstrações. Com isto, o DIP permite que o código seja alterado mais facilmente, sem correr riscos de ter algum tipo de problema.
 
 
+## CODE SMELLS
+Um code smell trata-se de uma característica num código-fonte que pode indicar um problema tanto estrutural como de qualidade. Embora nem sempre possa significar um erro ou um bug direto, costuma apontar para algo que pode dificultar a manutenção, a leitura ou a evolução do código.
+
+(...indicar a presença ou a falta de code smells no produto final…)
+
+
+## TABELA COM O RELATÓRIO DE COBERTURA DO CÓDIGO
+(...inserir o relatório de cobertura do código...)
+
+
+## RELATÓRIO DE PITEST
+(...inserir o relatório de pitest...)
+
+
 
 -!-
 
-
-**DOCUMENTATION:**
-Usar os princípios SOLID no noss jogo de tower defense melhora a organização e facilita a manutenção do código. 
-- Com o SRP, cada classe tem uma única responsabilidade, tornando o sistema mais claro.
-- O OCP permite adicionar novos tipos de torres ou inimigos sem alterar o código existente.
-- O LSP garante que subclasses, como torres específicas, funcionem sem problemas no lugar das classes base.
-- O ISP evita interfaces excessivamente grandes, focando apenas no necessário.
-- Já o DIP promove flexibilidade ao depender de abstrações, facilitando mudanças e expansões no projeto.
-  ![LDTS drawio (1)](https://github.com/user-attachments/assets/ccce81fb-dc85-46ab-bd50-d2062c428379)
-
-  
+### GALERIA DA PRIMEIRA ENTREGA
+![LDTS drawio (1)](https://github.com/user-attachments/assets/ccce81fb-dc85-46ab-bd50-d2062c428379) 
 **MOCKUPS:**
 ![image](https://github.com/user-attachments/assets/9ef6f508-f019-4131-ba1b-40274a868b25)
 ![image](https://github.com/user-attachments/assets/b1eeef2e-a5be-4853-8a00-57d514041008)
