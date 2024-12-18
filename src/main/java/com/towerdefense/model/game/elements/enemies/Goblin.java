@@ -15,6 +15,5 @@ public class Goblin extends Enemy {
                 "o/│\\o",
                 "_/ \\_",
         };
-        this.color = TextColor.ANSI.GREEN;
     }
 }

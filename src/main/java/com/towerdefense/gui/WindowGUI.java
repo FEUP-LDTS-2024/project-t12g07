@@ -113,7 +113,7 @@ public class WindowGUI implements GUI {
 
     @Override
     public void drawEnemy(Position position, Enemy enemy) {
-        drawCharacter(position.getX(), position.getY(), enemy.getEnemyArt(), "#CC0000","#a6a6a6");
+        drawCharacter(position.getX(), position.getY(), enemy.getEnemyArt(), enemy.getColor(), "#a6a6a6");
     }
 
     @Override
