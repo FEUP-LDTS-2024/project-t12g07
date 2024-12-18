@@ -39,6 +39,18 @@ Uma GUI (Graphical User Interface) trata-se de um tipo de interface visual que p
 Ao recorrer ao uso deste tipo de interface, sentimos que somos capazes de melhorar a qualidade da experiência do usuário ao utilizar a nossa aplicação. A navegação pelo programa torna-se mais intuitiva e simples, facilitando um acesso mais abrangente ao público. Através da aplicação de uma interface deste tipo, somos também capazes de obter um melhor resultado estético.
 No entanto, a adoção de uma GUI também exige a aplicação de alguns padrões de design no código, com a finalidade de organizar a sua estrutura e facilitar o nosso processo de desenvolvimento.
 
+## DESIGN 
+A presença de design patterns mostra-se cada vez mais essencial no processo de desenvolvimento de software, uma vez que o uso destes é capaz de fornecer soluções reutilizáveis para problemas comuns de código. Assim, de maneira a melhorar a eficiência do nosso código, recorremos ao uso de alguns.
+
+### FACTORY METHOD PATTERN
+Apesar de se tratar de um padrão de design criacional (definindo interfaces com a capacidade de criar objetos), o *factory method* permite que as subclasses decidam qual das classes querem instanciar. Assim, ajuda a promover a flexibilidade do código e contribui para um dos princípios SOLID, o OCP.
+
+— o design pattern em questão pode ser encontrado em  [WindowGUI](https://github.com/FEUP-LDTS-2024/project-t12g07/blob/master/src/main/java/com/towerdefense/gui/WindowGUI.java)
+
+![Factory Method](https://github.com/user-attachments/assets/b66142ee-ba16-47e8-b5bd-4d403b990a5b)
+
+Neste exemplo, o método createTerminal() contém a lógica por detrás da criação do objeto Terminal, que a classe WindowGUI usará para desenhar o mapa na tela do computador do usuário. Este faz a configuração e a criação do terminal: ou seja, define o seu tamanho inicial e cria a instância do terminal com as configurações que lhe foram fornecidas. Este design pattern contribui ainda para a abstração de detalhes técnicos, uma vez que a classe que chama o método createTerminal() não necessita de saber qual é que é a configuração interna do terminal.
+
 
 -!-
 
