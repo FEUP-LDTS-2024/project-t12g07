@@ -29,7 +29,7 @@ O mapa de Gemstone Guardians conta com uma zona rochosa, a qual os inimigos perc
 Todas as features discutidas antes do desenvolvimento do jogo conseguiram ser implementadas, com a exceção de um sistema de níveis, onde o jogador seria capaz de progredir através de 3 níveis diferentes, com diversos níveis de dificuldade.
 
 ## GALERIA
-(...print das instruções...)
+![image](https://github.com/user-attachments/assets/9012714b-4905-40e8-b5fd-d965a4e38402)
 (...print do level...)
 (...print do menu...)
 (...print do game over...)
@@ -50,6 +50,40 @@ Apesar de se tratar de um padrão de design criacional (definindo interfaces com
 ![Factory Method](https://github.com/user-attachments/assets/b66142ee-ba16-47e8-b5bd-4d403b990a5b)
 
 Neste exemplo, o método createTerminal() contém a lógica por detrás da criação do objeto Terminal, que a classe WindowGUI usará para desenhar o mapa na tela do computador do usuário. Este faz a configuração e a criação do terminal: ou seja, define o seu tamanho inicial e cria a instância do terminal com as configurações que lhe foram fornecidas. Este design pattern contribui ainda para a abstração de detalhes técnicos, uma vez que a classe que chama o método createTerminal() não necessita de saber qual é que é a configuração interna do terminal.
+
+### STATE PATTERN
+A utilização deste padrão comportamental permite que um objeto seja capaz de alterar o seu comportamento aquando da alteração do seu estado interno. Através da organização dos estados em classes separadas, promove tanto a flexibilidade e a organização do código, como o OCP, tal como o padrão anteriormente referido.
+
+— o design pattern em questão pode ser encontrado nem qualquer uma das primeiras quatro classes de [states](https://github.com/FEUP-LDTS-2024/project-t12g07/tree/master/src/main/java/com/towerdefense/states)
+
+Por exemplo, a classe GameOverState representa um estado específico de “Game Over”, tratando-se de uma extensão da classe State<T>. A classe em questão possui métodos que fornecem componentes específicos do estado (denominados como *GameOverController* e *GameOverViewer*). Assim sendo, o design utilizado implica que esta aplicação usa objetos derivados da classe principal para determinar o seu comportamento conforme o estado atual.
+
+![state pattern](https://github.com/user-attachments/assets/9f6d3903-b23f-482c-a714-3a5a51a85ffc)
+
+— exemplo dado pode ser encontrado em [GameOverState](https://github.com/FEUP-LDTS-2024/project-t12g07/blob/master/src/main/java/com/towerdefense/states/GameOverState.java)
+
+Assim, no contexto da nossa aplicação, com o *state pattern* somos capazes de gerenciar os diferentes estados do jogo, sabendo que cada estado tem um modelo próprio e que implementa comportamentos específicos através dos seus *controllers* e *viewers*. O *state pattern* facilita também a extensão do código, uma vez que, se necessário adicionar um novo estado, basta apenas criar novas classes que sejam derivadas da classe State<T>.
+O *state pattern* permite então que o jogo altere o seu comportamento de uma maneira simples e eficiente, facilitando a adição de novos estados sem a constante necessidade de atualizar o código já existente.
+
+### MVC
+O MVC organiza a nossa aplicação em três componentes principais de forma a separar responsabilidades, contribuindo assim para a modularidade do código e facilitando a manutenção deste. Este padrão arquitetural é frequentemente usado em interfaces que aplicam o GUI.
+Assim, o MVC divide o código em três camadas essenciais: Model, View e Controller. O Model funciona como ponte entre as outras duas camadas, e trabalha com a lógica do programa, armazenando no seu interior o comportamento dos dados. O View, por sua vez, é a camada onde os dados do Model são revelados. Este nível também pode provocar interações com o usuário, quando associada à terceira camada: Controller. É neste terceiro elemento que as ações do usuário para com a interface assumem uma maior importância, sendo enviadas para o Model e o View, de modo a atualizar o estado de ambos através das operações necessárias.
+
+![Diagrama sem nome drawio](https://github.com/user-attachments/assets/f53cece6-921d-426a-ae04-8261214215e3)
+
+No caso do código de Gemstone Guardians, as funcionalidades dos três elementos seriam as seguintes:
+
+#### MODEL
+Sendo responsável pelo armazenamento de dados do jogo, esta camada guardaria informações tais como o estado do jogo (detalhes como quantas moedas o jogador tem na partida, por exemplo), detalhes sobre as torres (quantos tipos estão disponíveis e quais os atributos de cada um destes), atributos dos inimigos (tais como o dano que estes fazem ao grande castelo e a quantidade de ponto de vida que possuem), dados sobre o mapa e o seu layout e regras básicas do jogo.
+
+#### VIEW
+A camada *View* é a responsável pela apresentação dos dados ao jogador. Assim sendo, este elemento ficaria encarregue da renderização de elementos da aplicação tais como o mapa, as torres e os inimigos, da exibição dos dados sobre o estado atual do jogador (pontos de vida do castelo e quantas moedas possui no momento, por exemplo), e da representação visual de ações tais como o deslocamento dos inimigos em direção ao grande castelo.
+
+#### CONTROLLER
+Esta terceira camada é responsável pela recepção de informações por parte do jogador, transmitindo-as aos outros dois componentes do padrão arquitetural MVC de modo a que estes sofram as devidas alterações conforme os dados introduzidos. Assim, no contexto de Gemstone Guardians, o *controller* estaria encarregue de processar os cliques correspondentes aos movimentos do cursor e colocação das torres por parte do usuário, e de sincronizar as interações entre o *Model* e o *View*, de forma a atualizar o estado do jogo sempre que um inimigo (ou o próprio jogador) seja derrotado, por exemplo.
+
+
+
 
 
 -!-
