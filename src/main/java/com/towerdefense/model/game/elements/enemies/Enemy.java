@@ -15,9 +15,8 @@ public abstract class Enemy extends Element {
     protected int sacking;
     protected int health;
     String[] enemyArt;
-    protected TextColor color;
+    protected String color;
     protected List<Position> path;
-
 
     public Enemy(int x, int y) {
         super(x,y);
@@ -59,13 +58,22 @@ public abstract class Enemy extends Element {
         this.path.add(new Position(72,30));
         this.path.add(new Position(78,30));
         this.path.add(new Position(90,30));
+
+        int sim = 1 + (int) (Math.random() * 3); // Generates 1, 2, or 3
+        if (sim == 1) {
+            this.color = "#ff0000" ;
+        } else if (sim == 2) {
+            this.color = "#ab1313";
+        } else {
+            this.color = "#801818";
+        }
     }
 
     public String[] getEnemyArt() {
         return enemyArt;
     }
 
-    public TextColor getColor() {
+    public String getColor() {
         return color;
     }
 
@@ -110,4 +118,12 @@ public abstract class Enemy extends Element {
     public boolean isDead() {
         return isDead;
     }
+
+    public void takeDamage(int towerDamage) {
+        this.health -= towerDamage;
+        if (health <= 0){
+            this.isDead = true;
+        }
+    }
+
 }

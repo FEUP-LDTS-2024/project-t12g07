@@ -8,13 +8,12 @@ public class Goblin extends Enemy {
         super(x, y);
         this.health = 30;
         this.reward = 5;
-        this.sacking = 30;
+        this.sacking = 20;
         this.enemyArt = new String[]{
                 "┐   ┌",
                 "(OwO)",
                 "o/│\\o",
                 "_/ \\_",
         };
-        this.color = TextColor.ANSI.GREEN;
     }
 }
