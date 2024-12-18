@@ -1,7 +1,8 @@
 package com.towerdefense.model.game.board;
 
-import com.towerdefense.model.game.board.BoardBuilder;
-import com.towerdefense.model.game.elements.enemies.Enemy;
+import com.towerdefense.model.game.elements.Grass;
+import com.towerdefense.model.game.elements.Path;
+import com.towerdefense.model.game.elements.Sea;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -45,5 +46,42 @@ public class LoaderBoardBuilder extends BoardBuilder {
 
 
 
+    @Override
+    protected List<Grass> createGrass() {
+        List<Grass> grass = new ArrayList<>();
+
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'G') grass.add(new Grass(x, y));
+        }
+
+        return grass;
+    }
+
+    @Override
+    protected List<Sea> createSea() {
+        List<Sea> sea = new ArrayList<>();
+
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'S') sea.add(new Sea(x, y));
+        }
+
+        return sea;
+    }
+
+    @Override
+    protected List<Path> createPath() {
+        List<Path> path = new ArrayList<>();
+
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'P') path.add(new Path(x, y));
+        }
+        return path;
+    }
 
 }

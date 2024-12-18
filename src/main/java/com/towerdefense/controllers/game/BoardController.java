@@ -13,23 +13,29 @@ import java.io.IOException;
 public class BoardController extends GameController{
     private final TowerController towerController;
     private final EnemyController enemyController;
+    private final TowerShopController towerShopController;
+    private final CursorController cursorController;
 
     public BoardController(Board board) {
         super(board);
         this.towerController = new TowerController(board);
         this.enemyController = new EnemyController(board);
+        this.towerShopController = new TowerShopController(board);
+        this.cursorController = new CursorController(board);
     }
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.QUIT)
             game.setState(new MenuState(new Menu()));
-        else if (getModel().getCastle().getWealth() == 0)
+        else if (getModel().getCastle().getWealth() <= 0)
             game.setState(new GameOverState(new GameOver()));
         else {
             try {
                 towerController.step(game, action, time);
                 enemyController.step(game, action, time);
+                towerShopController.step(game, action, time);
+                cursorController.step(game, action, time);
             } catch (Exception e) {
                 e.printStackTrace(); // Handle the exception or log it
             }

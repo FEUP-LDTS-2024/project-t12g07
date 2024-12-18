@@ -11,10 +11,8 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.towerdefense.model.Position;
-import com.towerdefense.model.game.elements.Castle;
-import com.towerdefense.model.game.elements.Grass;
-import com.towerdefense.model.game.elements.Path;
-import com.towerdefense.model.game.elements.Sea;
+import com.towerdefense.model.game.elements.*;
+import com.towerdefense.model.game.elements.Cursor;
 import com.towerdefense.model.game.elements.enemies.Enemy;
 import com.towerdefense.model.game.elements.towers.Tower;
 
@@ -58,16 +56,16 @@ public class WindowGUI implements GUI {
         return terminal;
     }
 
-    private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
-        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
-        File fontFile = new File(resource.toURI());
-        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+    private AWTTerminalFontConfiguration loadSquareFont() throws FontFormatException, IOException {
+        // Use system-installed Consolas font
+        Font font = new Font("Consolas", Font.PLAIN, 19);
 
+        // Ensure the font is registered in the graphics environment (not always necessary for built-in fonts)
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN, 25);
-        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
+        // Configure the terminal to use the Consolas font
+        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(font);
         return fontConfig;
     }
 
@@ -97,32 +95,40 @@ public class WindowGUI implements GUI {
 
     @Override
     public void drawTower(Position position, Tower tower) {
-        drawCharacter(position.getX(), position.getY(), tower.getTowerArt(), "#FFD700");
+        drawCharacter(position.getX(), position.getY(), tower.getTowerArt(), tower.getColor(), "#a5d179");
     }
 
     @Override
     public void drawCastle(Position position, Castle castle) {
-        drawCharacter(position.getX(), position.getY(), castle.getCastleArt(), "#FFD700");
+        drawCharacter(position.getX(), position.getY(), castle.getCastleArt(), "#474747", "#a5d179");
+    }
+
+    @Override
+    public void drawTowerShop(Position position, TowerShop towerShop) {
+        drawCharacter(position.getX(), position.getY(), towerShop.getSideBarArt(), "#FFFFFF", "BLACK");
+        drawCharacter(position.getX() + 4, position.getY() + 8 , towerShop.getTowerShopArt1(), "#9e5c2c", "BLACK");
+        drawCharacter(position.getX() + 4, position.getY() + 15, towerShop.getTowerShopArt2(), "#454444", "BLACK");
+        drawCharacter(position.getX() + 4, position.getY() + 22 , towerShop.getTowerShopArt3(), "#5f767a", "BLACK");
     }
 
     @Override
     public void drawEnemy(Position position, Enemy enemy) {
-        drawCharacter(position.getX(), position.getY(), enemy.getEnemyArt(), "#CC0000");
+        drawCharacter(position.getX(), position.getY(), enemy.getEnemyArt(), enemy.getColor(), "#a6a6a6");
     }
 
     @Override
     public void drawPath(Position position, Path path) {
-        drawCharacter(position.getX(), position.getY(), path.getPathArt(), "#CC0000");
+        drawCharacter(position.getX(), position.getY(), path.getPathArt(), "#7f807e","#a6a6a6");
     }
 
     @Override
     public void drawGrass(Position position, Grass grass) {
-        drawCharacter(position.getX(), position.getY(), grass.getGrassArt(), "#CC0000");
+        drawCharacter(position.getX(), position.getY(), grass.getGrassArt(), "#158f22", "#a5d179");
     }
 
     @Override
     public void drawSea(Position position, Sea sea) {
-        drawCharacter(position.getX(), position.getY(), sea.getSeaArt(), "#CC0000");
+        drawCharacter(position.getX(), position.getY(), sea.getSeaArt(), "#3884ff", "#79a1d1");
     }
 
     @Override
@@ -132,11 +138,19 @@ public class WindowGUI implements GUI {
         tg.putString(position.getX(), position.getY(), text);
     }
 
-    private void drawCharacter(int x, int y, String[] c, String color) {
+    private void drawCharacter(int x, int y, String[] c, String color, String backgroundColor) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y + 1, "" + c);
+        tg.setBackgroundColor(TextColor.Factory.fromString(backgroundColor)); // Set background color
+        for (int i = 0; i < c.length; i++) {
+            tg.putString(x, y + i + 1, c[i]); // Print each string on a new line
+        }
     }
+
+    public void drawCursor(Position position, Cursor cursor) {
+        drawCharacter(position.getX(), position.getY(), cursor.getCursorArt(), "#ff0000", "WHITE");
+    }
+
 
     public void clear() {
         screen.clear();

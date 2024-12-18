@@ -19,26 +19,30 @@ public class TowerController extends GameController {
     private final Board board;
     private boolean selected;
     private Position position;
+    long lastMovement;
     public TowerController(Board board) {
         super(board);
         this.board = board;
         this.towerList = new ArrayList<>();
         this.selected = false;
+        this.lastMovement = 0;
     }
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         for (Tower tower : board.getTowers()) {
-            try {
-                tower.update();
-            } catch (Exception e) {
-                e.printStackTrace();
+
+            if (time - lastMovement > 100) {
+                ;
+                try {
+                    tower.update(getModel().getEnemies());
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
+            this.lastMovement = time;
         }
-        MetalTower metalTower;
-        StoneTower stoneTower;
-        WoodTower woodTower;
-        coins = getModel().getCoins();
     }
 
     public List<Tower> getTowerList() {

@@ -7,17 +7,15 @@ public class Giant extends Enemy {
         super(x, y);
         this.health = 150;
         this.reward = 50;
-        this.sacking = 30;
+        this.sacking = 100;
         this.enemyArt = new String[]{
                 "   ┐ ┌",
                 "   (0)",
                 "  _/v\\",
                 " //   \\\\",
-                "/(     )\\",
                 "\\ \\_ _/ /",
                 "  // \\\\",
                 "└──   ──┘"
         };
-        this.color = TextColor.ANSI.RED;
     }
 }

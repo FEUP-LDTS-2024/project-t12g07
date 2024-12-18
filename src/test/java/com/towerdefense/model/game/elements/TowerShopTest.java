@@ -8,7 +8,7 @@ public class TowerShopTest {
 
     @BeforeEach
     public void setUp() {
-        towerShop = new TowerShopTest(20)// Começa com 100 coins
+        towerShop = new TowerShopTest(20);// Começa com 100 coins
     }
 
     @Test

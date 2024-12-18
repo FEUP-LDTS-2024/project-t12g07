@@ -4,17 +4,16 @@ import com.googlecode.lanterna.TextColor;
 public class WoodTower extends Tower {
     public WoodTower(int x, int y) {
         super(x, y);
-        this.damage = 10;
+        this.damage = 5;
         this.towerArt = new String[] {
                 "┌┐┌┐┌┐",
                 "├┘└┘└┤",
-                "│x  x│",
                 "│x  x│",
                 "│ ┌┐ │",
                 "└─└┘─┘"
         };
 
-        this.color = TextColor.ANSI.WHITE;
+        this.color = "#9e5c2c";
         this.cost = 10;
     }
 }

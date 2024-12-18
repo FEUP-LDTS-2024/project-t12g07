@@ -1,30 +1,35 @@
 package com.towerdefense.model.game.board;
 
 import com.towerdefense.model.Position;
-import com.towerdefense.model.game.elements.Castle;
-import com.towerdefense.model.game.elements.Grass;
-import com.towerdefense.model.game.elements.Path;
-import com.towerdefense.model.game.elements.Sea;
+import com.towerdefense.model.game.elements.*;
 import com.towerdefense.model.game.elements.enemies.Enemy;
 import com.towerdefense.model.game.elements.towers.Tower;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
     private final int width;
     private final int height;
-    private int coins;
-
     private Castle castle;
-
+    private TowerShop towerShop;
     private List<Tower> towers;
+    private List<Path> paths;
     private List<Enemy> enemies;
-    private Path path;
-    private Grass grass;
-    private Sea sea;
+    private List<Grass> grasses;
+    private Cursor cursor;
+    private List<Sea> seas;
+    private Warning warning;
+
     public Board(int width, int height) {
         this.width = width;
         this.height = height;
+        this.castle = new Castle(90,18);
+        this.towerShop = new TowerShop(114, 0);
+        this.towers = new ArrayList<>();
+        this.cursor = new Cursor(36, 5);
+        this.warning = new Warning(118,6, " ",0);
+        this.enemies = new ArrayList<>();
     }
 
     public int getWidth() {
@@ -35,23 +40,18 @@ public class Board {
         return height;
     }
 
+
+    public void setTowers(List<Tower> towers) { this.towers = towers; }
+
     public List<Tower> getTowers() {
         return towers;
-    }
-
-    public void setTowers(List<Tower> towers) {
-        this.towers = towers;
     }
 
     public List<Enemy> getEnemies() {
         return enemies;
     }
 
-    public void setEnemies(List<Enemy> monsters) {
-        this.enemies = monsters;
-    }
-
-    public boolean isEnemy(Position position) {
+    public boolean isEnemy (Position position) {
         for (Enemy enemy : enemies)
             if (enemy.getPosition().equals(position))
                 return true;
@@ -62,20 +62,54 @@ public class Board {
         return castle;
     }
 
-    public int getCoins() {
-        return coins;
+    public List<Path> getPath() {
+        return paths;
     }
 
-    public Path getPath() {
-        return path;
+    public void setPath (List<Path> paths) {
+        this.paths = paths;
     }
 
-    public Grass getGrass() {
-        return grass;
+    public List<Grass> getGrass() {
+        return grasses;
     }
 
-    public Sea getSea() {
-        return sea;
+    public boolean isGrass(Position position) {
+        for (Grass grass : grasses)
+            if (grass.getPosition().getX() == position.getX() && grass.getPosition().getY() == position.getY())
+                return true;
+        return false;
+    }
+
+    public void setGrass (List<Grass> grasses) {
+        this.grasses = grasses;
+    }
+
+
+    public List<Sea> getSea() {
+        return seas;
+    }
+
+    public void setSea (List<Sea> seas) {
+        this.seas = seas;
+    }
+
+    public void setWarning (Warning warning) { this.warning = warning; }
+
+    public TowerShop getTowerShop() {
+        return towerShop;
+    }
+
+    public void setEnemies(List<Enemy> enemies) {
+        this.enemies = enemies;
+    }
+
+    public Cursor getCursor() {
+        return cursor;
+    }
+
+    public Warning getWarning() {
+        return warning;
     }
 
 }

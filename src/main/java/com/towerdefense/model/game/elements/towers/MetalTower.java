@@ -5,17 +5,16 @@ import com.googlecode.lanterna.TextColor;
 public class MetalTower extends Tower {
     public MetalTower(int x, int y) {
         super(x, y);
-        this.damage = 30;
+        this.damage = 20;
         this.towerArt = new String[] {
                 "▲┐┌┐┌▲",
                 "├┘└┘└┤",
-                "│x  x│",
                 "│▲──▲│",
                 "││┌┐││",
                 "└┘└┘└┘"
         };
 
-        this.color = TextColor.ANSI.MAGENTA;
+        this.color = "#5f767a";
         this.cost = 30;
     }
 }
