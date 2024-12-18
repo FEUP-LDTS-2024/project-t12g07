@@ -56,7 +56,8 @@ public class EnemyController extends GameController {
 
             // If the enemy is dead, add it to the dead list
             if (enemy.isDead()) {
-                enemy.getReward();
+                int reward = enemy.getReward();
+                getModel().getTowerShop().addReward(reward);
                 deadEnemies.add(enemy);
             }
 

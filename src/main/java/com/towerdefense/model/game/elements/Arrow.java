@@ -10,4 +10,5 @@ public class Arrow extends Element{
     public int getSpeed() {
         return speed;
     }
+
 }
