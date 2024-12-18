@@ -17,6 +17,5 @@ public class Giant extends Enemy {
                 "  // \\\\",
                 "└──   ──┘"
         };
-        this.color = TextColor.ANSI.RED;
     }
 }

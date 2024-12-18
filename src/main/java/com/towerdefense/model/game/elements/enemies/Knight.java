@@ -15,7 +15,6 @@ public class Knight extends Enemy {
                 "\\ /│\\ ",
                 "  / \\ ",
                 "  ┘ └ "
-        }; // ADICIONAR ARTE KNIGHT
-        this.color = TextColor.ANSI.BLUE;
+        };
     }
 }
