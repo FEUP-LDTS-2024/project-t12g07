@@ -10,12 +10,12 @@ public class Castle extends Element {
         this.castleArt = new String[] {
                 "               T~~      "       ,
                 "               |        "         ,
-                "              /\"\\      "      ,
+                "              /\"\\       "      ,
                 "      T~~     |'| T~~   "    ,
                 "  T~~ |    T~ WWWW|     "      ,
                 "  |  /\"\\   |  |  |/\\T~~ ",
                 " /\"\\ WWW  /\"\\ |' |WW|   ",
-                "WWWWW/\\| /   \\|'/\\|/\"\\ ",
+                "WWWWW/\\| /   \\|'/\\|/\"\\  ",
                 "|   /__\\/]WWW[\\/__\\WWWW ",
                 "|\"  WWWW'|I_I|'WWWW'  | ",
                 "|   |' |/  -  \\|' |'  | ",
@@ -23,6 +23,7 @@ public class Castle extends Element {
                 "|   |' | |[_]| |  |'  | ",
                 "|   |  |_|###|_|  |   | ",
                 "'---'--'-/___\\-'--'---' ",
+                "                        ",
                 "                        ",
                 "                        "
         };

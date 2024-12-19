@@ -30,12 +30,14 @@ public class TowerShopController extends GameController {
         if (getModel().isGrass(tower.getPosition())) {
             if (getModel().getTowerShop().purchaseTower(tower)) getModel().getTowers().add(tower);
             else {
-                Warning warning = new Warning(118, 6, "Not enough money!", 800);
+                String[] messages = { "Not enough money!" };
+                Warning warning = new Warning(117, 6, messages, 800, "#db1a00");
                 getModel().setWarning(warning);
             }
         }
         else {
-            Warning warning = new Warning(118, 6, "Build only on grass!", 800);
+            String[] messages = { "Can't place towers", "outside the grass!" };
+            Warning warning = new Warning(117, 7, messages, 800, "#db1a00");
             getModel().setWarning(warning);
         }
     }

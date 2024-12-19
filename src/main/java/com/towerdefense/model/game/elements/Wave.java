@@ -1,4 +1,4 @@
-package com.towerdefense.model;
+package com.towerdefense.model.game.elements;
 
 import com.towerdefense.model.game.elements.enemies.Enemy;
 import com.towerdefense.model.game.elements.enemies.Giant;
@@ -8,7 +8,7 @@ import com.towerdefense.model.game.elements.enemies.Knight;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Wave {
+public class Wave extends Element {
     private int wave = 0 ;
     private List<Enemy> enemyList;
 
@@ -18,7 +18,8 @@ public class Wave {
         return wave;
     }
 
-    public Wave(){
+    public Wave(int x, int y){
+        super(x,y);
         this.enemyList = new ArrayList<>();
         this.waveCompleted = false;
     }

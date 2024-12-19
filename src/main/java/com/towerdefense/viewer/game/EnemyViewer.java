@@ -8,5 +8,6 @@ public class EnemyViewer implements ElementViewer<Enemy> {
     public void draw(Enemy element, GUI gui) {
         gui.drawEnemy(element.getPosition(), element);
     }
+
 }
 
