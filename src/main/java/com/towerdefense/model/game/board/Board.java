@@ -24,11 +24,12 @@ public class Board {
     public Board(int width, int height) {
         this.width = width;
         this.height = height;
-        this.castle = new Castle(90,18);
+        this.castle = new Castle(90,22);
         this.towerShop = new TowerShop(114, 0);
         this.towers = new ArrayList<>();
-        this.cursor = new Cursor(36, 5);
-        this.warning = new Warning(118,6, " ",0);
+        this.cursor = new Cursor(54, 15);
+        String[] messages = { "" };
+        this.warning = new Warning(118,6, messages,0,"WHITE");
         this.enemies = new ArrayList<>();
     }
 

@@ -10,7 +10,7 @@ public class CastleViewer implements ElementViewer<Castle> {
         gui.drawCastle(castle.getPosition(), castle);
         String wealthText = "Vault: " + castle.getWealth();
         gui.drawText(
-                new Position(117,4), // Position below the castle art
+                new Position(117,4),
                 wealthText,
                 "#FFFFFF"
         );

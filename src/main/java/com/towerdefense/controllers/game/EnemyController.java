@@ -4,8 +4,9 @@ import com.towerdefense.Game;
 
 
 import com.towerdefense.gui.GUI;
-import com.towerdefense.model.Wave;
+import com.towerdefense.model.game.elements.Wave;
 import com.towerdefense.model.game.board.Board;
+import com.towerdefense.model.game.elements.Warning;
 import com.towerdefense.model.game.elements.enemies.Enemy;
 
 import java.io.IOException;
@@ -24,7 +25,28 @@ public class EnemyController extends GameController {
         this.board = board;
         this.enemies = new ArrayList<>();
         this.lastMovement = 0;
-        this.wave = new Wave();
+        this.wave = new Wave(140,20);
+    }
+
+    void tellWave() {
+        String[] messages;
+
+        switch (wave.getWave()) {
+            case 1:
+                messages = new String[]{ "CURRENT WAVE: " + wave.getWave()," ", "Watch out for the", "goblins!" };
+                break;
+            case 2:
+                messages = new String[]{ "CURRENT WAVE: " + wave.getWave()," ", "Act fast! Knights", "are approaching!" };
+                break;
+            case 3:
+                messages = new String[]{ "CURRENT WAVE: " + wave.getWave()," ", "Giants incoming! Be", "careful!" };
+                break;
+            default:
+                messages = new String[]{ "CURRENT WAVE: " + wave.getWave()," ", "Stay strong!" };
+                break;
+        }
+        Warning warning = new Warning(117, 8, messages, 1500, "#FFFFFF");
+        getModel().setWarning(warning);
     }
 
     @Override
@@ -40,6 +62,7 @@ public class EnemyController extends GameController {
                 List<Enemy> newEnemies = wave.getEnemyList();
                 board.setEnemies(newEnemies);
                 enemies = newEnemies;
+                tellWave();
             }
 
             this.lastMovement = time;
@@ -58,6 +81,9 @@ public class EnemyController extends GameController {
             if (enemy.isDead()) {
                 int reward = enemy.getReward();
                 getModel().getTowerShop().addReward(reward);
+                String[] messages = { "+" + reward };
+                Warning warning = new Warning(128, 2, messages, 300, "#3884ff");
+                getModel().setWarning(warning);
                 deadEnemies.add(enemy);
             }
 
@@ -68,5 +94,9 @@ public class EnemyController extends GameController {
         }
         // Remove dead enemies from the list
         enemies.removeAll(deadEnemies);
+
+
+
+
     }
 }

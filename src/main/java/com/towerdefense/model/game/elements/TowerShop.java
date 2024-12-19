@@ -78,6 +78,12 @@ public class TowerShop extends Element{
                 "│",
                 "│",
                 "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
+                "│",
                 "│"
         };
 
