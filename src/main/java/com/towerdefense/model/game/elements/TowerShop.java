@@ -121,7 +121,6 @@ public class TowerShop extends Element{
         return SideBarArt;
     }
 
-
     public void nextEntry() {
         currentEntry++;
         if (currentEntry > this.entries.size() - 1)

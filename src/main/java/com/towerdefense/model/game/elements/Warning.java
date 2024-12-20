@@ -1,8 +1,8 @@
 package com.towerdefense.model.game.elements;
 
 public class Warning extends Element {
-    private String[] messages; // Array of messages for multiple lines
-    private long duration; // Duration in milliseconds
+    private String[] messages;
+    private long duration;
     private long startTime;
     private String color;
 

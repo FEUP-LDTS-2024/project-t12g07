@@ -1,7 +1,5 @@
 package com.towerdefense.model.game.elements.enemies;
 
-import com.googlecode.lanterna.TextColor;
-
 public class Goblin extends Enemy {
 
     public Goblin(int x, int y) {

@@ -18,7 +18,6 @@ public class TowerController extends GameController {
     private final List<Tower> towerList;
     private final Board board;
     private boolean selected;
-    private Position position;
     long lastMovement;
     public TowerController(Board board) {
         super(board);

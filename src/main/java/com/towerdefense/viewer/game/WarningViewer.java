@@ -13,7 +13,7 @@ public class WarningViewer implements ElementViewer<Warning> {
             String[] messages = warning.getMessages();
             for (int i = 0; i < messages.length; i++) {
                 gui.drawText(
-                        new Position(x, y + i), // Adjust Y position for each line
+                        new Position(x, y + i),
                         messages[i],
                         warning.getColor()
                 );

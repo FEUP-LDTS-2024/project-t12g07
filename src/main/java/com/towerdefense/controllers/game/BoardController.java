@@ -37,7 +37,7 @@ public class BoardController extends GameController{
                 towerShopController.step(game, action, time);
                 cursorController.step(game, action, time);
             } catch (Exception e) {
-                e.printStackTrace(); // Handle the exception or log it
+                e.printStackTrace();
             }
         }
     }

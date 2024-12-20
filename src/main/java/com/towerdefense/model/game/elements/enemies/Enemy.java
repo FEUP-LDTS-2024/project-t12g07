@@ -59,7 +59,7 @@ public abstract class Enemy extends Element {
         this.path.add(new Position(78,30));
         this.path.add(new Position(90,30));
 
-        int sim = 1 + (int) (Math.random() * 3); // Generates 1, 2, or 3
+        int sim = 1 + (int) (Math.random() * 3);
         if (sim == 1) {
             this.color = "#ff0000" ;
         } else if (sim == 2) {

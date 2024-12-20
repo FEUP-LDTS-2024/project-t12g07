@@ -16,7 +16,6 @@ public class GameState extends State<Board> {
         return new GameViewer(getModel());
     }
 
-    @Override
     protected Controller<Board> getController() {
         return new BoardController(getModel());
     }

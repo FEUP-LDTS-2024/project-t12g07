@@ -64,9 +64,6 @@ public class Wave extends Element {
         return enemyList;
     }
 
-    public boolean isCompleted(){
-        return waveCompleted;
-    }
     public List<Enemy> getEnemyList() {
         return enemyList;
     }
