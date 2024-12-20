@@ -20,7 +20,7 @@ public abstract class Tower extends Element {
 
     public Tower(int x, int y) {
         super(x,y);
-        this.range = 10; // Default range, since it's the same for all towers
+        this.range = 10;
         this.cooldown = cooldown;
         this.cooldownTimer = 0;
     }
@@ -64,7 +64,7 @@ public abstract class Tower extends Element {
     private boolean isInRange(Enemy enemy) {
         int dx = enemy.getPosition().getX() - this.getPosition().getX();
         int dy = enemy.getPosition().getY() - this.getPosition().getY();
-        return Math.sqrt(dx * dx + dy * dy) <= range; // Distance check
+        return Math.sqrt(dx * dx + dy * dy) <= range;
     }
 
     private void attack(Enemy target) {

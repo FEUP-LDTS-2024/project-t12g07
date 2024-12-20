@@ -1,6 +1,5 @@
 package com.towerdefense.viewer.menu;
 
-import com.googlecode.lanterna.gui2.Window;
 import com.towerdefense.gui.GUI;
 import com.towerdefense.model.Position;
 import com.towerdefense.model.menu.GameOver;

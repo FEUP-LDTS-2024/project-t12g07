@@ -1,6 +1,5 @@
 package com.towerdefense.states;
 
-import com.googlecode.lanterna.gui2.Window;
 import com.towerdefense.controllers.Controller;
 import com.towerdefense.controllers.menu.GameOverController;
 import com.towerdefense.model.menu.GameOver;

@@ -16,7 +16,6 @@ public class CastleViewer implements ElementViewer<Castle> {
         );
 
 
-
         int currentWealth = castle.getWealth();
         double wealthRatio = (double) currentWealth / Castle.FULL_VAULT;
         int filledWidth = (int) (wealthRatio * 20);

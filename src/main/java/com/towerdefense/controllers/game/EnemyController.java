@@ -51,13 +51,11 @@ public class EnemyController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        // Check if enough time has passed (500ms) before moving enemies again
         if (time - lastMovement > 800) {
             moveEnemies();
-  // Update the wave's progress
+
             if (enemies.isEmpty()) {
                 wave.updateWave();
-                // If no enemies are left, spawn new ones for the next wave
                 wave.spawn(wave.getWave());
                 List<Enemy> newEnemies = wave.getEnemyList();
                 board.setEnemies(newEnemies);
@@ -70,14 +68,11 @@ public class EnemyController extends GameController {
     }
 
 
-    // Move all enemies and remove dead ones
     public void moveEnemies() {
         List<Enemy> deadEnemies = new ArrayList<>();
         for (Enemy enemy : enemies) {
             enemy.moveEnemies(enemy);
-            // Move each enemy (no need to pass enemy as argument)
 
-            // If the enemy is dead, add it to the dead list
             if (enemy.isDead()) {
                 int reward = enemy.getReward();
                 getModel().getTowerShop().addReward(reward);
@@ -92,11 +87,6 @@ public class EnemyController extends GameController {
                 deadEnemies.add(enemy);
             }
         }
-        // Remove dead enemies from the list
         enemies.removeAll(deadEnemies);
-
-
-
-
     }
 }
