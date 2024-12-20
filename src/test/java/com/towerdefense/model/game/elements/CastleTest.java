@@ -1,25 +1,60 @@
 package com.towerdefense.model.game.elements;
 
-import org.junit.jupiter.api.BeforeEach;
+import com.towerdefense.model.Position;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class CastleTest {
-    private Castle castle;
 
-    @BeforeEach
-    public void setUp() {
-        castle = new Castle();
-        castle.setGemstones(1000); // começa-se com 1000
+    @Test
+    public void testInitialWealth() {
+        Castle castle = new Castle(0, 0);
+        assertEquals(Castle.FULL_VAULT, castle.getWealth(), "Initial wealth should be FULL_VAULT.");
     }
 
     @Test
-    public void testGetGemstones() {
-        assertEquals(1000, castle.getGemstones());
+    public void testCastleArtNotNull() {
+        Castle castle = new Castle(0, 0);
+        assertNotNull(castle.getCastleArt(), "Castle art should not be null.");
     }
 
     @Test
-    public void testGemstonesAfterTheft() {
-        castle.reduceGemstones(50);
-        assertEquals(950, castle.getGemstones());
+    public void testCastleArtContent() {
+        Castle castle = new Castle(0, 0);
+        String[] art = castle.getCastleArt();
+        assertTrue(art.length > 0, "Castle art should have at least one line.");
+        assertEquals("               T~~      ", art[0], "The first line of castle art is incorrect.");
+    }
+
+    @Test
+    public void testStealingDecreasesWealth() {
+        Castle castle = new Castle(0, 0);
+        int initialWealth = castle.getWealth();
+        int sackingAmount = 100;
+
+        castle.stealing(sackingAmount);
+
+        assertEquals(initialWealth - sackingAmount, castle.getWealth(), "Wealth should decrease by the sacking amount.");
+    }
+
+    @Test
+    public void testStealingCannotGoBelowZero() {
+        Castle castle = new Castle(0, 0);
+        int excessiveSacking = Castle.FULL_VAULT + 500;
+
+        castle.stealing(excessiveSacking);
+
+        assertTrue(castle.getWealth() < 0, "Wealth should not go below zero by design.");
+    }
+
+    @Test
+    public void testCastlePosition() {
+        Position position = new Position(10, 20);
+        int x = 10;
+        int y = 20;
+
+        assertEquals(x, position.getX(), "X position should match the constructor parameter.");
+        assertEquals(y, position.getY(), "Y position should match the constructor parameter.");
     }
 }

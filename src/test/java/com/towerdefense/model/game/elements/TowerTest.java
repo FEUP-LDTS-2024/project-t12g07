@@ -1,54 +1,76 @@
-package com.towerdefense.model.game.elements;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-
-import com.towerdefense.model.game.elements.*;
-import com.towerdefense.model.game.elements.enemies.Enemy;
-import com.towerdefense.model.game.elements.enemies.Giant;
-import com.towerdefense.model.game.elements.towers.MetalTower;
-import com.towerdefense.model.game.elements.towers.StoneTower;
 import com.towerdefense.model.game.elements.towers.Tower;
-import com.towerdefense.model.game.elements.towers.WoodTower;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
-import java.util.Arrays;
+import com.towerdefense.model.game.elements.enemies.Enemy;
+import com.towerdefense.model.Position;
 
-public class TowerTest {
+import java.util.ArrayList;
+import java.util.List;
 
-    private Tower woodTower;
-    private Tower stoneTower;
-    private Tower metalTower;
-
-    @Mock
-    private Enemy mockEnemy;
+class TowerTest {
+    private Tower tower;
+    private List<Enemy> enemies;
 
     @BeforeEach
-    void setup(){
-        Enemy giant = new Giant(35, 50);
-        woodTower = new WoodTower(50, 50); //torre é criada com uma posição
-        stoneTower = new StoneTower(40, 35);
-        metalTower = new MetalTower(30, 60);
-        mockEnemy = mock(Enemy.class);
-        tower.setArrows(Arrays.asList(new Arrow(woodTower.get)))
+    void setUp() {
+        tower = new ConcreteTower(5, 5);
+        enemies = new ArrayList<>();
     }
 
     @Test
-    void testTowerAttributes() {
-        assertEquals(50, woodTower.getDamage());
-        assertEquals(100, stoneTower.getTowerDamage());
-        assertEquals(150, metalTower.getTowerDamage());
-
-        assertEquals(3, woodTower.getRange()); //range igual para todas as torres
+    void testConstructor() {
+        assertEquals(5, tower.getPosition().getX());
+        assertEquals(5, tower.getPosition().getY());
+        assertEquals(10, tower.getRange());
     }
 
     @Test
-    void testTowerAttack() {
-        Tower woodTower = new WoodTower();
-        Enemy goblin = new Goblin(100, 5); //goblin tem 100 de vida
-        woodTower.attack(goblin);
-        assertEquals(50, goblin.getHealth());
+    void testGetDamage() {
+        assertEquals(0, tower.getDamage());
+    }
+
+    @Test
+    void testGetCost() {
+        assertEquals(0, tower.getCost());
+    }
+
+    @Test
+    void testUpdateWithNoEnemies() {
+        tower.update(enemies);
+        assertTrue(enemies.isEmpty());
+    }
+
+    @Test
+    void testUpdateWithEnemyInRange() {
+        Enemy enemy = mock(Enemy.class);
+        when(enemy.getPosition()).thenReturn(new Position(6, 6));
+        enemies.add(enemy);
+
+        tower.update(enemies);
+
+        verify(enemy).takeDamage(anyInt());
+    }
+
+    @Test
+    void testUpdateWithEnemyOutOfRange() {
+        Enemy enemy = mock(Enemy.class);
+        when(enemy.getPosition()).thenReturn(new Position(20, 20));
+        enemies.add(enemy);
+
+        tower.update(enemies);
+
+        verify(enemy, never()).takeDamage(anyInt());
+    }
+
+    private class ConcreteTower extends Tower {
+        public ConcreteTower(int x, int y) {
+            super(x, y);
+            this.damage = 0;
+            this.cost = 0;
+            this.color = "White";
+        }
     }
 }

@@ -1,46 +1,116 @@
 package com.towerdefense.model.game.elements;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import com.towerdefense.model.Position;
 import com.towerdefense.model.game.elements.enemies.Enemy;
-import com.towerdefense.model.game.elements.enemies.Goblin;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class EnemyTest {
-    private Enemy goblin;
-    private Path mockPath;
+import static org.junit.jupiter.api.Assertions.*;
+
+class EnemyTest {
+    private Enemy enemy;
+
+    static class TestEnemy extends Enemy {
+        public TestEnemy(int x, int y) {
+            super(x, y);
+            this.health = 100;
+            this.reward = 50;
+            this.sacking = 20;
+        }
+    }
 
     @BeforeEach
-    public void setUp() {
-        goblin = new Goblin(20, 30);
-        mockPath = mock(Path.class);
+    void setUp() {
+        enemy = new TestEnemy(0, 25);
     }
 
     @Test
-    public void testEnemyMovement() {
-        when(mockPath.getNextPosition(20, 30)).thenReturn(new Position(20, 40));
-
-        goblin.move(mockPath);
-
-        assertEquals(20, goblin.getPosition().getX());
-        assertEquals(40, goblin.getPosition().getY());
-        verify(mockPath, times(1)).getNextPosition(20, 30);
+    void testInitialPosition() {
+        Position initialPosition = enemy.getPosition();
+        assertEquals(0, initialPosition.getX());
+        assertEquals(25, initialPosition.getY());
     }
 
     @Test
-    public void testEnemyTakesDamage() {
-        goblin.takeDamage(30);
-        assertEquals(70, goblin.getHealth()); //goblin tem 100 de vida
-        assertFalse(goblin.isDead());
+    void testColorInitialization() {
+        String color = enemy.getColor();
+        assertNotNull(color);
+        assertTrue(color.equals("#ff0000") || color.equals("#ab1313") || color.equals("#801818"));
     }
 
     @Test
-    public void testEnemyDiesWhenHealthReachesZero() {
-        goblin.takeDamage(100);
-        assertTrue(goblin.isDead());
-        assertEquals(0, goblin.getHealth());
+    void testMoveEnemy() {
+        enemy.moveEnemy();
+        Position newPosition = enemy.getPosition();
+        assertEquals(6, newPosition.getX());
+        assertEquals(25, newPosition.getY());
     }
+
+    @Test
+    void testTakeDamage() {
+        int initialHealth = enemy.getHealth();
+        enemy.takeDamage(30);
+        assertEquals(initialHealth - 30, enemy.getHealth());
+        assertFalse(enemy.isDead());
+
+        enemy.takeDamage(100);
+        assertTrue(enemy.isDead());
+    }
+
+    @Test
+    void testEnemyFollowsPath() {
+        Enemy enemy = new TestEnemy(-42, 25);
+        for (int i = 0; i < 10; i++) {
+            enemy.moveEnemy();
+        }
+        Position position = enemy.getPosition();
+        assertEquals(12, position.getX());
+        assertEquals(20, position.getY());
+    }
+
+    @Test
+    void testEnemyDies() {
+        Enemy enemy = new TestEnemy(0, 25);
+        enemy.takeDamage(99);
+        assertFalse(enemy.isDead());
+        enemy.takeDamage(1);
+        assertTrue(enemy.isDead());
+    }
+
+    @Test
+    void testReward() {
+        assertEquals(50, enemy.getReward());
+    }
+
+    @Test
+    void testSacking() {
+        assertEquals(20, enemy.getSacking());
+    }
+
+    @Test
+    void testPathInitialization() {
+        Enemy enemy = new TestEnemy(-42, 25);
+
+        assertEquals(-42, enemy.getPosition().getX());
+        assertEquals(25, enemy.getPosition().getY());
+
+        for (int i = 0; i < 8; i++) {
+            enemy.moveEnemy();
+        }
+        assertEquals(6, enemy.getPosition().getX());
+        assertEquals(25, enemy.getPosition().getY());
+
+        for (int i = 0; i < 5; i++) {
+            enemy.moveEnemy();
+        }
+        assertEquals(18, enemy.getPosition().getX());
+        assertEquals(5, enemy.getPosition().getY());
+
+        for (int i = 0; i < 30; i++) {
+            enemy.moveEnemy();
+        }
+        assertEquals(90, enemy.getPosition().getX());
+        assertEquals(30, enemy.getPosition().getY());
+    }
+
 }

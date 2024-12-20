@@ -1,35 +1,83 @@
-package com.towerdefense.model.game.elements;
-
+import com.towerdefense.model.game.elements.TowerShop;
+import com.towerdefense.model.game.elements.towers.Tower;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class TowerShopTest {
-    private TowerShopTest towerShop;
+class TowerShopTest {
+    private TowerShop towerShop;
 
     @BeforeEach
-    public void setUp() {
-        towerShop = new TowerShopTest(20);// Começa com 100 coins
+    void setUp() {
+        towerShop = new TowerShop(0, 0);
     }
 
     @Test
-    public void testAddMoney() {
-        towerShop.addMoney(50);
-        assertEquals(150, towerShop.getMoney());
+    void testInitialMoney() {
+        assertEquals(30, towerShop.getMoney());
     }
 
     @Test
-    public void testBuyTowerWithSufficientCoins() {
-        Tower woodTower = new WoodTower(); // custo da wood tower é 10
-        Tower purchasedTower = towerShop.buyTower(woodTower);
-        assertNotNull(purchasedTower);
-        assertEquals(10, towerShop.getCoin());
+    void testPurchaseTower() {
+        Tower cheapTower = Mockito.mock(Tower.class);
+        Mockito.when(cheapTower.getCost()).thenReturn(10);
+
+        Tower expensiveTower = Mockito.mock(Tower.class);
+        Mockito.when(expensiveTower.getCost()).thenReturn(40);
+
+        assertTrue(towerShop.purchaseTower(cheapTower));
+        assertEquals(20, towerShop.getMoney());
+
+        assertFalse(towerShop.purchaseTower(expensiveTower));
+        assertEquals(20, towerShop.getMoney());
     }
 
     @Test
-    public void testBuyTowerWithInsufficientCoins() {
-        Tower metalTower = new MetalTower();// custa 30
-        Tower purchasedTower = towerShop.buyTower(metalTower);
-        assertNull(purchasedTower); // torre não foi comprada
-        assertEquals(20, towerShop.getCoin());
+    void testAddReward() {
+        towerShop.addReward(15);
+        assertEquals(45, towerShop.getMoney());
+    }
+
+    @Test
+    void testNextEntry() {
+        assertTrue(towerShop.isSelected1());
+
+        towerShop.nextEntry();
+        assertTrue(towerShop.isSelected2());
+
+        towerShop.nextEntry();
+        assertTrue(towerShop.isSelected3());
+
+        towerShop.nextEntry();
+        assertTrue(towerShop.isSelected1());
+    }
+
+    @Test
+    void testGetEntry() {
+        assertEquals("Wood Tower: 10€", towerShop.getEntry(0));
+        assertEquals("Stone Tower: 20€", towerShop.getEntry(1));
+        assertEquals("Metal Tower: 30€", towerShop.getEntry(2));
+    }
+
+    @Test
+    void testGetNumberEntries() {
+        assertEquals(3, towerShop.getNumberEntries());
+    }
+
+    @Test
+    void testGetTowerShopArt() {
+        assertNotNull(towerShop.getTowerShopArt1());
+        assertNotNull(towerShop.getTowerShopArt2());
+        assertNotNull(towerShop.getTowerShopArt3());
+        assertEquals(5, towerShop.getTowerShopArt1().length);
+        assertEquals(5, towerShop.getTowerShopArt2().length);
+        assertEquals(5, towerShop.getTowerShopArt3().length);
+    }
+
+    @Test
+    void testGetSideBarArt() {
+        assertNotNull(towerShop.getSideBarArt());
+        assertEquals(40, towerShop.getSideBarArt().length);
     }
 }
