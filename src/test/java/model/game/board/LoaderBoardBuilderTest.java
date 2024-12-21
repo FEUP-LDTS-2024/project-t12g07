@@ -1,0 +1,3 @@
+class LoaderBoardBuilderTest {
+    //rever depois
+}

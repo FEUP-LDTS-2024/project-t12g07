@@ -1,27 +1,20 @@
-package com.towerdefense.model.game.elements;
+package model.game.elements.enemies;
 
 import com.towerdefense.model.Position;
 import com.towerdefense.model.game.elements.enemies.Enemy;
+import com.towerdefense.model.game.elements.enemies.Goblin;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class EnemyTest {
+public class GoblinTest {
     private Enemy enemy;
-
-    static class TestEnemy extends Enemy {
-        public TestEnemy(int x, int y) {
-            super(x, y);
-            this.health = 100;
-            this.reward = 50;
-            this.sacking = 20;
-        }
-    }
 
     @BeforeEach
     void setUp() {
-        enemy = new TestEnemy(0, 25);
+        enemy = new Goblin(0, 25);
     }
 
     @Test
@@ -49,17 +42,17 @@ class EnemyTest {
     @Test
     void testTakeDamage() {
         int initialHealth = enemy.getHealth();
-        enemy.takeDamage(30);
-        assertEquals(initialHealth - 30, enemy.getHealth());
+        enemy.takeDamage(25);
+        assertEquals(initialHealth - 25, enemy.getHealth());
         assertFalse(enemy.isDead());
 
-        enemy.takeDamage(100);
+        enemy.takeDamage(5);
         assertTrue(enemy.isDead());
     }
 
     @Test
     void testEnemyFollowsPath() {
-        Enemy enemy = new TestEnemy(-42, 25);
+        Enemy enemy = new Goblin(-42, 25);
         for (int i = 0; i < 10; i++) {
             enemy.moveEnemy();
         }
@@ -70,8 +63,8 @@ class EnemyTest {
 
     @Test
     void testEnemyDies() {
-        Enemy enemy = new TestEnemy(0, 25);
-        enemy.takeDamage(99);
+        Enemy enemy = new Goblin(0, 25);
+        enemy.takeDamage(29);
         assertFalse(enemy.isDead());
         enemy.takeDamage(1);
         assertTrue(enemy.isDead());
@@ -79,7 +72,7 @@ class EnemyTest {
 
     @Test
     void testReward() {
-        assertEquals(50, enemy.getReward());
+        assertEquals(5, enemy.getReward());
     }
 
     @Test
@@ -89,7 +82,7 @@ class EnemyTest {
 
     @Test
     void testPathInitialization() {
-        Enemy enemy = new TestEnemy(-42, 25);
+        Enemy enemy = new Goblin(-42, 25);
 
         assertEquals(-42, enemy.getPosition().getX());
         assertEquals(25, enemy.getPosition().getY());
@@ -112,5 +105,4 @@ class EnemyTest {
         assertEquals(90, enemy.getPosition().getX());
         assertEquals(30, enemy.getPosition().getY());
     }
-
 }

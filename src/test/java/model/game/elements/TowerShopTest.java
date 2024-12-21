@@ -1,3 +1,5 @@
+package model.game.elements;
+
 import com.towerdefense.model.game.elements.TowerShop;
 import com.towerdefense.model.game.elements.towers.Tower;
 import org.junit.jupiter.api.BeforeEach;
