@@ -20,16 +20,19 @@ public class Board {
     private Cursor cursor;
     private List<Sea> seas;
     private Warning warning;
+    private Boolean victory;
 
     public Board(int width, int height) {
         this.width = width;
         this.height = height;
-        this.castle = new Castle(90,18);
+        this.castle = new Castle(90,22);
         this.towerShop = new TowerShop(114, 0);
         this.towers = new ArrayList<>();
-        this.cursor = new Cursor(36, 5);
-        this.warning = new Warning(118,6, " ",0);
+        this.cursor = new Cursor(54, 15);
+        String[] messages = { "" };
+        this.warning = new Warning(118,6, messages,0,"WHITE");
         this.enemies = new ArrayList<>();
+        this.victory = false;
     }
 
     public int getWidth() {
@@ -81,6 +84,13 @@ public class Board {
         return false;
     }
 
+    public boolean isTower(Position position) {
+        for (Tower tower : towers)
+            if (tower.getPosition().getX() == position.getX() && tower.getPosition().getY() == position.getY())
+                return true;
+        return false;
+    }
+
     public void setGrass (List<Grass> grasses) {
         this.grasses = grasses;
     }
@@ -112,4 +122,13 @@ public class Board {
         return warning;
     }
 
+    public void setVictory(Boolean victory) {
+        this.victory = victory;
+    }
+
+    public Boolean getVictory() {
+        return victory;
+    }
 }
+
+

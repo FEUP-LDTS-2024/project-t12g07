@@ -1,11 +1,8 @@
 package com.towerdefense.viewer.game;
 
-import com.towerdefense.Game;
 import com.towerdefense.gui.GUI;
-import com.towerdefense.model.Position;
 import com.towerdefense.model.game.board.Board;
 import com.towerdefense.model.game.elements.Element;
-import com.towerdefense.model.game.elements.TowerShop;
 import com.towerdefense.viewer.Viewer;
 
 import java.util.List;

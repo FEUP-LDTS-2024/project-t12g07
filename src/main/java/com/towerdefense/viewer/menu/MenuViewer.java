@@ -12,12 +12,12 @@ public class MenuViewer extends Viewer<Menu> {
 
     @Override
     public void drawElements(GUI gui) {
-        // Each line of the ASCII art is drawn at a different vertical position
         gui.drawText(new Position(25, 6), "   ___ ___ __  __ ___ _____ ___  _  _ ___    ___ _   _  _   ___ ___ ___   _   _  _ ___ ", "#07a609");
         gui.drawText(new Position(25, 7), "  / __| __|  \\/  / __|_   _/ _ \\| \\| | __|  / __| | | |/_\\ | _ \\   \\_ _| /_\\ | \\| / __|", "#07a609");
         gui.drawText(new Position(25, 8), " | (_ | _|| |\\/| \\__ \\ | || (_) | .` | _|  | (_ | |_| / _ \\|   / |) | | / _ \\| .` \\__ \\", "#07a609");
         gui.drawText(new Position(25, 9), "  \\___|___|_|  |_|___/ |_| \\___/|_|\\_|___|  \\___|\\___/_/ \\_\\_|_\\___/___/_/ \\_\\_|\\_|___/", "#07a609");
-
+        for (int i = 0; i < getModel().getCastleSize(); i++)
+            gui.drawText(new Position(72,21  + i), getModel().getCastle(i), "#07a609");
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
                     new Position(60, 15 + i),

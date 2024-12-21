@@ -26,10 +26,6 @@ public class WindowGUI implements GUI {
 
     private final Screen screen;
 
-    public WindowGUI(Screen screen) {
-        this.screen = screen;
-    }
-
     public WindowGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont();
         Terminal terminal = createTerminal(width, height, fontConfig);
@@ -57,14 +53,11 @@ public class WindowGUI implements GUI {
     }
 
     private AWTTerminalFontConfiguration loadSquareFont() throws FontFormatException, IOException {
-        // Use system-installed Consolas font
-        Font font = new Font("Consolas", Font.PLAIN, 19);
+        Font font = new Font("Consolas", Font.PLAIN, 17);
 
-        // Ensure the font is registered in the graphics environment (not always necessary for built-in fonts)
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        // Configure the terminal to use the Consolas font
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(font);
         return fontConfig;
     }
@@ -72,10 +65,9 @@ public class WindowGUI implements GUI {
 
 
     public GUI.ACTION getNextAction() throws IOException {
-        KeyStroke keyStroke = screen.pollInput(); // Get the next key stroke
-        if (keyStroke == null) return GUI.ACTION.NONE; // No input
+        KeyStroke keyStroke = screen.pollInput();
+        if (keyStroke == null) return GUI.ACTION.NONE;
 
-        // Handle special keys
         KeyType keyType = keyStroke.getKeyType();
         if (keyType == KeyType.Escape) return GUI.ACTION.QUIT;
         if (keyType == KeyType.ArrowUp) return GUI.ACTION.UP;
@@ -84,13 +76,12 @@ public class WindowGUI implements GUI {
         if (keyType == KeyType.ArrowLeft) return GUI.ACTION.LEFT;
         if (keyType == KeyType.Enter) return GUI.ACTION.SELECT;
 
-        // Handle printable characters
         Character character = keyStroke.getCharacter();
         if (character != null) {
             if (character == 'T' || character == 't') return GUI.ACTION.TOWER_SELECT;
         }
 
-        return GUI.ACTION.NONE; // Default action for unsupported inputs
+        return GUI.ACTION.NONE;
     }
 
     @Override
@@ -106,9 +97,9 @@ public class WindowGUI implements GUI {
     @Override
     public void drawTowerShop(Position position, TowerShop towerShop) {
         drawCharacter(position.getX(), position.getY(), towerShop.getSideBarArt(), "#FFFFFF", "BLACK");
-        drawCharacter(position.getX() + 4, position.getY() + 8 , towerShop.getTowerShopArt1(), "#9e5c2c", "BLACK");
-        drawCharacter(position.getX() + 4, position.getY() + 15, towerShop.getTowerShopArt2(), "#b5ada3", "BLACK");
-        drawCharacter(position.getX() + 4, position.getY() + 22 , towerShop.getTowerShopArt3(), "#5f767a", "BLACK");
+        drawCharacter(position.getX() + 4, position.getY() + 15 , towerShop.getTowerShopArt1(), "#9e5c2c", "BLACK");
+        drawCharacter(position.getX() + 4, position.getY() + 22, towerShop.getTowerShopArt2(), "#454444", "BLACK");
+        drawCharacter(position.getX() + 4, position.getY() + 29 , towerShop.getTowerShopArt3(), "#5f767a", "BLACK");
     }
 
     @Override
@@ -141,9 +132,9 @@ public class WindowGUI implements GUI {
     private void drawCharacter(int x, int y, String[] c, String color, String backgroundColor) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.setBackgroundColor(TextColor.Factory.fromString(backgroundColor)); // Set background color
+        tg.setBackgroundColor(TextColor.Factory.fromString(backgroundColor));
         for (int i = 0; i < c.length; i++) {
-            tg.putString(x, y + i + 1, c[i]); // Print each string on a new line
+            tg.putString(x, y + i, c[i]);
         }
     }
 

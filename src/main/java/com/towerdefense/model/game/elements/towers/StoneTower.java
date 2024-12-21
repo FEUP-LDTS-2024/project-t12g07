@@ -14,7 +14,7 @@ public class StoneTower extends Tower {
                 "└┘└┘└┘"
         };
 
-        this.color = "#b5ada3";
+        this.color = "#454444";
         this.cost = 20;
     }
 }

@@ -36,7 +36,6 @@ public class CursorController extends GameController {
         int newX = getModel().getCursor().getPosition().getX() + deltaX;
         int newY = getModel().getCursor().getPosition().getY() + deltaY;
 
-        // Check boundaries to keep cursor within the board
         if (newX >= 0 && newX < getModel().getWidth() && newY >= 0 && newY < getModel().getHeight()) {
             Position newpos = new Position(newX,newY);
             getModel().getCursor().setPosition(newpos);

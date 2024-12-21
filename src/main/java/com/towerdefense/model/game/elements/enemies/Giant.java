@@ -1,5 +1,4 @@
 package com.towerdefense.model.game.elements.enemies;
-import com.googlecode.lanterna.TextColor;
 
 public class Giant extends Enemy {
 

@@ -6,9 +6,30 @@ import java.util.List;
 public class Menu {
     private final List<String> entries;
     private int currentEntry = 0;
+    private final List<String> castle;
 
     public Menu() {
         this.entries = Arrays.asList("Start", "Instructions", "Exit");
+        this.castle = Arrays.asList(
+                "                                    |>>>                           ",
+                "                                  |                               ",
+                "                    |>>>      _  _|_  _         |>>>             ",
+                "                    |        |;| |;| |;|        |                ",
+                "                _  _|_  _    \\.    .  /    _  _|_  _            ",
+                "               |;|_|;|_|;|    \\:. ,  /    |;|_|;|_|;|           ",
+                "               \\..      /    ||;   . |    \\.    .  /           ",
+                "                \\.  ,  /     ||:  .  |     \\:  .  /            ",
+                "                 ||:   |_   _ ||_ . _ | _   _||:   |            ",
+                "                 ||:  .|||_|;|_|;|_|;|_|;|_|;||:.  |            ",
+                "                 ||:   ||.    .     .      . ||:  .|            ",
+                "                 ||: . || .     . .   .  ,   ||:   |         ",
+                "                 ||:   ||:  ,  _______   .   ||: , |            ",
+                "                 ||:   || .   /+++++++\\    . ||:   |            ",
+                "                 ||:   ||.    |+++++++| .    ||: . |            ",
+                "              __ ||: . ||: ,  |+++++++|.  . _||_   |            ",
+                "     ____--`~    '--~~__|.    |+++++__|----~    ~`---,          ",
+                " -~--~                   ~---__|,--~'                  ~~----~~ "
+        );
     }
 
     public void nextEntry() {
@@ -16,6 +37,7 @@ public class Menu {
         if (currentEntry > this.entries.size() - 1)
             currentEntry = 0;
     }
+
 
     public void previousEntry() {
         currentEntry--;
@@ -45,5 +67,12 @@ public class Menu {
 
     public int getNumberEntries() {
         return this.entries.size();
+    }
+
+    public String getCastle(int i){
+        return castle.get(i);
+    }
+    public int getCastleSize(){
+        return this.castle.size();
     }
 }
