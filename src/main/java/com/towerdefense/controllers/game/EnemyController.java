@@ -28,7 +28,7 @@ public class EnemyController extends GameController {
         this.wave = new Wave(140,20);
     }
 
-    void tellWave() {
+    public void tellWave() {
         String[] messages;
 
         switch (wave.getWave()) {

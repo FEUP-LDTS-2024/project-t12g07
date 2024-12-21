@@ -1,3 +1,5 @@
+package model.game.elements;
+
 import com.towerdefense.model.game.elements.Wave;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

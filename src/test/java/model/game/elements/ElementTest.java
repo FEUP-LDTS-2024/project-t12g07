@@ -1,3 +1,5 @@
+package model.game.elements;
+
 import com.towerdefense.model.game.elements.Element;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

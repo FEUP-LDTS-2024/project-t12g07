@@ -1,8 +1,10 @@
+package model.game.elements;
+
 import com.towerdefense.model.game.elements.Cursor;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class CursorTest {
+public class CursorTest {
     @Test
     void testCursorConstructor() {
         Cursor cursor = new Cursor(5, 10);

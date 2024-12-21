@@ -1,3 +1,5 @@
+package model.game.elements;
+
 import com.towerdefense.model.game.elements.Grass;
 import com.towerdefense.model.game.elements.Sea;
 import org.junit.jupiter.api.Test;

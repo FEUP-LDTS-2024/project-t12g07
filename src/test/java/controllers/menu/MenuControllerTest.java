@@ -1,7 +1,10 @@
-package com.towerdefense.controllers.menu;
+package controllers.menu;
 
 import com.towerdefense.Game;
+import com.towerdefense.controllers.menu.MenuController;
 import com.towerdefense.gui.GUI;
+import com.towerdefense.model.game.board.Board;
+import com.towerdefense.model.game.board.LoaderBoardBuilder;
 import com.towerdefense.model.menu.Menu;
 import com.towerdefense.states.GameState;
 import com.towerdefense.states.InstructionsState;
@@ -15,63 +18,70 @@ import java.io.IOException;
 import static org.mockito.Mockito.*;
 
 class MenuControllerTest {
-    @Mock
-    private Game game;
 
-    @Mock
+    private Game game;
     private Menu menu;
     private MenuController controller;
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
+        menu = mock(Menu.class);
+        game = mock(Game.class);
         controller = new MenuController(menu);
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
     void testUpAction() throws IOException {
-        controller.step(game, GUI.ACTION.UP, 0);
+        controller.step(game, GUI.ACTION.UP, System.currentTimeMillis());
         verify(menu).previousEntry();
+        verifyNoMoreInteractions(menu);
     }
 
     @Test
     void testDownAction() throws IOException {
-        controller.step(game, GUI.ACTION.DOWN, 0);
+        controller.step(game, GUI.ACTION.DOWN, System.currentTimeMillis());
         verify(menu).nextEntry();
+        verifyNoMoreInteractions(menu);
     }
 
     @Test
     void testSelectActionExit() throws IOException {
         when(menu.isSelectedExit()).thenReturn(true);
-        controller.step(game, GUI.ACTION.SELECT, 0);
+        controller.step(game, GUI.ACTION.SELECT, System.currentTimeMillis());
         verify(game).setState(null);
+        verify(menu).isSelectedExit();
     }
 
     @Test
     void testSelectActionStart() throws IOException {
         when(menu.isSelectedStart()).thenReturn(true);
-        controller.step(game, GUI.ACTION.SELECT, 0);
+        LoaderBoardBuilder loaderBoardBuilder = mock(LoaderBoardBuilder.class);
+        Board mockBoard = mock(Board.class);
+        when(loaderBoardBuilder.createBoard()).thenReturn(mockBoard);
+        controller.step(game, GUI.ACTION.SELECT, System.currentTimeMillis());
         verify(game).setState(any(GameState.class));
+        verify(menu, times(1)).isSelectedStart();
     }
 
     @Test
     void testSelectActionInstructions() throws IOException {
         when(menu.isSelectedInstructions()).thenReturn(true);
-        controller.step(game, GUI.ACTION.SELECT, 0);
+        controller.step(game, GUI.ACTION.SELECT, System.currentTimeMillis());
         verify(game).setState(any(InstructionsState.class));
     }
 
     @Test
     void testNonSelectAction() throws IOException {
-        controller.step(game, GUI.ACTION.QUIT, 0);
+        controller.step(game, GUI.ACTION.QUIT, System.currentTimeMillis());
         verify(game, never()).setState(any());
     }
 
     @Test
     void testMultipleActions() throws IOException {
-        controller.step(game, GUI.ACTION.UP, 0);
-        controller.step(game, GUI.ACTION.DOWN, 0);
-        controller.step(game, GUI.ACTION.UP, 0);
+        controller.step(game, GUI.ACTION.UP, System.currentTimeMillis());
+        controller.step(game, GUI.ACTION.DOWN, System.currentTimeMillis());
+        controller.step(game, GUI.ACTION.UP, System.currentTimeMillis());
 
         verify(menu, times(2)).previousEntry();
         verify(menu, times(1)).nextEntry();

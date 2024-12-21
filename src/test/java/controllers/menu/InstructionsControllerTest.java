@@ -1,6 +1,7 @@
-package com.towerdefense.controllers.menu;
+package controllers.menu;
 
 import com.towerdefense.Game;
+import com.towerdefense.controllers.menu.InstructionsController;
 import com.towerdefense.gui.GUI;
 import com.towerdefense.model.menu.Instructions;
 import com.towerdefense.model.menu.Menu;

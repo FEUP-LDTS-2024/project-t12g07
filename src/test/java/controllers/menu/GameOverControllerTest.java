@@ -1,6 +1,7 @@
-package com.towerdefense.controllers.menu;
+package controllers.menu;
 
 import com.towerdefense.Game;
+import com.towerdefense.controllers.menu.GameOverController;
 import com.towerdefense.gui.GUI;
 import com.towerdefense.model.menu.GameOver;
 import com.towerdefense.states.MenuState;

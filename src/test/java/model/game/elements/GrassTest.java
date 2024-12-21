@@ -1,5 +1,6 @@
-package com.towerdefense.model.game.elements;
+package model.game.elements;
 
+import com.towerdefense.model.game.elements.Grass;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
