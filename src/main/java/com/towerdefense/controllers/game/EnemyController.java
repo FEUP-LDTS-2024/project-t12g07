@@ -41,6 +41,9 @@ public class EnemyController extends GameController {
             case 3:
                 messages = new String[]{ "CURRENT WAVE: " + wave.getWave()," ", "Giants incoming! Be", "careful!" };
                 break;
+            case 10:
+                messages = new String[]{ "CURRENT WAVE: " + wave.getWave()," ", "Last wave! You're", "almost there!" };
+                break;
             default:
                 messages = new String[]{ "CURRENT WAVE: " + wave.getWave()," ", "Stay strong!" };
                 break;
