@@ -84,6 +84,13 @@ public class Board {
         return false;
     }
 
+    public boolean isTower(Position position) {
+        for (Tower tower : towers)
+            if (tower.getPosition().getX() == position.getX() && tower.getPosition().getY() == position.getY())
+                return true;
+        return false;
+    }
+
     public void setGrass (List<Grass> grasses) {
         this.grasses = grasses;
     }
