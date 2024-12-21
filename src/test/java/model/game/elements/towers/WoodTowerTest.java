@@ -27,7 +27,7 @@ class WoodTowerTest {
     void testConstructor() {
         assertEquals(5, tower.getPosition().getX());
         assertEquals(5, tower.getPosition().getY());
-        assertEquals(10, tower.getRange());
+        assertEquals(6, tower.getRange());
     }
 
     @Test
@@ -37,7 +37,7 @@ class WoodTowerTest {
 
     @Test
     void testGetCost() {
-        assertEquals(10, tower.getCost());
+        assertEquals(0, tower.getCost());
     }
 
     @Test

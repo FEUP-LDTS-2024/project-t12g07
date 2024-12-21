@@ -17,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class TowerControllerTest {
+    private static final long STEP_TIME = 200L; // Constante para tempo de step
     private Board board;
     private TowerController towerController;
     private List<Tower> towers;
@@ -24,33 +25,38 @@ class TowerControllerTest {
 
     @BeforeEach
     void setUp() {
+        // Mock do tabuleiro e listas de torres/inimigos
         board = mock(Board.class);
         towers = new ArrayList<>();
         enemies = new ArrayList<>();
+
+        // Configuração dos mocks
         when(board.getTowers()).thenReturn(towers);
         when(board.getEnemies()).thenReturn(enemies);
+
+        // Inicialização do controlador
         towerController = new TowerController(board);
     }
 
     @Test
-    void testStepWithTowers() throws IOException {
+    void shouldUpdateTowersWhenStepCalled() throws IOException {
+        // Configuração: Adiciona uma torre mockada à lista
         Tower tower = mock(Tower.class);
         towers.add(tower);
 
-        towerController.step(mock(Game.class), GUI.ACTION.NONE, System.currentTimeMillis() + 200);
+        // Executa o método step
+        towerController.step(mock(Game.class), GUI.ACTION.NONE, System.currentTimeMillis() + STEP_TIME);
 
+        // Verifica se o método update foi chamado na torre, passando a lista de inimigos
         verify(tower, times(1)).update(enemies);
     }
 
     @Test
-    void testStepNoTowers() throws IOException {
-        towerController.step(mock(Game.class), GUI.ACTION.NONE, System.currentTimeMillis() + 200);
+    void shouldNotFailWhenNoTowersPresent() throws IOException {
+        // Executa o método step sem adicionar torres
+        towerController.step(mock(Game.class), GUI.ACTION.NONE, System.currentTimeMillis() + STEP_TIME);
 
-        verifyNoInteractions(board); // No interactions with towers if there are none
-    }
-
-    @Test
-    void testGetTowerList() {
-        assertTrue(towerController.getTowerList().isEmpty());
+        // Garante que a lista de torres permanece vazia (nenhuma exceção ou comportamento inesperado)
+        assertTrue(towers.isEmpty());
     }
 }

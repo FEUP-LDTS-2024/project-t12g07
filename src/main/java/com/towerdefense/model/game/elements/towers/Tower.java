@@ -20,8 +20,8 @@ public abstract class Tower extends Element {
 
     public Tower(int x, int y) {
         super(x,y);
-        this.range = 10;
-        this.cooldown = cooldown;
+        this.range = 6;
+        this.cooldown = 0;
         this.cooldownTimer = 0;
     }
 
@@ -46,9 +46,14 @@ public abstract class Tower extends Element {
     }
 
     public void update(List<Enemy> enemies) {
-        Enemy target = findTarget(enemies);
-        if (target != null) {
-            attack(target);
+        if (cooldownTimer <= 0) {
+            Enemy target = findTarget(enemies);
+            if (target != null) {
+                attack(target);
+                cooldownTimer = cooldown;
+            }
+        } else {
+            cooldownTimer--;
         }
     }
 

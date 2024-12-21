@@ -16,7 +16,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 class BoardControllerTest {
-    //rever esta
     @Mock
     private Board board;
 
