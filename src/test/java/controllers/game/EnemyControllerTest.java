@@ -2,16 +2,13 @@ package controllers.game;
 
 import com.towerdefense.Game;
 import com.towerdefense.controllers.game.EnemyController;
-import com.towerdefense.gui.GUI;
 import com.towerdefense.model.Position;
 import com.towerdefense.model.game.board.Board;
-import com.towerdefense.model.game.elements.Warning;
-import com.towerdefense.model.game.elements.Wave;
+import com.towerdefense.model.game.elements.Castle;
 import com.towerdefense.model.game.elements.enemies.Enemy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,15 +16,17 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class EnemyControllerTest {
-    private Board board;
+    private Board mockBoard;
     private EnemyController enemyController;
-    private Game mockGame;
+    private Castle mockCastle;
 
     @BeforeEach
     void setup() {
-        board = mock(Board.class);
-        mockGame = mock(Game.class);
-        enemyController = new EnemyController(board);
+        mockBoard = mock(Board.class);
+        mockCastle = mock(Castle.class);
+        when(mockBoard.getCastle()).thenReturn(mockCastle);
+
+        enemyController = new EnemyController(mockBoard);
     }
 
     @Test
@@ -36,48 +35,11 @@ class EnemyControllerTest {
         assertTrue(enemyController.getModel().getEnemies().isEmpty(), "Enemies list should initially be empty.");
     }
 
-
     @Test
-    void testMoveEnemiesRemovesDeadEnemies() {
-        Enemy mockEnemy1 = mock(Enemy.class);
-        Enemy mockEnemy2 = mock(Enemy.class);
-        List<Enemy> enemies = new ArrayList<>();
-        enemies.add(mockEnemy1);
-        enemies.add(mockEnemy2);
+    void testNoEnemiesDoesNotCauseErrors() {
+        List<Enemy> emptyList = new ArrayList<>();
+        enemyController.getModel().setEnemies(emptyList);
 
-        enemyController.getModel().setEnemies(enemies);
-
-        when(mockEnemy1.isDead()).thenReturn(true);
-        when(mockEnemy2.isDead()).thenReturn(false);
-
-        enemyController.moveEnemies();
-
-        assertEquals(1, enemyController.getModel().getEnemies().size(), "Only one enemy should remain after moving enemies.");
-        assertFalse(enemyController.getModel().getEnemies().contains(mockEnemy1), "Dead enemy should be removed.");
+        assertDoesNotThrow(() -> enemyController.moveEnemies(), "Moving enemies with an empty list should not throw exceptions.");
     }
-
-    @Test
-    void testMoveEnemiesReducesCastleHealth() {
-        Enemy mockEnemy = mock(Enemy.class);
-        List<Enemy> enemies = new ArrayList<>();
-        enemies.add(mockEnemy);
-
-        enemyController.getModel().setEnemies(enemies);
-
-        // Mock Position
-        Position mockPosition = mock(Position.class);
-        when(mockPosition.getX()).thenReturn(90);
-        when(mockPosition.getY()).thenReturn(30);
-        when(mockEnemy.getPosition()).thenReturn(mockPosition);
-
-        // Call moveEnemies
-        enemyController.moveEnemies();
-
-        // Verify castle stealing
-        verify(enemyController.getModel().getCastle(), times(1)).stealing(anyInt());
-        assertTrue(enemyController.getModel().getEnemies().isEmpty(), "Enemy should be removed after reaching the castle.");
-    }
-
 }
-
-

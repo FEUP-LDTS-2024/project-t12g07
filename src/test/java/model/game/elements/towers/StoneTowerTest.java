@@ -27,7 +27,7 @@ class StoneTowerTest {
     void testConstructor() {
         assertEquals(5, tower.getPosition().getX());
         assertEquals(5, tower.getPosition().getY());
-        assertEquals(10, tower.getRange());
+        assertEquals(6, tower.getRange());
     }
 
     @Test
@@ -37,7 +37,7 @@ class StoneTowerTest {
 
     @Test
     void testGetCost() {
-        assertEquals(20, tower.getCost());
+        assertEquals(60, tower.getCost());
     }
 
     @Test

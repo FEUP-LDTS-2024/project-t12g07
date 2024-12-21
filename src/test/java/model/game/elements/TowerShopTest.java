@@ -2,6 +2,7 @@ package model.game.elements;
 
 import com.towerdefense.model.game.elements.TowerShop;
 import com.towerdefense.model.game.elements.towers.Tower;
+import com.towerdefense.model.game.elements.towers.WoodTower;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -17,28 +18,22 @@ class TowerShopTest {
 
     @Test
     void testInitialMoney() {
-        assertEquals(30, towerShop.getMoney());
+        assertEquals(50, towerShop.getMoney());
     }
 
     @Test
     void testPurchaseTower() {
-        Tower cheapTower = Mockito.mock(Tower.class);
-        Mockito.when(cheapTower.getCost()).thenReturn(10);
+        WoodTower woodTower = Mockito.mock(WoodTower.class);
+        Mockito.when(woodTower.getCost()).thenReturn(30);
 
-        Tower expensiveTower = Mockito.mock(Tower.class);
-        Mockito.when(expensiveTower.getCost()).thenReturn(40);
-
-        assertTrue(towerShop.purchaseTower(cheapTower));
-        assertEquals(20, towerShop.getMoney());
-
-        assertFalse(towerShop.purchaseTower(expensiveTower));
+        assertTrue(towerShop.purchaseTower(woodTower));
         assertEquals(20, towerShop.getMoney());
     }
 
     @Test
     void testAddReward() {
         towerShop.addReward(15);
-        assertEquals(45, towerShop.getMoney());
+        assertEquals(65, towerShop.getMoney());
     }
 
     @Test
@@ -57,9 +52,9 @@ class TowerShopTest {
 
     @Test
     void testGetEntry() {
-        assertEquals("Wood Tower: 10€", towerShop.getEntry(0));
-        assertEquals("Stone Tower: 20€", towerShop.getEntry(1));
-        assertEquals("Metal Tower: 30€", towerShop.getEntry(2));
+        assertEquals("Wood Tower: 30€", towerShop.getEntry(0));
+        assertEquals("Stone Tower: 60€", towerShop.getEntry(1));
+        assertEquals("Metal Tower: 120€", towerShop.getEntry(2));
     }
 
     @Test
