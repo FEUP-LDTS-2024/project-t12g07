@@ -1,6 +1,7 @@
-package com.towerdefense.controllers.game;
+package controllers.game;
 
 import com.towerdefense.Game;
+import com.towerdefense.controllers.game.BoardController;
 import com.towerdefense.gui.GUI;
 import com.towerdefense.model.game.board.Board;
 import com.towerdefense.model.game.elements.Castle;

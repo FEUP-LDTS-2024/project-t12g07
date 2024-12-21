@@ -32,7 +32,6 @@ public class TowerController extends GameController {
         for (Tower tower : board.getTowers()) {
 
             if (time - lastMovement > 100) {
-                ;
                 try {
                     tower.update(getModel().getEnemies());
 
