@@ -60,6 +60,7 @@ public class EnemyController extends GameController {
                 List<Enemy> newEnemies = wave.getEnemyList();
                 board.setEnemies(newEnemies);
                 enemies = newEnemies;
+                if (wave.getWave()==11) getModel().setVictory(true);
                 tellWave();
             }
 

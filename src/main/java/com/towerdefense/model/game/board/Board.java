@@ -20,6 +20,7 @@ public class Board {
     private Cursor cursor;
     private List<Sea> seas;
     private Warning warning;
+    private Boolean victory;
 
     public Board(int width, int height) {
         this.width = width;
@@ -31,6 +32,7 @@ public class Board {
         String[] messages = { "" };
         this.warning = new Warning(118,6, messages,0,"WHITE");
         this.enemies = new ArrayList<>();
+        this.victory = false;
     }
 
     public int getWidth() {
@@ -113,4 +115,13 @@ public class Board {
         return warning;
     }
 
+    public void setVictory(Boolean victory) {
+        this.victory = victory;
+    }
+
+    public Boolean getVictory() {
+        return victory;
+    }
 }
+
+
