@@ -15,6 +15,6 @@ public class MetalTower extends Tower {
         };
 
         this.color = "#5f767a";
-        this.cost = 30;
+        this.cost = 120;
     }
 }
