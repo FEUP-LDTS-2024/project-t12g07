@@ -14,6 +14,6 @@ public class WoodTower extends Tower {
         };
 
         this.color = "#9e5c2c";
-        this.cost = 10;
+        this.cost = 30;
     }
 }
