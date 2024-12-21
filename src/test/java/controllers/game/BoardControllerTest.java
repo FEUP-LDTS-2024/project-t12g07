@@ -69,8 +69,5 @@ class BoardControllerTest {
         when(castle.getWealth()).thenReturn(100);
 
         boardController.step(game, action, time);
-
-        // Verificar se os controladores internos são chamados
-        // Nota: Isso requer uma refatoração para tornar os controladores internos testáveis
     }
 }
