@@ -1,6 +1,6 @@
-package com.towerdefense.model.game.elements;
+package model.game.elements.towers;
 
-import com.towerdefense.model.game.elements.towers.StoneTower;
+import com.towerdefense.model.game.elements.towers.WoodTower;
 import com.towerdefense.model.game.elements.towers.Tower;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,13 +13,13 @@ import com.towerdefense.model.Position;
 import java.util.ArrayList;
 import java.util.List;
 
-class TowerTest {
+class WoodTowerTest {
     private Tower tower;
     private List<Enemy> enemies;
 
     @BeforeEach
     void setUp() {
-        tower = new StoneTower(5, 5);
+        tower = new WoodTower(5, 5);
         enemies = new ArrayList<>();
     }
 
@@ -32,12 +32,12 @@ class TowerTest {
 
     @Test
     void testGetDamage() {
-        assertEquals(10, tower.getDamage());
+        assertEquals(5, tower.getDamage());
     }
 
     @Test
     void testGetCost() {
-        assertEquals(20, tower.getCost());
+        assertEquals(10, tower.getCost());
     }
 
     @Test
@@ -67,5 +67,4 @@ class TowerTest {
 
         verify(enemy, never()).takeDamage(anyInt());
     }
-
 }

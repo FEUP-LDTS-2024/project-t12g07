@@ -1,0 +1,3 @@
+class BoardBuilderTest {
+    //confirmar depois
+}
