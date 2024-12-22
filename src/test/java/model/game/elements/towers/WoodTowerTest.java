@@ -37,7 +37,7 @@ class WoodTowerTest {
 
     @Test
     void testGetCost() {
-        assertEquals(0, tower.getCost());
+        assertEquals(30, tower.getCost());
     }
 
     @Test
