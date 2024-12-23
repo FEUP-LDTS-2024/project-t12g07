@@ -32,5 +32,6 @@ pitest {
     junit5PluginVersion = '1.2.1'
     timeoutConstInMillis = 3490
     targetClasses = ['com.towerdefense.*']
+
     outputFormats = ['HTML']
 }

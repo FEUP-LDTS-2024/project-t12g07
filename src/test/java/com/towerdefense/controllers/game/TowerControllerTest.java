@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class TowerControllerTest {
-    private static final long STEP_TIME = 200L; // Constante para tempo de step
+    private static final long STEP_TIME = 200L;
     private Board board;
     private TowerController towerController;
     private List<Tower> towers;
@@ -25,38 +25,30 @@ class TowerControllerTest {
 
     @BeforeEach
     void setUp() {
-        // Mock do tabuleiro e listas de torres/inimigos
         board = mock(Board.class);
         towers = new ArrayList<>();
         enemies = new ArrayList<>();
 
-        // Configuração dos mocks
         when(board.getTowers()).thenReturn(towers);
         when(board.getEnemies()).thenReturn(enemies);
 
-        // Inicialização do controlador
         towerController = new TowerController(board);
     }
 
     @Test
     void shouldUpdateTowersWhenStepCalled() throws IOException {
-        // Configuração: Adiciona uma torre mockada à lista
         Tower tower = mock(Tower.class);
         towers.add(tower);
 
-        // Executa o método step
         towerController.step(mock(Game.class), GUI.ACTION.NONE, System.currentTimeMillis() + STEP_TIME);
 
-        // Verifica se o método update foi chamado na torre, passando a lista de inimigos
         verify(tower, times(1)).update(enemies);
     }
 
     @Test
     void shouldNotFailWhenNoTowersPresent() throws IOException {
-        // Executa o método step sem adicionar torres
         towerController.step(mock(Game.class), GUI.ACTION.NONE, System.currentTimeMillis() + STEP_TIME);
 
-        // Garante que a lista de torres permanece vazia (nenhuma exceção ou comportamento inesperado)
         assertTrue(towers.isEmpty());
     }
 }
