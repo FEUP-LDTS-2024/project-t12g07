@@ -109,7 +109,7 @@ public abstract class Enemy extends Element {
         for (int i = 0; i < path.size() - 1; i++){
             if (this.getPosition().getX() == path.get(i).getX() && this.getPosition().getY() == path.get(i).getY()){
                 Position position = new Position(path.get(i + 1).getX(), path.get(i + 1).getY());
-                this.setPosition((position));
+                this.setPosition(position);
                 i = path.size() - 1;
             }
         }

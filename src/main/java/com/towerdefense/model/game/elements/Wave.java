@@ -12,8 +12,6 @@ public class Wave extends Element {
     private int wave = 0 ;
     private List<Enemy> enemyList;
 
-    private boolean waveCompleted;
-
     public int getWave(){
         return wave;
     }
@@ -21,7 +19,6 @@ public class Wave extends Element {
     public Wave(int x, int y){
         super(x,y);
         this.enemyList = new ArrayList<>();
-        this.waveCompleted = false;
     }
 
     public List<Enemy> spawn(int wave){

@@ -14,13 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TowerController extends GameController {
-    private final List<Tower> towerList;
     private final Board board;
     long lastMovement;
     public TowerController(Board board) {
         super(board);
         this.board = board;
-        this.towerList = new ArrayList<>();
         this.lastMovement = 0;
     }
 

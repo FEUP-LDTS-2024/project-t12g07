@@ -1,8 +1,10 @@
 plugins {
     id 'java'
+    id "net.ltgt.errorprone" version "4.1.0"
+    id 'info.solidsoft.pitest' version '1.15.0'
 }
 
-group = 'org.example'
+group = 'com.towerdefense'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -18,8 +20,18 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation ('org.mockito:mockito-core:3.7.7')
     testImplementation 'net.jqwik:jqwik:1.5.1'
+    errorprone "com.google.errorprone:error_prone_core:2.30.0"
+    pitest "org.pitest:pitest-junit5-plugin:1.0.0"
 }
 
 test {
     useJUnitPlatform()
+}
+
+pitest {
+    junit5PluginVersion = '1.2.1'
+    timeoutConstInMillis = 3490
+    targetClasses = ['com.towerdefense.*']
+
+    outputFormats = ['HTML']
 }
