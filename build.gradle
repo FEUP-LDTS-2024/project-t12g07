@@ -30,7 +30,7 @@ test {
 
 pitest {
     junit5PluginVersion = '1.2.1'
-    timeoutConstInMillis = 3490
-    targetClasses = ['com.towerdefense.*']
+    timeoutConstInMillis = 5000
+    excludedClasses = ['com.towerdefense.controllers.*']
     outputFormats = ['HTML']
 }

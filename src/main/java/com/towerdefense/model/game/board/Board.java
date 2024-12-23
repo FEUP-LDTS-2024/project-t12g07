@@ -43,7 +43,6 @@ public class Board {
         return height;
     }
 
-
     public void setTowers(List<Tower> towers) { this.towers = towers; }
 
     public List<Tower> getTowers() {
@@ -52,13 +51,6 @@ public class Board {
 
     public List<Enemy> getEnemies() {
         return enemies;
-    }
-
-    public boolean isEnemy (Position position) {
-        for (Enemy enemy : enemies)
-            if (enemy.getPosition().equals(position))
-                return true;
-        return false;
     }
 
     public Castle getCastle() {
