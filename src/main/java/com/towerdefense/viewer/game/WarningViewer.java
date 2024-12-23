@@ -5,6 +5,7 @@ import com.towerdefense.model.Position;
 import com.towerdefense.model.game.elements.Warning;
 
 public class WarningViewer implements ElementViewer<Warning> {
+    @Override
     public void draw(Warning warning, GUI gui) {
         if (warning.isActive()) {
             int x = warning.getPosition().getX();

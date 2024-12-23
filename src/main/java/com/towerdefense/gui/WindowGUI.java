@@ -63,7 +63,7 @@ public class WindowGUI implements GUI {
     }
 
 
-
+    @Override
     public GUI.ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return GUI.ACTION.NONE;
@@ -138,21 +138,22 @@ public class WindowGUI implements GUI {
         }
     }
 
+    @Override
     public void drawCursor(Position position, Cursor cursor) {
         drawCharacter(position.getX(), position.getY(), cursor.getCursorArt(), "#ff0000", "WHITE");
     }
 
-
+    @Override
     public void clear() {
         screen.clear();
     }
 
-
+    @Override
     public void refresh() throws IOException {
         screen.refresh();
     }
 
-
+    @Override
     public void close() throws IOException {
         screen.close();
     }

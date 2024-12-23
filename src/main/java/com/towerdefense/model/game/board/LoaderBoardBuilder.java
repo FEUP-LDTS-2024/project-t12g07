@@ -18,7 +18,8 @@ public class LoaderBoardBuilder extends BoardBuilder {
     public LoaderBoardBuilder(int level) throws IOException {
         this.level = level;
 
-        URL resource = LoaderBoardBuilder.class.getResource("/levels/level" + level + ".lvl");
+        URL resource = LoaderBoardBuilder.class.getResource("/levels/level" + this.level + ".lvl");
+        assert resource != null;
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
         lines = readLines(br);

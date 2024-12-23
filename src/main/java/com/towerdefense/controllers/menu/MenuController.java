@@ -29,6 +29,8 @@ public class MenuController extends Controller<Menu> {
                 if (getModel().isSelectedExit()) game.setState(null);
                 if (getModel().isSelectedStart()) game.setState(new GameState(new LoaderBoardBuilder(1).createBoard()));
                 if (getModel().isSelectedInstructions()) game.setState(new InstructionsState(new Instructions()));
+            default:
+                break;
         }
     }
 }
