@@ -23,6 +23,8 @@ public class TowerShopController extends GameController {
                 if (getModel().getTowerShop().isSelected1()) { placeTower(new WoodTower(getModel().getCursor().getPosition().getX(), getModel().getCursor().getPosition().getY())); }
                 if (getModel().getTowerShop().isSelected2()) { placeTower(new StoneTower(getModel().getCursor().getPosition().getX(), getModel().getCursor().getPosition().getY()));}
                 if (getModel().getTowerShop().isSelected3()) { placeTower(new MetalTower(getModel().getCursor().getPosition().getX(), getModel().getCursor().getPosition().getY()));}
+            default:
+                break;
         }
     }
 

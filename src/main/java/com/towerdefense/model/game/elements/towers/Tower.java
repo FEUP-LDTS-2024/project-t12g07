@@ -12,7 +12,6 @@ public abstract class Tower extends Element {
     protected int damage;
     protected int cost;
     String[] towerArt;
-    private boolean targeted;
     protected String color;
     private int cooldown;
     private int cooldownTimer;
