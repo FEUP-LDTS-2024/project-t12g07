@@ -16,8 +16,8 @@ Cada torre possui o seu próprio design, tal como os diferentes tipos de inimigo
 ### TIPOS DIFERENTES DE INIMIGOS
 Gemstone Guardians conta com três tipos diferentes de inimigos: o *cavaleiro*, o *goblin*, e o *gigante*. Cada um destes tipos de inimigos faz um dano próprio e tem uma certa quantidade de vida, todas diferentes entre si. Aquando da sua morte, o monstro em questão recompensará o jogador com uma certa quantia de moedas (que difere entre os três tipos de inimigos disponíveis).
 ### SISTEMA DE MOEDAS
-São obtidas ao destruir os inimigos e podem ser usadas na compra de mais unidades de defesa para o grande castelo
-.###DIFERENTES TIPOS DE TERRENO
+São obtidas ao destruir os inimigos e podem ser usadas na compra de mais unidades de defesa para o grande castelo.
+###DIFERENTES TIPOS DE TERRENO
 Implementamos diferentes tipos de terreno: a path por onde circulam os inimigos, a grass onde podem ser colocadas torres de defesa, e o sea onde não podem ser colocadas torres. 
 ### TIPOS DIFERENTES DE TORRE
 Cada torre possui características próprias, sendo estas o custo, o dano e o material das mesmas.
