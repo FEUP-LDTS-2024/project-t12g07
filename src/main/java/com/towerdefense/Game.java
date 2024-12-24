@@ -20,7 +20,7 @@ public class Game {
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
         new Game().start();
-    }
+    }a
 
     public void setState(State state) {
         this.state = state;
