@@ -1,8 +1,8 @@
 # GEMSTONE GUARDIANS
 ## DESCRIÇÃO DO PROJETO
-O jogo Gemstone Guardians trata-se de um jogo do tipo tower defense, cujo objetivo é defender o castelo e as suas jóias do ataque de diferentes tipos de monstros. O jogador deve derrotar o maior número de inimigos possível, ao longo do caminho, com o auxílio de torres estrategicamente posicionadas por si, de forma a evitar que os terríveis ladrões alcancem o castelo final.
+O jogo Gemstone Guardians trata-se de um jogo do tipo tower defense, cujo objetivo é defender o castelo e as suas jóias do ataque de diferentes tipos de monstros. O jogador deve derrotar inimigos com o auxílio de torres estrategicamente posicionadas por si, de forma a evitar que os terríveis ladrões alcancem o castelo final.
 
-Este projeto foi desenvolvido em conjunto pelas alunas Catarina Guimarães (up202307420@up.pt), Inês Oliveira (up202305418@up.pt) e Sara Garcia (up202306877@up.pt) para a cadeira de Laboratório de Desenho e Teste de Software, no ano letivo de 2024-2025.
+Este projeto foi desenvolvido em conjunto pelas alunas Catarina Guimarães (up202307420@up.pt), Inês Oliveira (up202305418@up.pt) e Sara García (up202306877@up.pt) para a cadeira de Laboratório de Desenho e Teste de Software, no ano letivo de 2024-2025.
 
 ## FEATURES IMPLEMENTADAS
 ### MENU 
@@ -17,14 +17,14 @@ Cada torre possui o seu próprio design, tal como os diferentes tipos de inimigo
 Gemstone Guardians conta com três tipos diferentes de inimigos: o *cavaleiro*, o *goblin*, e o *gigante*. Cada um destes tipos de inimigos faz um dano próprio e tem uma certa quantidade de vida, todas diferentes entre si. Aquando da sua morte, o monstro em questão recompensará o jogador com uma certa quantia de moedas (que difere entre os três tipos de inimigos disponíveis).
 ### SISTEMA DE MOEDAS
 São obtidas ao destruir os inimigos e podem ser usadas na compra de mais unidades de defesa para o grande castelo.
-###DIFERENTES TIPOS DE TERRENO
+### DIFERENTES TIPOS DE TERRENO
 Implementamos diferentes tipos de terreno: a path por onde circulam os inimigos, a grass onde podem ser colocadas torres de defesa, e o sea onde não podem ser colocadas torres. 
 ### TIPOS DIFERENTES DE TORRE
 Cada torre possui características próprias, sendo estas o custo, o dano e o material das mesmas.
 ### IMPLEMENTAÇÃO DE UMA LOJA
 De modo a selecionar a torre que deseja comprar, o usuário deverá pressionar a tecla T, alternando ordenadamente pelos três tipos de torres disponíveis. A loja impede o usuário de prosseguir com a aquisição se este não tiver as moedas necessárias, ou se o local onde se está a tentar colocar uma torre estiver ocupado por outra torre ou não for do tipo grass.
 ## FEATURES PLANEADAS
-Todas as features discutidas conseguiram ser implementadas, com a exceção da classe Arrow, já que o ataque acabou por ser uma relação entre torre e inimigo. 
+Todas as features discutidas conseguiram ser implementadas, com a exceção da classe Arrow, à qual não conseguimos dar uma representação visual, já que o ataque acabou por ser uma relação entre torre e inimigo. 
 
 ## GALERIA
 ![print do menu](https://github.com/user-attachments/assets/bd9f9697-3c2b-4804-970f-7b2f220bbb84)
@@ -35,8 +35,7 @@ Todas as features discutidas conseguiram ser implementadas, com a exceção da c
 
 ## USO DE GUI
 Uma GUI (Graphical User Interface) trata-se de um tipo de interface visual que permite a interação de um usuário com um sistema através do uso de mecanismos gráficos tais como botões, janelas, ícones e menus. Por mais que este tipo de interface acabe por exigir mais recursos do sistema e tenha um processo de desenvolvimento mais demorado, podemos afirmar que as vantagens da sua utilização acabam por compensar os seus eventuais defeitos. 
-Ao recorrer ao uso deste tipo de interface, sentimos que somos capazes de melhorar a qualidade da experiência do usuário ao utilizar a nossa aplicação. A navegação pelo programa torna-se mais intuitiva e simples, facilitando um acesso mais abrangente ao público. Através da aplicação de uma interface deste tipo, somos também capazes de obter um melhor resultado estético.
-No entanto, a adoção de uma GUI também exige a aplicação de alguns padrões de design no código, com a finalidade de organizar a sua estrutura e facilitar o nosso processo de desenvolvimento.
+Ao recorrer ao uso deste tipo de interface, sentimos que somos capazes de melhorar a qualidade da experiência do usuário ao utilizar a nossa aplicação. A navegação pelo programa torna-se mais intuitiva e simples, facilitando um acesso mais abrangente ao público. Através da aplicação de uma interface deste tipo, somos também capazes de obter um melhor resultado estético. No nosso projeto o GUI ficou encarregue das funções draw dos diverosos elementos do nosso jogo.
 
 ## DESIGN
 De maneira a melhorar a eficiência do nosso código, recorremos ao uso de alguns design patterns.
@@ -76,7 +75,7 @@ Esta terceira camada é responsável pela recepção de informações por parte 
 A presença dos princípios SOLID mostrou-se bastante útil para o desenvolvimento deste projeto. A correta aplicação destes contribuiu para a melhora da organização do código e, se necessário, facilita no ato de manutenção do código.
 
 #### SRP (SINGLE RESPONSIBILITY PRINCIPLE)
-Através do uso deste princípio, cada uma das classes presentes possui apenas uma única tarefa. Assim sendo, a classe acabará por ter apenas um motivo para ser alterada futuramente, uma vez que todas as suas eventuais alterações estarão ligadas à sua única tarefa. A aplicação deste princípio leva a uma maior clareza do código.
+Através do uso deste princípio, cada uma das classes presentes possui apenas uma única tarefa. Assim sendo, a classe acabará por ter apenas um motivo para ser alterada futuramente, uma vez que todas as suas eventuais alterações estarão ligadas à sua única tarefa. A aplicação deste princípio leva a uma maior clareza do código. Por exemplo a classe TowerShop está encarregue apenas da compra de torres.
 
 #### OCP (OPEN-CLOSED PRINCIPLE) 
 Ao evitar mudar o código-fonte original, apenas estendendo o seu comportamento através da criação de novas funcionalidades por meio da extensão de classe ou da adição de novos módulos, somos capazes de adicionar novos tipos de torres ou de inimigos, sem a necessidade de alterar o código já existente.
@@ -88,7 +87,10 @@ O princípio da substituição de Liskov defende que, se uma certa classe se tra
 Por sua vez, o princípio da segregação de interfaces defende que nenhuma classe deve depender de métodos dos quais não precisa. Assim, conseguimos evitar que o programa possua interfaces extremamente grandes, uma vez que se foca apenas no necessário.
 
 #### DIP (DEPENDENCY INVERSION PRINCIPLE)
-Por fim, o princípio da inversão de dependência depende que uma classe não deve ser dependente de uma subclasse, implicando que ambas devem depender de abstrações. Com isto, o DIP permite que o código seja alterado mais facilmente, sem correr riscos de ter algum tipo de problema.
+Por fim, o princípio da inversão de dependência depende que uma classe não deve ser dependente de uma subclasse, implicando que ambas devem depender de abstrações. Com isto, o DIP permite que o código seja alterado mais facilmente, sem correr riscos de ter algum tipo de problema. No nosso código é possível encontrar várias classes abstratas como por exemplo Tower e Enemy.
+
+![uml-ldts drawio](https://github.com/user-attachments/assets/8275bd5d-4d9a-4d03-bb48-a93a83df374b)
+
 
 ## CODE SMELLS
 Um code smell trata-se de uma característica num código-fonte que pode indicar um problema tanto estrutural como de qualidade. Embora nem sempre possa significar um erro ou um bug direto, costuma apontar para algo que pode dificultar a manutenção, a leitura ou a evolução do código.
@@ -123,7 +125,6 @@ Sara Garcia — 33,3%
 
 
 
--!-
 
 ### GALERIA DA PRIMEIRA ENTREGA
 ![LDTS drawio (1)](https://github.com/user-attachments/assets/ccce81fb-dc85-46ab-bd50-d2062c428379) 
